@@ -19,7 +19,6 @@
 		652782E61E4F5F160069A18A /* SkurringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652782E51E4F5F160069A18A /* SkurringUITests.swift */; };
 		652782F81E5331040069A18A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 652782F71E5331040069A18A /* Assets.xcassets */; };
 		6545D58F1F0041B5001D256A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6545D58E1F0041B5001D256A /* StoreKit.framework */; };
-		659D88DE1F614AA000FA1118 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659D88DD1F614AA000FA1118 /* Constants.swift */; };
 		659D88E11F614AF700FA1118 /* weatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659D88E01F614AF700FA1118 /* weatherDataModel.swift */; };
 		65A0DC311FA1F597008DC69E /* xmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A0DC301FA1F597008DC69E /* xmlParser.swift */; };
 		65A96C8B1E71656B0009F39D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A96C8A1E71656B0009F39D /* MapKit.framework */; };
@@ -93,7 +92,6 @@
 		652782F71E5331040069A18A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6545D58E1F0041B5001D256A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		6545D5901F0041FA001D256A /* Skurring.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Skurring.entitlements; path = Skurring/Skurring.entitlements; sourceTree = "<group>"; };
-		659D88DD1F614AA000FA1118 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		659D88E01F614AF700FA1118 /* weatherDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weatherDataModel.swift; sourceTree = "<group>"; };
 		65A0DC301FA1F597008DC69E /* xmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xmlParser.swift; sourceTree = "<group>"; };
 		65A96C8A1E71656B0009F39D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -213,7 +211,6 @@
 				65B4628E1E56E93300815203 /* Model */,
 				65B4628F1E56E94400815203 /* Controllers */,
 				65B4629A1E5AE9EB00815203 /* Gif */,
-				659D88DF1F614AA500FA1118 /* Constants */,
 				652782C91E4F5F160069A18A /* Main.storyboard */,
 				652782CE1E4F5F160069A18A /* LaunchScreen.storyboard */,
 				DF9E72B41FCA1DD800CEEAA3 /* Info.plist */,
@@ -240,14 +237,6 @@
 				652782E71E4F5F160069A18A /* Info.plist */,
 			);
 			path = SkurringUITests;
-			sourceTree = "<group>";
-		};
-		659D88DF1F614AA500FA1118 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				659D88DD1F614AA000FA1118 /* Constants.swift */,
-			);
-			name = Constants;
 			sourceTree = "<group>";
 		};
 		65B4628E1E56E93300815203 /* Model */ = {
@@ -606,7 +595,6 @@
 			files = (
 				DFE5174D1E61D10D00A352B6 /* RadioPlayer.swift in Sources */,
 				DFF4E9451FB4B4BD006262BD /* VegvesenCollectionObject.swift in Sources */,
-				659D88DE1F614AA000FA1118 /* Constants.swift in Sources */,
 				65F5C5E51E6030000069C190 /* SettingsVC.swift in Sources */,
 				65A0DC311FA1F597008DC69E /* xmlParser.swift in Sources */,
 				65EB87A61F5C2006007044B4 /* SoundPlayer.swift in Sources */,

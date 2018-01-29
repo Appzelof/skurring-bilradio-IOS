@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Skurring' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Skurring
+
+  pod 'MarqueeLabel/Swift' 
+  pod 'Firebase/Database'
+  pod 'Firebase/Core'
+  pod 'Google-Mobile-Ads-SDK'
+  pod 'Alamofire'
+  pod 'TransitionTreasury'
+  pod 'SwiftyJSON'
+  pod 'TableViewReloadAnimation'
+  pod 'TransitionAnimation'
+  pod 'SimpleAnimation'
+
+end
+

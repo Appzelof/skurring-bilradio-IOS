@@ -160,7 +160,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             kmLabel.isHidden = false
             speedButton.image = UIImage(named: "green speed")
         }
-        
     
     }
   
@@ -472,7 +471,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             } else {
                 cityLabel.text = "Kan ikke laste lokasjon"
             }
-            let weatherObject = XMLWeather.init(postalCode: thePlacemark.postalCode, countryName: thePlacemark.country)
+            let weatherObject = XMLWeather.init(postalCode: thePlacemark.postalCode, countryCode: thePlacemark.isoCountryCode)
             weatherObject.beginParsing(Completed: { (theObject, wentAsync) in
                 if !wentAsync {
                     self.tempLabel.text = ""

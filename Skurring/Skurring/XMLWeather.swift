@@ -36,10 +36,10 @@ class XMLWeather: NSObject, XMLParserDelegate {
         return formattedCode
     }
     
-    init(postalCode: String?, countryName: String?) {
+    init(postalCode: String?, countryCode: String?) {
         super.init()
-        if let thePostalCode = postalCode, let theCountryName = countryName {
-            if theCountryName == "Norway" {
+        if let thePostalCode = postalCode, let theCountryCode = countryCode {
+            if theCountryCode == "NO" {
                 self.wholeUrl = "https://www.yr.no/sted/Norge/Postnummer/\(formatPostalCode(postalCode: thePostalCode))/varsel.xml"
             }
         }

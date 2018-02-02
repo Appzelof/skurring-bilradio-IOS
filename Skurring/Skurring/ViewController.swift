@@ -316,8 +316,13 @@ class ViewController: UIViewController {
     //Makes the device vibrate.
     func vibrateWhenClicked(){
         
-        let vibrate = kSystemSoundID_Vibrate
-        AudioServicesPlaySystemSound(vibrate)
+        if #available(iOS 10.0, *) {
+            let generator = UIImpactFeedbackGenerator.init(style: .medium)
+            generator.impactOccurred();
+        } else {
+            let vibrate = kSystemSoundID_Vibrate
+            AudioServicesPlaySystemSound(vibrate)
+        }
         
     }
     

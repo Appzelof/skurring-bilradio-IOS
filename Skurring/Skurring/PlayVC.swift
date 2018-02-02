@@ -178,6 +178,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     //CollectionView methods
     
     private var theIndex: MainScreenRadioObjects!
+    private var wantToDismiss = false
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         theIndex = amountOfRadioStations[indexPath.row]
@@ -190,6 +191,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.wantToDismiss = true
         self.stopAndDismissVC()
     }
     
@@ -202,7 +204,11 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.findVisibleCellAndPlay()
+        if !wantToDismiss {
+            self.findVisibleCellAndPlay()
+            self.wantToDismiss = false
+        }
+        
         if #available(iOS 10.0, *) {
             let generator = UIImpactFeedbackGenerator.init(style: .medium)
             generator.impactOccurred();
@@ -234,11 +240,16 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     
     
     private func findVisibleCellAndPlay() {
-        if !self.theCollectionView.visibleCells.isEmpty {
-            if let visibleCell = theCollectionView.visibleCells[0] as? PlayRadioCell {
-                self.theInfo.text = visibleCell.theObject.radioInfo
-                self.playRadio(linken: visibleCell.theObject.URL)
-            }
+        
+        var visibleRect = CGRect()
+        visibleRect.origin = self.theCollectionView.contentOffset
+        visibleRect.size = self.theCollectionView.bounds.size
+        
+        let visiblePoint = CGPoint.init(x: visibleRect.midX, y: visibleRect.midY)
+        if let visibleIndexPath: IndexPath = self.theCollectionView.indexPathForItem(at: visiblePoint) {
+            let indexObject = self.amountOfRadioStations[visibleIndexPath.row]
+            self.theInfo.text = indexObject.radioInfo
+            self.playRadio(linken: indexObject.URL)
         }
     }
     
@@ -358,8 +369,8 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     }
     
     private func stopAndDismissVC() {
-        dismiss(animated: true, completion: nil)
         stopRadio()
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func closeRadioPlay(_ sender: Any) {

@@ -37,6 +37,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     var weatherTimerHasBegan = false
     var timer: Timer?
     var placemark: CLPlacemark?
+    let vc = ViewController();
     
     @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var bannerNativ: GADNativeExpressAdView!
@@ -62,7 +63,8 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        
         counter = channelInfo.radioNumber
         SKPaymentQueue.default().add(self)
         let productIdentifier: Set<String> = ["com.skurring.prem"]
@@ -76,6 +78,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         banner.delegate = self
         banner.adUnitID = "ca-app-pub-5770694165805669/4396564036"
         banner.load(GADRequest())
+        
         
         
         
@@ -164,8 +167,10 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     }
   
     
+    
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         banner.isHidden = false
+        
     }
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
@@ -200,6 +205,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             } else {
                 stringParts = metaData.components(separatedBy: "-")
             }
+            
             
             
             if stringParts.count > 0 {
@@ -406,20 +412,24 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
    
     @IBAction func swipeRight(_ sender: Any) {
         rightN()
+        vc.vibrateWhenClicked();
         
     }
     
     @IBAction func leftNext(_ sender: Any) {
         leftB()
+        vc.vibrateWhenClicked();
     }
     
     @IBAction func rightNext(_ sender: Any) {
         rightN()
+        vc.vibrateWhenClicked();
     }
     
 
     @IBAction func swipeLeft(_ sender: Any) {
         leftB()
+        vc.vibrateWhenClicked();
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){

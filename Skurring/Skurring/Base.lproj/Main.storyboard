@@ -857,10 +857,6 @@
                                     <constraint firstAttribute="height" constant="50" id="nVi-vI-uMh"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="gVc-5d-ARA" userLabel="image1">
-                                <rect key="frame" x="51" y="252" width="272" height="131"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJ2-wg-dbh">
                                 <rect key="frame" x="0.0" y="193" width="375" height="233"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -1011,6 +1007,42 @@
                                 <color key="textColor" red="0.98664098978042603" green="0.99645227193832397" blue="0.99610060453414917" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cqr-MH-g6D">
+                                <rect key="frame" x="0.0" y="202" width="375" height="230"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="f0d-cX-p6G">
+                                    <size key="itemSize" width="375" height="231"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="radioPlayCell" id="yS1-wE-KIO" customClass="PlayRadioCell" customModule="Skurring" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-0.66666666666666663" width="375" height="231"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Yb-o5-eaT">
+                                                    <rect key="frame" x="8" y="50" width="359" height="131"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="5Yb-o5-eaT" secondAttribute="trailing" constant="8" id="3Pf-bP-P04"/>
+                                            <constraint firstAttribute="bottom" secondItem="5Yb-o5-eaT" secondAttribute="bottom" constant="50" id="9YS-Hu-ojD"/>
+                                            <constraint firstItem="5Yb-o5-eaT" firstAttribute="top" secondItem="yS1-wE-KIO" secondAttribute="top" constant="50" id="URI-gu-xyb"/>
+                                            <constraint firstItem="5Yb-o5-eaT" firstAttribute="leading" secondItem="yS1-wE-KIO" secondAttribute="leading" constant="8" id="UVb-NY-mkj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="theRadioImage" destination="5Yb-o5-eaT" id="OoQ-G4-yz2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1028,7 +1060,6 @@
                         <outlet property="kmLabel" destination="v7q-Lr-LF7" id="udc-sr-Pnc"/>
                         <outlet property="leftView" destination="r1A-ri-7HG" id="YDQ-CA-rQg"/>
                         <outlet property="longPress" destination="73s-7x-gDi" id="UjM-It-p59"/>
-                        <outlet property="playImage" destination="gVc-5d-ARA" id="8yG-kj-6Ab"/>
                         <outlet property="premiumBtn" destination="Kh0-jZ-OVZ" id="dDP-mc-fld"/>
                         <outlet property="restoreBtn" destination="D8a-sd-fgx" id="4Qg-2p-PjJ"/>
                         <outlet property="rightView" destination="PMx-Yj-OxO" id="Qtg-pO-GbD"/>
@@ -1037,6 +1068,7 @@
                         <outlet property="speedSwitch" destination="VfP-V6-92H" id="KvH-oO-ukq"/>
                         <outlet property="tapGest" destination="YtT-j6-SYO" id="5ef-hS-SQa"/>
                         <outlet property="tempLabel" destination="fWc-c9-8BT" id="s6W-87-p8N"/>
+                        <outlet property="theCollectionView" destination="Cqr-MH-g6D" id="HfI-5e-N2D"/>
                         <outlet property="theInfo" destination="uOW-fl-pf9" id="w8w-G0-uee"/>
                         <outlet property="volumeSlider" destination="OJc-GR-d8I" id="aVo-bW-iNh"/>
                         <outlet property="weatherImg" destination="iHT-Cr-Upp" id="PeV-g5-OCU"/>
@@ -1073,7 +1105,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="1487" height="854"/>
         <image name="BlackButtonPNG" width="920" height="370"/>
         <image name="Down-1" width="512" height="512"/>
         <image name="Oval" width="179" height="179"/>

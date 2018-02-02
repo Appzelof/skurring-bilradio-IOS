@@ -17,7 +17,7 @@ import SwiftyJSON
 import AudioToolbox
 
 
-class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver {
+class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var leftView: UIView!
     @IBOutlet var rightView: UIView!
@@ -25,6 +25,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     @IBOutlet var weatherImg: UIImageView!
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var cityLabel: UILabel!
+    @IBOutlet weak var theCollectionView: UICollectionView!
     var counterTime: Int = 0
     var counter: Int = 0
     var minInt: Int = 0
@@ -40,7 +41,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     
     @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var bannerNativ: GADNativeExpressAdView!
-    @IBOutlet weak var playImage: UIImageView!
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var theInfo: UILabel!
     @IBOutlet weak var TheLiveInfoSongName: UILabel!
@@ -58,11 +58,19 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     @IBOutlet var restoreBtn: UIButton!
     
     private let DataServiceInstance = DS.dsInstance
-    
+    private var amountOfRadioStations: [MainScreenRadioObjects]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        self.amountOfRadioStations = []
+        self.getObjects()
+        self.theCollectionView.delegate = self
+        self.theCollectionView.dataSource = self
+        self.theCollectionView.isPagingEnabled = true
+        self.theCollectionView.backgroundColor = UIColor.clear
+        
+        self.theCollectionView.reloadData()
+        print("Number of radios: \(MainScreenRadioObjects.mainScreenRadioObjectsArray.count)")
         counter = channelInfo.radioNumber
         SKPaymentQueue.default().add(self)
         let productIdentifier: Set<String> = ["com.skurring.prem"]
@@ -127,7 +135,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         
         setUpPlayer()
         print(channelInfo.URL)
-        self.playImage.image = UIImage.init(named: channelInfo.image)
         
         playRadio(linken: channelInfo.URL)
         theInfo.text = channelInfo.radioInfo
@@ -155,7 +162,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         }
         
         if  speedSwitch.isOn {
-            playImage.isHidden = true
+            self.theCollectionView.isHidden = true
             speedLabel.isHidden = false
             kmLabel.isHidden = false
             speedButton.image = UIImage(named: "green speed")
@@ -163,6 +170,81 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     
     }
   
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.theCollectionView.scrollToItem(at: IndexPath.init(row: self.getRadioRow(), section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: false)
+    }
+    
+    //CollectionView methods
+    
+    private var theIndex: MainScreenRadioObjects!
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        theIndex = amountOfRadioStations[indexPath.row]
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "radioPlayCell", for: indexPath) as? PlayRadioCell {
+            cell.configureCell(radioObject: theIndex)
+            return cell
+        } else {
+            return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.stopAndDismissVC()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.amountOfRadioStations.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize.init(width: collectionView.bounds.width - 10, height: collectionView.bounds.height)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.findVisibleCellAndPlay()
+        if #available(iOS 10.0, *) {
+            let generator = UIImpactFeedbackGenerator.init(style: .medium)
+            generator.impactOccurred();
+        } else {
+            let vibrate = kSystemSoundID_Vibrate
+            AudioServicesPlaySystemSound(vibrate)
+        }
+    }
+    
+    private func getObjects() {
+        for radioObject in MainScreenRadioObjects.mainScreenRadioObjectsArray {
+            if radioObject.URL != "" {
+                self.amountOfRadioStations.append(radioObject)
+            }
+        }
+    }
+    
+    private func getRadioRow() -> Int {
+        var selectedRow = 0
+        
+        for radioStations in self.amountOfRadioStations {
+            if self.channelInfo.radioInfo == radioStations.radioInfo {
+                break
+            }
+            selectedRow += 1
+        }
+        return selectedRow
+    }
+    
+    
+    private func findVisibleCellAndPlay() {
+        if !self.theCollectionView.visibleCells.isEmpty {
+            if let visibleCell = theCollectionView.visibleCells[0] as? PlayRadioCell {
+                self.theInfo.text = visibleCell.theObject.radioInfo
+                self.playRadio(linken: visibleCell.theObject.URL)
+            }
+        }
+    }
+    
+    
+    
+    
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         banner.isHidden = false
@@ -176,7 +258,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         super.viewDidAppear(true)
         beginRecievingControllEvents(VC: self)
         
-        self.playImage.image = UIImage(named: getCurrentPlayingStationObject().image)
+        //self.playImage.image = UIImage(named: getCurrentPlayingStationObject().image)
         self.theInfo.text = getCurrentPlayingStationObject().radioInfo
     }
     
@@ -275,16 +357,16 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         Player.radio.pause()
     }
     
-    @IBAction func closeRadioPlay(_ sender: Any) {
-        
+    private func stopAndDismissVC() {
         dismiss(animated: true, completion: nil)
         stopRadio()
-        
-
+    }
+    
+    @IBAction func closeRadioPlay(_ sender: Any) {
+        self.stopAndDismissVC()
     }
     @IBAction func swipeDown(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-        stopRadio()
+        self.stopAndDismissVC()
     }
 
     
@@ -341,14 +423,14 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         UserDefaults.standard.synchronize()
         
         if  speedSwitch.isOn{
-            playImage.isHidden = true
+            self.theCollectionView.isHidden = true
             speedLabel.isHidden = false
             kmLabel.isHidden = false
             speedButton.image = UIImage(named: "green speed")
         }
         
        else if !speedSwitch.isOn {
-            playImage.isHidden = false
+            self.theCollectionView.isHidden = false
             kmLabel.isHidden = true
             speedLabel.isHidden = true
             speedButton.image = UIImage(named: "speed")
@@ -374,7 +456,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             counter = 0
         }
         
-        playImage.image = UIImage(named: getCurrentPlayingStationObject().image)
+       // playImage.image = UIImage(named: getCurrentPlayingStationObject().image)
         playRadio(linken: getCurrentPlayingStationObject().URL)
         theInfo.text = getCurrentPlayingStationObject().radioInfo
         self.updateTheLockscreen()
@@ -395,7 +477,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             counter = 0
             
         } else {
-            playImage.image = UIImage(named: getCurrentPlayingStationObject().image)
+           // playImage.image = UIImage(named: getCurrentPlayingStationObject().image)
             playRadio(linken: getCurrentPlayingStationObject().URL)
             theInfo.text = getCurrentPlayingStationObject().radioInfo
             self.updateTheLockscreen()

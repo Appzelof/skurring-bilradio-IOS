@@ -150,7 +150,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         
     
         
-        if let levels = UserDefaults.standard.value(forKey: "levels"){
+        if let levels = UserDefaults.standard.value(forKey: "levels") {
             volumeSlider.value = levels as! Float
         }
         

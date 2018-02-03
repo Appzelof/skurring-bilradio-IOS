@@ -209,6 +209,12 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             self.wantToDismiss = false
         }
         
+        vibrate();
+        
+        
+    }
+    
+    public func vibrate(){
         if #available(iOS 10.0, *) {
             let generator = UIImpactFeedbackGenerator.init(style: .medium)
             generator.impactOccurred();

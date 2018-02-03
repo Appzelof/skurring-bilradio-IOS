@@ -34,6 +34,8 @@
 		65EB87A61F5C2006007044B4 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EB87A51F5C2006007044B4 /* SoundPlayer.swift */; };
 		65F5C5E51E6030000069C190 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5C5E41E6030000069C190 /* SettingsVC.swift */; };
 		9486C2590155DA80BEC320E7 /* Pods_Skurring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72ED233012358625B1E404AD /* Pods_Skurring.framework */; };
+		DF0775FE20248FA900A2B7AE /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0775FC20248FA900A2B7AE /* iCarousel.m */; };
+		DF07760020249E4800A2B7AE /* PlayRadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0775FF20249E4800A2B7AE /* PlayRadioCell.swift */; };
 		DF1CA1E31FBDDBCE005F88F4 /* VegvesenKartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1CA1E21FBDDBCE005F88F4 /* VegvesenKartVC.swift */; };
 		DF276BE61FB3A72A0068F1A3 /* XMLWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF276BE51FB3A72A0068F1A3 /* XMLWeather.swift */; };
 		DF586F531FB3D87300255E31 /* WeatherCollectionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF586F521FB3D87300255E31 /* WeatherCollectionObject.swift */; };
@@ -108,6 +110,10 @@
 		65F5C5E41E6030000069C190 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		72ED233012358625B1E404AD /* Pods_Skurring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skurring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C697287DDD74DB217FDC3430 /* Pods-Skurring.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skurring.release.xcconfig"; path = "Pods/Target Support Files/Pods-Skurring/Pods-Skurring.release.xcconfig"; sourceTree = "<group>"; };
+		DF0775FB20248FA800A2B7AE /* Skurring-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Skurring-Bridging-Header.h"; sourceTree = "<group>"; };
+		DF0775FC20248FA900A2B7AE /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		DF0775FD20248FA900A2B7AE /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		DF0775FF20249E4800A2B7AE /* PlayRadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadioCell.swift; sourceTree = "<group>"; };
 		DF1CA1E21FBDDBCE005F88F4 /* VegvesenKartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegvesenKartVC.swift; sourceTree = "<group>"; };
 		DF276BE51FB3A72A0068F1A3 /* XMLWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLWeather.swift; sourceTree = "<group>"; };
 		DF586F521FB3D87300255E31 /* WeatherCollectionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionObject.swift; sourceTree = "<group>"; };
@@ -201,6 +207,7 @@
 		652782C41E4F5F160069A18A /* Skurring */ = {
 			isa = PBXGroup;
 			children = (
+				DF0775FA20248F7E00A2B7AE /* iCarousel */,
 				DFF4E93C1FB49E5A006262BD /* DataService */,
 				DF276BE41FB3A7120068F1A3 /* XMLManager */,
 				DFE5174E1E61D9C700A352B6 /* hvis ikke radioen vil spille av */,
@@ -283,8 +290,19 @@
 				65B462941E59CC1400815203 /* RadioInfoCell.swift */,
 				DFF4E9461FB4C914006262BD /* VegVesenInfoCell.swift */,
 				DFE579EA1FC4725E008905B8 /* EmergencyCell.swift */,
+				DF0775FF20249E4800A2B7AE /* PlayRadioCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		DF0775FA20248F7E00A2B7AE /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				DF0775FD20248FA900A2B7AE /* iCarousel.h */,
+				DF0775FC20248FA900A2B7AE /* iCarousel.m */,
+				DF0775FB20248FA800A2B7AE /* Skurring-Bridging-Header.h */,
+			);
+			name = iCarousel;
 			sourceTree = "<group>";
 		};
 		DF276BE41FB3A7120068F1A3 /* XMLManager */ = {
@@ -461,6 +479,7 @@
 					652782C11E4F5F160069A18A = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = R6SA5BL5ED;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -608,7 +627,9 @@
 				DFE579E61FC46DF2008905B8 /* HjelpVC.swift in Sources */,
 				65B4628D1E55C9F000815203 /* PlayVC.swift in Sources */,
 				DF1CA1E31FBDDBCE005F88F4 /* VegvesenKartVC.swift in Sources */,
+				DF0775FE20248FA900A2B7AE /* iCarousel.m in Sources */,
 				DFA3CE521FC60D1900AA939A /* BorderedView.swift in Sources */,
+				DF07760020249E4800A2B7AE /* PlayRadioCell.swift in Sources */,
 				DF586F531FB3D87300255E31 /* WeatherCollectionObject.swift in Sources */,
 				DFE579EB1FC4725E008905B8 /* EmergencyCell.swift in Sources */,
 				652782C81E4F5F160069A18A /* ViewController.swift in Sources */,
@@ -776,6 +797,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Skurring/Skurring.entitlements;
 				DEVELOPMENT_TEAM = R6SA5BL5ED;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -787,6 +809,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Appzelof.Skurring;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Skurring/Skurring-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -798,6 +822,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Skurring/Skurring.entitlements;
 				DEVELOPMENT_TEAM = R6SA5BL5ED;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -809,6 +834,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Appzelof.Skurring;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Skurring/Skurring-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

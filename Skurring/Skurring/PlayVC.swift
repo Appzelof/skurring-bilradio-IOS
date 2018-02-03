@@ -35,7 +35,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     var weatherTimerHasBegan = false
     var timer: Timer?
     var placemark: CLPlacemark?
-    let vc = ViewController();
     
     @IBOutlet weak var banner: GADBannerView!
     @IBOutlet weak var bannerNativ: GADNativeExpressAdView!
@@ -65,11 +64,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-        
-        
-        counter = channelInfo.radioNumber
-=======
         self.scrolledToIndex = false
         self.amountOfRadioStations = []
         self.getObjects()
@@ -83,7 +77,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         self.theCollectionView.reloadData()
         theInfo.text = self.amountOfRadioStations[counter].radioInfo
         print("Number of radios: \(MainScreenRadioObjects.mainScreenRadioObjectsArray.count)")
->>>>>>> ios-updates
         SKPaymentQueue.default().add(self)
         let productIdentifier: Set<String> = ["com.skurring.prem"]
         let productRequest = SKProductsRequest(productIdentifiers: productIdentifier)
@@ -96,7 +89,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         banner.delegate = self
         banner.adUnitID = "ca-app-pub-5770694165805669/4396564036"
         banner.load(GADRequest())
-        
         
         
         
@@ -285,10 +277,8 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     
     
     
-    
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         banner.isHidden = false
-        
     }
     
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
@@ -315,7 +305,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             } else {
                 stringParts = metaData.components(separatedBy: "-")
             }
-            
             
             
             if stringParts.count > 0 {
@@ -491,76 +480,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     }
     
     
-<<<<<<< HEAD
-    
-    func rightN(){
-        UIView.animate(withDuration: 0.2, animations: {self.rightView.alpha = 1})
-        UIView.animate(withDuration: 0.4, animations: {self.rightView.alpha = 0})
-        
-        if counter < 5 {
-            counter += 1
-        } else {
-            counter = 0
-        }
-        
-        if MainScreenRadioObjects.mainScreenRadioObjectsArray[counter].URL == "" {
-            counter = 0
-        }
-        
-        playImage.image = UIImage(named: getCurrentPlayingStationObject().image)
-        playRadio(linken: getCurrentPlayingStationObject().URL)
-        theInfo.text = getCurrentPlayingStationObject().radioInfo
-        self.updateTheLockscreen()
-        
-    }
-    
-    func leftB() {
-        UIView.animate(withDuration: 0.2, animations: {self.leftView.alpha = 1})
-        UIView.animate(withDuration: 0.4, animations: {self.leftView.alpha = 0})
-        
-        if counter > 0   {
-            counter -= 1
-        } else {
-            counter = 5
-        }
-        
-        if MainScreenRadioObjects.mainScreenRadioObjectsArray[counter].URL == "" {
-            counter = 0
-            
-        } else {
-            playImage.image = UIImage(named: getCurrentPlayingStationObject().image)
-            playRadio(linken: getCurrentPlayingStationObject().URL)
-            theInfo.text = getCurrentPlayingStationObject().radioInfo
-            self.updateTheLockscreen()
-            
-        }
-        
-    }
-   
-    @IBAction func swipeRight(_ sender: Any) {
-        rightN()
-        vc.vibrateWhenClicked();
-        
-    }
-    
-    @IBAction func leftNext(_ sender: Any) {
-        leftB()
-        vc.vibrateWhenClicked();
-    }
-    
-    @IBAction func rightNext(_ sender: Any) {
-        rightN()
-        vc.vibrateWhenClicked();
-    }
-    
-
-    @IBAction func swipeLeft(_ sender: Any) {
-        leftB()
-        vc.vibrateWhenClicked();
-    }
-    
-=======
->>>>>>> ios-updates
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         let locations = locations[locations.count - 1]
         let total = locations.speed * 3.6

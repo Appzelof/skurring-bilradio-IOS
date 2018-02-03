@@ -478,10 +478,6 @@
 				TargetAttributes = {
 					652782C11E4F5F160069A18A = {
 						CreatedOnToolsVersion = 8.2.1;
-<<<<<<< HEAD
-						DevelopmentTeam = R6SA5BL5ED;
-=======
->>>>>>> e68ce514d04c2c4e951b30883a313fd57d0856c7
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -802,11 +798,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Skurring/Skurring.entitlements;
-<<<<<<< HEAD
-				DEVELOPMENT_TEAM = R6SA5BL5ED;
-=======
 				DEVELOPMENT_TEAM = "";
->>>>>>> e68ce514d04c2c4e951b30883a313fd57d0856c7
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -831,11 +823,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Skurring/Skurring.entitlements;
-<<<<<<< HEAD
-				DEVELOPMENT_TEAM = R6SA5BL5ED;
-=======
 				DEVELOPMENT_TEAM = "";
->>>>>>> e68ce514d04c2c4e951b30883a313fd57d0856c7
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

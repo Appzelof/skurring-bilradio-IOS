@@ -320,8 +320,8 @@ class ViewController: UIViewController {
             let generator = UIImpactFeedbackGenerator.init(style: .medium)
             generator.impactOccurred();
         } else {
-            let generator = kSystemSoundID_Vibrate
-            AudioServicesPlaySystemSound(generator)
+            let vibrate = kSystemSoundID_Vibrate
+            AudioServicesPlaySystemSound(vibrate)
         }
         
     }

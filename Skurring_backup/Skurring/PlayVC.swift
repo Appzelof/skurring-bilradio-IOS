@@ -223,23 +223,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             self.findVisibleCellAndPlay()
             self.wantToDismiss = false
         }
-<<<<<<< HEAD
-        
-        vibrate();
-        
-        
-    }
-    
-    public func vibrate(){
-        if #available(iOS 10.0, *) {
-            let generator = UIImpactFeedbackGenerator.init(style: .medium)
-            generator.impactOccurred();
-        } else {
-            let vibrate = kSystemSoundID_Vibrate
-            AudioServicesPlaySystemSound(vibrate)
-        }
-=======
->>>>>>> e68ce514d04c2c4e951b30883a313fd57d0856c7
     }
     
     private func getObjects() {

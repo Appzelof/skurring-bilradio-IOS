@@ -17,6 +17,6 @@ target 'Skurring' do
   pod 'TableViewReloadAnimation'
   pod 'TransitionAnimation'
   pod 'SimpleAnimation'
-
+  pod "AssistantKit"
 end
 

@@ -243,7 +243,7 @@ class ViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.began {
             print("Long Press")
             self.performSegue(withIdentifier: "RadioList", sender: nil)
-            vibrateWhenClicked()
+            DS.dsInstance.checkDevice()
         }
         
         
@@ -256,7 +256,7 @@ class ViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.began {
             print("Long Press")
             performSegue(withIdentifier: "RadioList", sender: nil)
-            vibrateWhenClicked()
+            DS.dsInstance.checkDevice()
         }
     }
     
@@ -267,7 +267,7 @@ class ViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.began {
             print("Long Press")
             performSegue(withIdentifier: "RadioList", sender: nil)
-            vibrateWhenClicked()
+            DS.dsInstance.checkDevice()
         }
         
     }
@@ -280,7 +280,7 @@ class ViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.began {
             print("Long Press")
             performSegue(withIdentifier: "RadioList", sender: nil)
-            vibrateWhenClicked()
+            DS.dsInstance.checkDevice()
         }
         
     }
@@ -293,7 +293,7 @@ class ViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.began {
             print("Long Press")
             performSegue(withIdentifier: "RadioList", sender: nil)
-            vibrateWhenClicked()
+            DS.dsInstance.checkDevice()
         }
         
     }
@@ -306,26 +306,10 @@ class ViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.began {
             print("Long Press")
             performSegue(withIdentifier: "RadioList", sender: nil)
-            vibrateWhenClicked()
+            DS.dsInstance.checkDevice()
         }
         
     }
-    
-    
-    
-    //Makes the device vibrate.
-    func vibrateWhenClicked(){
-        
-        if #available(iOS 10.0, *) {
-            let generator = UIImpactFeedbackGenerator.init(style: .medium)
-            generator.impactOccurred();
-        } else {
-            let vibrate = kSystemSoundID_Vibrate
-            AudioServicesPlaySystemSound(vibrate)
-        }
-        
-    }
-    
     
     
     //Real time clock.

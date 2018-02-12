@@ -14,8 +14,6 @@ import CoreLocation
 import StoreKit
 import Alamofire
 import SwiftyJSON
-import AudioToolbox
-
 
 class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
    
@@ -164,7 +162,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             kmLabel.isHidden = false
             speedButton.image = UIImage(named: "green speed")
         }
-    
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -259,22 +257,11 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             self.counter = visibleIndexPath.row
             if self.counter != thePrevCounter {
                 self.playRadio(linken: indexObject.URL)
-                
-                if #available(iOS 10.0, *) {
-                    let generator = UIImpactFeedbackGenerator.init(style: .medium)
-                    generator.impactOccurred();
-                } else {
-                    let vibrate = kSystemSoundID_Vibrate
-                    AudioServicesPlaySystemSound(vibrate)
-                }
+                DS.dsInstance.checkDevice()
             }
-            
             thePrevCounter = self.counter
         }
     }
-    
-    
-    
     
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {

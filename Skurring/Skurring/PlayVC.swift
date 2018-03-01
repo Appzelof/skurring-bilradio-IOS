@@ -378,14 +378,11 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     }
     
 
-    
-    
     @IBAction func longPressOnSpeedButton(_ sender: Any) {
         
         tempLabel.isHidden = false
         UserDefaults.standard.set(tempLabel.isEnabled, forKey: "isNotHidden")
         print("long press detected")
-        
         
     }
     

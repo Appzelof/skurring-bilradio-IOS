@@ -452,7 +452,7 @@ struct radioInformation{
             "search": "topp 40",
             "desc": "Hits/Top40",
             "name": "Topp 40",
-            "streamURL": "http://ads-e-bauerse-fm-03-cr.sharp-stream.com/top40_no_mp3?",
+            "streamURL": "http://edge-bauersefm-09-gos2.sharp-stream.com/top40_no_hq",
             "imageURL": "topp 40"
         ],
         

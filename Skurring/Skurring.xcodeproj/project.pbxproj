@@ -18,7 +18,6 @@
 		652782DB1E4F5F160069A18A /* SkurringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652782DA1E4F5F160069A18A /* SkurringTests.swift */; };
 		652782E61E4F5F160069A18A /* SkurringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652782E51E4F5F160069A18A /* SkurringUITests.swift */; };
 		652782F81E5331040069A18A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 652782F71E5331040069A18A /* Assets.xcassets */; };
-		6545D58F1F0041B5001D256A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6545D58E1F0041B5001D256A /* StoreKit.framework */; };
 		659D88E11F614AF700FA1118 /* weatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659D88E01F614AF700FA1118 /* weatherDataModel.swift */; };
 		65A0DC311FA1F597008DC69E /* xmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A0DC301FA1F597008DC69E /* xmlParser.swift */; };
 		65A96C8B1E71656B0009F39D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A96C8A1E71656B0009F39D /* MapKit.framework */; };
@@ -32,12 +31,13 @@
 		65B462A01E5B290600815203 /* SendObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B4629F1E5B290600815203 /* SendObject.swift */; };
 		65C8FD111FB08E2300870682 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C8FD101FB08E2300870682 /* DownloadManager.swift */; };
 		65EB87A61F5C2006007044B4 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EB87A51F5C2006007044B4 /* SoundPlayer.swift */; };
-		65F5C5E51E6030000069C190 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5C5E41E6030000069C190 /* SettingsVC.swift */; };
+		65F5C5E51E6030000069C190 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5C5E41E6030000069C190 /* MapVC.swift */; };
 		9486C2590155DA80BEC320E7 /* Pods_Skurring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72ED233012358625B1E404AD /* Pods_Skurring.framework */; };
 		DF0775FE20248FA900A2B7AE /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0775FC20248FA900A2B7AE /* iCarousel.m */; };
 		DF07760020249E4800A2B7AE /* PlayRadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0775FF20249E4800A2B7AE /* PlayRadioCell.swift */; };
-		DF1CA1E31FBDDBCE005F88F4 /* VegvesenKartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1CA1E21FBDDBCE005F88F4 /* VegvesenKartVC.swift */; };
+		DF1CA1E31FBDDBCE005F88F4 /* MapLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1CA1E21FBDDBCE005F88F4 /* MapLogic.swift */; };
 		DF276BE61FB3A72A0068F1A3 /* XMLWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF276BE51FB3A72A0068F1A3 /* XMLWeather.swift */; };
+		DF3C7A6D217D1C3300FE35D6 /* MyCustomPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3C7A6C217D1C3300FE35D6 /* MyCustomPinAnnotation.swift */; };
 		DF586F531FB3D87300255E31 /* WeatherCollectionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF586F521FB3D87300255E31 /* WeatherCollectionObject.swift */; };
 		DF9842C71FCD782600266AAB /* WeatherFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9842C61FCD782600266AAB /* WeatherFilter.swift */; };
 		DF9E72B51FCA1DD900CEEAA3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF9E72B41FCA1DD800CEEAA3 /* Info.plist */; };
@@ -54,7 +54,6 @@
 		DFF4E9411FB4AE59006262BD /* XMLVegvesen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF4E9401FB4AE59006262BD /* XMLVegvesen.swift */; };
 		DFF4E9431FB4AF95006262BD /* FylkeDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF4E9421FB4AF95006262BD /* FylkeDict.swift */; };
 		DFF4E9451FB4B4BD006262BD /* VegvesenCollectionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF4E9441FB4B4BD006262BD /* VegvesenCollectionObject.swift */; };
-		DFF4E9471FB4C914006262BD /* VegVesenInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF4E9461FB4C914006262BD /* VegVesenInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +91,6 @@
 		652782E51E4F5F160069A18A /* SkurringUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkurringUITests.swift; sourceTree = "<group>"; };
 		652782E71E4F5F160069A18A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		652782F71E5331040069A18A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6545D58E1F0041B5001D256A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		6545D5901F0041FA001D256A /* Skurring.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Skurring.entitlements; path = Skurring/Skurring.entitlements; sourceTree = "<group>"; };
 		659D88E01F614AF700FA1118 /* weatherDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weatherDataModel.swift; sourceTree = "<group>"; };
 		65A0DC301FA1F597008DC69E /* xmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xmlParser.swift; sourceTree = "<group>"; };
@@ -107,15 +105,16 @@
 		65B4629F1E5B290600815203 /* SendObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendObject.swift; sourceTree = "<group>"; };
 		65C8FD101FB08E2300870682 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		65EB87A51F5C2006007044B4 /* SoundPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
-		65F5C5E41E6030000069C190 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		65F5C5E41E6030000069C190 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		72ED233012358625B1E404AD /* Pods_Skurring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skurring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C697287DDD74DB217FDC3430 /* Pods-Skurring.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skurring.release.xcconfig"; path = "Pods/Target Support Files/Pods-Skurring/Pods-Skurring.release.xcconfig"; sourceTree = "<group>"; };
 		DF0775FB20248FA800A2B7AE /* Skurring-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Skurring-Bridging-Header.h"; sourceTree = "<group>"; };
 		DF0775FC20248FA900A2B7AE /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		DF0775FD20248FA900A2B7AE /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		DF0775FF20249E4800A2B7AE /* PlayRadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadioCell.swift; sourceTree = "<group>"; };
-		DF1CA1E21FBDDBCE005F88F4 /* VegvesenKartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegvesenKartVC.swift; sourceTree = "<group>"; };
+		DF1CA1E21FBDDBCE005F88F4 /* MapLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLogic.swift; sourceTree = "<group>"; };
 		DF276BE51FB3A72A0068F1A3 /* XMLWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLWeather.swift; sourceTree = "<group>"; };
+		DF3C7A6C217D1C3300FE35D6 /* MyCustomPinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomPinAnnotation.swift; sourceTree = "<group>"; };
 		DF586F521FB3D87300255E31 /* WeatherCollectionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionObject.swift; sourceTree = "<group>"; };
 		DF9842C61FCD782600266AAB /* WeatherFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFilter.swift; sourceTree = "<group>"; };
 		DF9E72B41FCA1DD800CEEAA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -132,7 +131,6 @@
 		DFF4E9401FB4AE59006262BD /* XMLVegvesen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLVegvesen.swift; sourceTree = "<group>"; };
 		DFF4E9421FB4AF95006262BD /* FylkeDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FylkeDict.swift; sourceTree = "<group>"; };
 		DFF4E9441FB4B4BD006262BD /* VegvesenCollectionObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegvesenCollectionObject.swift; sourceTree = "<group>"; };
-		DFF4E9461FB4C914006262BD /* VegVesenInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegVesenInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +139,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6524D7B51EF7FD6800A11C15 /* Bolts.framework in Frameworks */,
-				6545D58F1F0041B5001D256A /* StoreKit.framework in Frameworks */,
 				6524D7B61EF7FD6800A11C15 /* FBSDKCoreKit.framework in Frameworks */,
 				6524D7B81EF7FD6800A11C15 /* FBSDKShareKit.framework in Frameworks */,
 				6524D7B71EF7FD6800A11C15 /* FBSDKLoginKit.framework in Frameworks */,
@@ -170,7 +167,6 @@
 		31F44E3F483E81A2D5B00BC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6545D58E1F0041B5001D256A /* StoreKit.framework */,
 				6524D7B11EF7FD6800A11C15 /* Bolts.framework */,
 				6524D7B21EF7FD6800A11C15 /* FBSDKCoreKit.framework */,
 				6524D7B31EF7FD6800A11C15 /* FBSDKLoginKit.framework */,
@@ -258,6 +254,7 @@
 				659D88E01F614AF700FA1118 /* weatherDataModel.swift */,
 				65A0DC301FA1F597008DC69E /* xmlParser.swift */,
 				65C8FD101FB08E2300870682 /* DownloadManager.swift */,
+				DF1CA1E21FBDDBCE005F88F4 /* MapLogic.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -268,8 +265,7 @@
 				652782C71E4F5F160069A18A /* ViewController.swift */,
 				65B4628C1E55C9F000815203 /* PlayVC.swift */,
 				65B4629B1E5B12F800815203 /* RadioList.swift */,
-				65F5C5E41E6030000069C190 /* SettingsVC.swift */,
-				DF1CA1E21FBDDBCE005F88F4 /* VegvesenKartVC.swift */,
+				65F5C5E41E6030000069C190 /* MapVC.swift */,
 				DFE579E51FC46DF2008905B8 /* HjelpVC.swift */,
 			);
 			name = Controllers;
@@ -288,9 +284,9 @@
 			children = (
 				DFA3CE501FC60D0000AA939A /* UIElements */,
 				65B462941E59CC1400815203 /* RadioInfoCell.swift */,
-				DFF4E9461FB4C914006262BD /* VegVesenInfoCell.swift */,
 				DFE579EA1FC4725E008905B8 /* EmergencyCell.swift */,
 				DF0775FF20249E4800A2B7AE /* PlayRadioCell.swift */,
+				DF3C7A6C217D1C3300FE35D6 /* MyCustomPinAnnotation.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -478,6 +474,7 @@
 				TargetAttributes = {
 					652782C11E4F5F160069A18A = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JDRWP478MY;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -485,7 +482,7 @@
 								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -635,7 +632,7 @@
 			files = (
 				DFE5174D1E61D10D00A352B6 /* RadioPlayer.swift in Sources */,
 				DFF4E9451FB4B4BD006262BD /* VegvesenCollectionObject.swift in Sources */,
-				65F5C5E51E6030000069C190 /* SettingsVC.swift in Sources */,
+				65F5C5E51E6030000069C190 /* MapVC.swift in Sources */,
 				65A0DC311FA1F597008DC69E /* xmlParser.swift in Sources */,
 				65EB87A61F5C2006007044B4 /* SoundPlayer.swift in Sources */,
 				DFF4E93E1FB49E69006262BD /* DataService.swift in Sources */,
@@ -647,7 +644,7 @@
 				DF9842C71FCD782600266AAB /* WeatherFilter.swift in Sources */,
 				DFE579E61FC46DF2008905B8 /* HjelpVC.swift in Sources */,
 				65B4628D1E55C9F000815203 /* PlayVC.swift in Sources */,
-				DF1CA1E31FBDDBCE005F88F4 /* VegvesenKartVC.swift in Sources */,
+				DF1CA1E31FBDDBCE005F88F4 /* MapLogic.swift in Sources */,
 				DF0775FE20248FA900A2B7AE /* iCarousel.m in Sources */,
 				DFA3CE521FC60D1900AA939A /* BorderedView.swift in Sources */,
 				DF07760020249E4800A2B7AE /* PlayRadioCell.swift in Sources */,
@@ -658,7 +655,7 @@
 				DFE517461E5DD56700A352B6 /* TimerBrain.swift in Sources */,
 				DFF4E9411FB4AE59006262BD /* XMLVegvesen.swift in Sources */,
 				DFF4E9431FB4AF95006262BD /* FylkeDict.swift in Sources */,
-				DFF4E9471FB4C914006262BD /* VegVesenInfoCell.swift in Sources */,
+				DF3C7A6D217D1C3300FE35D6 /* MyCustomPinAnnotation.swift in Sources */,
 				652782C61E4F5F160069A18A /* AppDelegate.swift in Sources */,
 				65B4629E1E5B1B9B00815203 /* MainScreenRadioObjects.swift in Sources */,
 				65B4629C1E5B12F800815203 /* RadioList.swift in Sources */,
@@ -820,7 +817,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Skurring/Skurring.entitlements;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JDRWP478MY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -828,7 +825,7 @@
 				INFOPLIST_FILE = Skurring/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appzelof.skurring;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appzelof.skurrin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Skurring/Skurring-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -845,7 +842,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Skurring/Skurring.entitlements;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JDRWP478MY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -853,7 +850,7 @@
 				INFOPLIST_FILE = Skurring/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appzelof.skurring;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appzelof.skurrin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Skurring/Skurring-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

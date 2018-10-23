@@ -18,6 +18,7 @@ class XMLVegvesen: NSObject, XMLParserDelegate {
     private var location: String!
     private var urlRequest: String!
     private var CompletionHandler: (([VegvesenCollectionObject]) -> Void)?
+    var index = 1
     
     init(fylke: String) {
         super.init()

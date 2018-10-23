@@ -9,18 +9,19 @@
 import UIKit
 import AVFoundation
 import MediaPlayer
-import GoogleMobileAds
 import CoreLocation
 import StoreKit
 import Alamofire
 import SwiftyJSON
 
-class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
+class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
    
     @IBOutlet var weatherImg: UIImageView!
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet weak var theCollectionView: UICollectionView!
+    @IBOutlet weak var bottomBackButton: UIButton!
+    
     var counterTime: Int = 0
     var counter: Int = 0
     var minInt: Int = 0
@@ -34,10 +35,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     var timer: Timer?
     var placemark: CLPlacemark?
     
-    @IBOutlet weak var banner: GADBannerView!
-    @IBOutlet weak var bannerNativ: GADNativeExpressAdView!
-    @IBOutlet weak var volumeSlider: UISlider!
-    @IBOutlet weak var theInfo: UILabel!
+ //   @IBOutlet weak var theInfo: UILabel!
     @IBOutlet weak var TheLiveInfoSongName: UILabel!
     //KOBLE TIL DENNE FOR AT RESTEN AV LIVE INFO SKAL FUNKE.
     @IBOutlet weak var TheLiveInfoArtistName: UILabel!
@@ -48,11 +46,9 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     let manager = CLLocationManager()
     let save = "save"
     @IBOutlet weak var speedButton: UIImageView!
-    @IBOutlet weak var premiumBtn: UIButton!
     @IBOutlet weak var speedSwitch: UISwitch!
     @IBOutlet var longPress: UILongPressGestureRecognizer!
     @IBOutlet var tapGest: UITapGestureRecognizer!
-    @IBOutlet var restoreBtn: UIButton!
     
     private let DataServiceInstance = DS.dsInstance
     private var amountOfRadioStations: [MainScreenRadioObjects]!
@@ -70,27 +66,14 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         self.theCollectionView.delegate = self
         self.theCollectionView.dataSource = self
         self.theCollectionView.isPagingEnabled = true
-        self.theCollectionView.backgroundColor = UIColor.clear
+        //self.theCollectionView.backgroundColor = UIColor.clear
         
         self.theCollectionView.reloadData()
-        theInfo.text = self.amountOfRadioStations[counter].radioInfo
+       // theInfo.text = self.amountOfRadioStations[counter].radioInfo
         print("Number of radios: \(MainScreenRadioObjects.mainScreenRadioObjectsArray.count)")
-        SKPaymentQueue.default().add(self)
-        let productIdentifier: Set<String> = ["com.skurring.prem"]
-        let productRequest = SKProductsRequest(productIdentifiers: productIdentifier)
-        productRequest.delegate = self
-        productRequest.start()
-        premiumBtn.layer.cornerRadius = 50
-        premiumBtn.layer.masksToBounds = true
+        
         kmLabel.isHidden = true
-        banner.rootViewController = self
-        banner.delegate = self
-        banner.adUnitID = "ca-app-pub-5770694165805669/4396564036"
-        banner.load(GADRequest())
         
-        
-        
-
         if let currentPlayingSong = DS.dsInstance.currentPlayingSong["song"], let currentPlayingArtist = DS.dsInstance.currentPlayingSong["artist"], let radioChannel = DS.dsInstance.currentPlayingSong["radioChannel"] {
             if radioChannel == channelInfo.radioInfo {
                 self.TheLiveInfoSongName.text = currentPlayingSong
@@ -105,7 +88,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        speedSwitch.isHidden = true
         speedLabel.isHidden = true
         speedLabel.font = UIFont(name: "Digital-7Mono", size: 175)
         speedLabel.textAlignment = NSTextAlignment.center
@@ -113,13 +95,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         speedLabel.layer.shadowOpacity = 7
         speedLabel.layer.shadowOffset = CGSize.zero
         speedLabel.layer.masksToBounds = false
-        speedButton.isHidden = true
-        TheLiveInfoSongName.isHidden = true
-        TheLiveInfoArtistName.isHidden = true
-        tempLabel.isHidden = true
-        cityLabel.isHidden = true
-        weatherImg.isHidden = true
-        SKPaymentQueue.default().add(self)
+        bottomBackButton.imageView?.contentMode = .scaleAspectFit
         
         CurrentPlayingTrack = CurrentPlayingTracks()
         updateTheLockscreen()
@@ -140,18 +116,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         
         UIApplication.shared.isIdleTimerDisabled = true
         
-    
-        //Loader IAP som bruker har kjøpt..
-        if UserDefaults.standard.bool(forKey: save) {
-            removeAds()
-        }
-        
-    
-        
-        if let levels = UserDefaults.standard.value(forKey: "levels") {
-            volumeSlider.value = levels as! Float
-        }
-        
         if let on = UserDefaults.standard.value(forKey: "test"){
             speedSwitch.isOn = on as! Bool
         }
@@ -171,7 +135,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     }
     
     private func updateCollectionViewPositionAndRadioName() {
-        self.theInfo.text = getCurrentPlayingStationObject().radioInfo
         self.theCollectionView.scrollToItem(at: IndexPath.init(row: counter, section: 0), at: UICollectionViewScrollPosition.left, animated: false)
     }
     
@@ -252,7 +215,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         let visiblePoint = CGPoint.init(x: visibleRect.midX, y: visibleRect.midY)
         if let visibleIndexPath: IndexPath = self.theCollectionView.indexPathForItem(at: visiblePoint) {
             let indexObject = self.amountOfRadioStations[visibleIndexPath.row]
-            self.theInfo.text = indexObject.radioInfo
             
             self.counter = visibleIndexPath.row
             if self.counter != thePrevCounter {
@@ -262,16 +224,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
             thePrevCounter = self.counter
         }
     }
-    
-    
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        banner.isHidden = false
-    }
-    
-    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        banner.isHidden = true
-    }
-    
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -370,7 +322,9 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
     
     private func stopAndDismissVC() {
         stopRadio()
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            Player.radio.stop()
+        }
     }
     
     @IBAction func closeRadioPlay(_ sender: Any) {
@@ -394,13 +348,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         print("tap detected")
     }
     
-    
-    @IBAction func volumeValue(_ sender: UISlider) {
-        let volumeSlider = (MPVolumeView().subviews.filter { NSStringFromClass($0.classForCoder) == "MPVolumeSlider" }.first as! UISlider)
-        volumeSlider.setValue(sender.value, animated: false)
-        UserDefaults.standard.set(sender.value, forKey: "levels")
-        UserDefaults.standard.synchronize()
-    }
     
     private func nextStation() {
         self.counter += 1
@@ -571,94 +518,13 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, GADBannerViewDelegat
         print("location manager failed")
     }
     
-    @IBAction func restorePurchase(_ sender: Any) {
-        
-        if SKPaymentQueue.canMakePayments() == true {
-        print("restored")
-        SKPaymentQueue.default().restoreCompletedTransactions()
-        } else {
-            print("Could not restore!")
-        }
-    }
-    
-    
-    @IBAction func buyPrem(_ sender: Any) {
-        
-        if SKPaymentQueue.canMakePayments() == true {
-            
-            print("Buy " + (activeProduct?.productIdentifier)!)
-            let payment = SKPayment(product: activeProduct!)
-            SKPaymentQueue.default().add(payment)
-        } else {
-            print("No product")
-        }
-    
-    }
-    
-   
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        print("products")
-        
-        for product in response.products {
-            
-            print(product.productIdentifier)
-            print(product.localizedTitle)
-            print(product.localizedDescription)
-            print(product.price.floatValue)
-            activeProduct = product
-            
-        }
-        
-    }
-    
-    
-   
-    
-   func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        for transaction in transactions {
-          
-            
-            switch (transaction.transactionState) {
-            case .purchased, .restored:
-                //Hva skjer når bruker kjøper:
-                SKPaymentQueue.default().finishTransaction(transaction)
-                print("Purchased")
-                removeAds()
-                UserDefaults.standard.set(true, forKey: save)
-                UserDefaults.standard.synchronize()
-            case .failed:
-                SKPaymentQueue.default().finishTransaction(transaction)
-            default:
-                break
-                
-                
-                }
-        }
-    }
-    
-    
-
-    
-    func removeAds(){
-        banner.isHidden = true
-        banner.removeFromSuperview()
-        restoreBtn.isHidden = true
-        premiumBtn.isHidden = true
-        speedButton.isHidden = false
-        TheLiveInfoSongName.isHidden = false
-        TheLiveInfoArtistName.isHidden = false
-        speedSwitch.isHidden = false
-        tempLabel.isHidden = false
-        cityLabel.isHidden = false
-        weatherImg.isHidden = false
-        
-    }
-    
-    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-      
         return .lightContent
+    }
+    
+    @IBAction func bottomBackButtonAction(_ sender: UIButton!) {
+        self.stopAndDismissVC()
     }
     
     

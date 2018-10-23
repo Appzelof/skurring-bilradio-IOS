@@ -60,3 +60,19 @@ func getToCarOptions(walk: @escaping () -> (), drive: @escaping () ->()) -> UIAl
     controller.addAction(cancel)
     return controller
 }
+
+func tooManyTraficRequests() -> UIAlertController {
+    let controller = UIAlertController.init(title: "Ops!", message: "Kunne dessverre ikke hente inn trafikkmeldinger, vennligst prøv igjen senere", preferredStyle: UIAlertControllerStyle.alert)
+    let action = UIAlertAction.init(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+    controller.addAction(action)
+    return controller
+}
+
+func presentAnnotationInformation(title: String, subTitle: String, deselectAnnotation: @escaping () -> ()) -> UIAlertController {
+    let controller = UIAlertController.init(title: title, message: subTitle, preferredStyle: UIAlertControllerStyle.alert)
+    let action = UIAlertAction.init(title: "Ok", style: .default) { (action) in
+        deselectAnnotation()
+    }
+    controller.addAction(action)
+    return controller
+}

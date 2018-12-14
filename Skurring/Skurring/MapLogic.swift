@@ -33,10 +33,8 @@ class MapLogic: NSObject, MKMapViewDelegate {
         if annotation is MKUserLocation {
             return nil
         }
-       // let myAnnotation = MKAnnotationView.init(annotation: annotation, reuseIdentifier: "custom")
         let myAnnotation = MKPinAnnotationView.init(annotation: annotation, reuseIdentifier: "custom")
         myAnnotation.animatesDrop = true
-        //myAnnotation.image = UIImage.init(named: "VegMeldinger_liten")
         return myAnnotation
     }
     

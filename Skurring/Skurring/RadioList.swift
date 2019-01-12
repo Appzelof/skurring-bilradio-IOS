@@ -13,6 +13,7 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var TheSearchBar: UISearchBar!
+    @IBOutlet weak var backButton: UIButton!
     var arrayList = radioInformation.theStationObjects
     var filteredArrayList = radioInformation.theFilteredStationsObjects
     
@@ -24,6 +25,7 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
         tableView.dataSource = self
         self.TheSearchBar.delegate = self
         self.TheSearchBar.returnKeyType = .done
+        self.backButton.imageView?.contentMode = .scaleAspectFit
     }
     
     //SearchBarMetoder
@@ -117,25 +119,6 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 80
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        /*
-            Lager tilbakeknapp programatisk.
-            Denne koden lager en knapp med action med å legge ned viewcontrolleren.
-            Knappen blir lagt til footeren på tableviewet.
-         */
-       
-        let bkButon = UIButton.init(frame: view.bounds)
-        bkButon.backgroundColor = UIColor.white
-        bkButon.setImage(UIImage(named: "down"), for: .normal)
-        bkButon.imageView?.contentMode = .scaleAspectFit
-        bkButon.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
-        return bkButon
-    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -144,7 +127,8 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
         self.tableView.setContentOffset(CGPoint.init(x: 0, y: 0), animated: false)
     }
     
-    @objc private func dismissVC() {
+    
+    @IBAction func dismissTheVC() {
         self.dismiss(animated: true, completion: nil)
     }
     

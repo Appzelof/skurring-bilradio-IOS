@@ -597,7 +597,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qHX-ZV-ucZ">
-                                <rect key="frame" x="0.0" y="144.5" width="320" height="423.5"/>
+                                <rect key="frame" x="0.0" y="126" width="320" height="442"/>
                                 <color key="backgroundColor" red="0.020944740623235703" green="0.01163413655012846" blue="0.0029850578866899014" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="119" id="alk-gK-IzV" customClass="RadioInfoCell" customModule="Skurring" customModuleProvider="target">
@@ -638,37 +638,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velg din Radiostasjon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80F-4R-jjz">
-                                <rect key="frame" x="0.0" y="29" width="320" height="27.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="42"/>
-                                </variation>
-                            </label>
                             <searchBar contentMode="redraw" placeholder="Søk" translatesAutoresizingMaskIntoConstraints="NO" id="NpM-c2-00k">
-                                <rect key="frame" x="0.0" y="88.5" width="320" height="56"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bf-kg-8hY">
-                                <rect key="frame" x="15" y="31" width="17" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Down-1"/>
-                                <connections>
-                                    <action selector="downBtn:" destination="dUx-AV-b4T" eventType="touchUpInside" id="JpQ-S3-rjf"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Hn-fr-xSF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Velg din Radiostasjon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80F-4R-jjz">
+                                        <rect key="frame" x="48" y="33.5" width="224" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="42"/>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="PKd-M7-L51"/>
+                                    <constraint firstItem="80F-4R-jjz" firstAttribute="centerX" secondItem="7Hn-fr-xSF" secondAttribute="centerX" id="pdz-SJ-ezN"/>
+                                    <constraint firstItem="80F-4R-jjz" firstAttribute="centerY" secondItem="7Hn-fr-xSF" secondAttribute="centerY" constant="12" id="rQ4-vX-gmZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="80F-4R-jjz" firstAttribute="top" secondItem="OPp-Ts-K4H" secondAttribute="top" constant="9" id="4yj-9P-DlO"/>
+                            <constraint firstItem="7Hn-fr-xSF" firstAttribute="leading" secondItem="OPp-Ts-K4H" secondAttribute="leading" id="5gt-yM-aHT"/>
                             <constraint firstItem="NpM-c2-00k" firstAttribute="leading" secondItem="qHX-ZV-ucZ" secondAttribute="leading" id="9vY-eY-GuS"/>
-                            <constraint firstItem="NpM-c2-00k" firstAttribute="top" secondItem="80F-4R-jjz" secondAttribute="bottom" constant="32" id="Ft6-py-1LQ"/>
-                            <constraint firstItem="NpM-c2-00k" firstAttribute="leading" secondItem="80F-4R-jjz" secondAttribute="leading" id="N0l-Ah-vKn"/>
+                            <constraint firstItem="7Hn-fr-xSF" firstAttribute="trailing" secondItem="OPp-Ts-K4H" secondAttribute="trailing" id="NxL-Wv-Yh0"/>
                             <constraint firstItem="NpM-c2-00k" firstAttribute="bottom" secondItem="qHX-ZV-ucZ" secondAttribute="top" id="SjQ-7B-0DG"/>
-                            <constraint firstItem="NpM-c2-00k" firstAttribute="trailing" secondItem="80F-4R-jjz" secondAttribute="trailing" id="oEw-pa-vn5"/>
+                            <constraint firstItem="7Hn-fr-xSF" firstAttribute="top" secondItem="ad4-4G-flr" secondAttribute="top" id="Xqh-ju-Nrg"/>
                             <constraint firstItem="NpM-c2-00k" firstAttribute="leading" secondItem="OPp-Ts-K4H" secondAttribute="leading" id="pQS-6L-VT7"/>
+                            <constraint firstItem="NpM-c2-00k" firstAttribute="top" secondItem="7Hn-fr-xSF" secondAttribute="bottom" id="upy-xb-buf"/>
                             <constraint firstItem="NpM-c2-00k" firstAttribute="trailing" secondItem="qHX-ZV-ucZ" secondAttribute="trailing" id="w7c-NZ-xBh"/>
                             <constraint firstItem="OPp-Ts-K4H" firstAttribute="trailing" secondItem="NpM-c2-00k" secondAttribute="trailing" id="xMW-qf-aHa"/>
                             <constraint firstItem="qHX-ZV-ucZ" firstAttribute="bottom" secondItem="OPp-Ts-K4H" secondAttribute="bottom" id="yzy-Cf-lBh"/>
@@ -683,7 +686,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C7T-PQ-sLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244.9275362318842" y="-510.32608695652181"/>
+            <point key="canvasLocation" x="1243.125" y="-511.26760563380282"/>
         </scene>
         <!--PlayVC-->
         <scene sceneID="mfa-un-tla">
@@ -926,7 +929,6 @@
     </scenes>
     <resources>
         <image name="BlackButtonPNG" width="34" height="14"/>
-        <image name="Down-1" width="409.60000610351562" height="409.60000610351562"/>
         <image name="VegMeldinger" width="409.60000610351562" height="409.60000610351562"/>
         <image name="background" width="72" height="37"/>
         <image name="down" width="409.60000610351562" height="409.60000610351562"/>

@@ -35,9 +35,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
     var timer: Timer?
     var placemark: CLPlacemark?
     
- //   @IBOutlet weak var theInfo: UILabel!
     @IBOutlet weak var TheLiveInfoSongName: UILabel!
-    //KOBLE TIL DENNE FOR AT RESTEN AV LIVE INFO SKAL FUNKE.
     @IBOutlet weak var TheLiveInfoArtistName: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var kmLabel: UILabel!
@@ -66,10 +64,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         self.theCollectionView.delegate = self
         self.theCollectionView.dataSource = self
         self.theCollectionView.isPagingEnabled = true
-        //self.theCollectionView.backgroundColor = UIColor.clear
-        
-        self.theCollectionView.reloadData()
-       // theInfo.text = self.amountOfRadioStations[counter].radioInfo
+       
         print("Number of radios: \(MainScreenRadioObjects.mainScreenRadioObjectsArray.count)")
         
         kmLabel.isHidden = true
@@ -132,6 +127,32 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         beginRecievingControllEvents(VC: self)
+        showSwipeFunctionality()
+    }
+    
+    /*
+        Animerer cellene litt frem og tilbake for å vise brukeren at man kan scrolle.
+        Kaller denne i viewDidAppear.
+     */
+    private func showSwipeFunctionality() {
+        let currentOffset = self.theCollectionView.contentOffset
+        var targetOffsetX: CGFloat!
+        let offsetChange = self.theCollectionView.frame.width / 3
+        if counter == 0 {
+            targetOffsetX = currentOffset.x + offsetChange
+        } else if counter == self.amountOfRadioStations.count - 1 {
+            targetOffsetX = currentOffset.x - offsetChange
+        } else {
+            targetOffsetX = currentOffset.x + offsetChange
+        }
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.theCollectionView.contentOffset = CGPoint.init(x: targetOffsetX, y: 0)
+        }) { (success) in
+            UIView.animate(withDuration: 0.5, animations: {
+                self.theCollectionView.contentOffset = currentOffset
+            }, completion: nil)
+        }
     }
     
     private func updateCollectionViewPositionAndRadioName() {
@@ -145,12 +166,9 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         theIndex = amountOfRadioStations[indexPath.row]
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "radioPlayCell", for: indexPath) as? PlayRadioCell {
-            cell.configureCell(radioObject: theIndex)
-            return cell
-        } else {
-            return UICollectionViewCell()
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "radioPlayCell", for: indexPath) as! PlayRadioCell
+        cell.configureCell(radioObject: theIndex)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -168,7 +186,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         }
         self.scrolledToIndex = true
     }
-    
+ 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = collectionView.bounds.height
         let width = UIScreen.main.bounds.width - 1.5

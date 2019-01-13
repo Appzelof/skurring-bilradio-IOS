@@ -49,15 +49,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.channelCollectionView.reloadData()
     }
     
-    
-    //Collectionview methods
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 6 {
-            performSegue(withIdentifier: "Settings", sender: nil)
-        } 
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var channelCellIndexInfo: Radiostations!
         if indexPath.row < 6 {
@@ -110,6 +102,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }, veihjelpActon: {
             self.performSegue(withIdentifier: "toHjelpVC", sender: options.getVeiHelp())
         }), animated: true, completion: nil)
+    }
+    
+    func trafficMessages() {
+        performSegue(withIdentifier: "Settings", sender: nil)
     }
     
     /*

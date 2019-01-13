@@ -8,9 +8,9 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 func lagTommeObjekterTilMainScreenRadioObjectsHvisArrayenErTom(context: NSManagedObjectContext) -> [Radiostations] {
-    
     
     
     let knappNummer0 = MainScreenRadioObjects.init(image: UIImage(), URL: "", radioInfo: "", radioSpot: 0)

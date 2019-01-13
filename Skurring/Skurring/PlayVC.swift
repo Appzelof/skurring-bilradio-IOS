@@ -14,14 +14,13 @@ import StoreKit
 import Alamofire
 import SwiftyJSON
 
-class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout, iCarouselDelegate, iCarouselDataSource {
+class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
    
     @IBOutlet var weatherImg: UIImageView!
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet weak var theCollectionView: UICollectionView!
     @IBOutlet weak var bottomBackButton: UIButton!
-    @IBOutlet weak var iCarousel: iCarousel!
     
     var counter: Int = 0
     var minInt: Int = 0
@@ -62,10 +61,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         self.theCollectionView.dataSource = self
         self.theCollectionView.isPagingEnabled = true
         
-        self.iCarousel.delegate = self
-        self.iCarousel.dataSource = self
-        self.iCarousel.isPagingEnabled = true
-        self.iCarousel.type = .cylinder
         
         kmLabel.isHidden = true
         
@@ -196,30 +191,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         return 1.5
     }
     
-    
-    //ICarousel
-    
-    func numberOfItems(in carousel: iCarousel) -> Int {
-        return self.amountOfRadioStations.count
-    }
-    
-    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        var radioImageView: UIImageView!
-        if let theRadioImageData = self.amountOfRadioStations[index].radioImage as Data? {
-            if let resuableView = view as? UIImageView {
-                resuableView.image = UIImage.init(data: theRadioImageData)
-                radioImageView = resuableView
-            } else {
-                let carouselRadioImage = UIImageView()
-                carouselRadioImage.image = UIImage.init(data: theRadioImageData)
-                carouselRadioImage.frame = CGRect.init(x: 0, y: 0, width: carousel.bounds.width, height: carousel.bounds.height)
-                carouselRadioImage.contentMode = .scaleAspectFit
-                carouselRadioImage.backgroundColor = UIColor.black
-                radioImageView = carouselRadioImage
-            }
-        }
-        return radioImageView
-    }
+
     
     
     

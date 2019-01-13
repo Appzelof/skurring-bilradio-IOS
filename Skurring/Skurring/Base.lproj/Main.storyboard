@@ -738,32 +738,19 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fI-fg-r8d" customClass="iCarousel">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="165.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="0fI-fg-r8d" secondAttribute="trailing" id="5KX-RT-fdt"/>
                                     <constraint firstAttribute="trailing" secondItem="v7q-Lr-LF7" secondAttribute="trailing" constant="158" id="Faf-18-2jk"/>
-                                    <constraint firstItem="0fI-fg-r8d" firstAttribute="leading" secondItem="Kt7-fP-lH1" secondAttribute="leading" id="SeX-1W-lzD"/>
                                     <constraint firstItem="v7q-Lr-LF7" firstAttribute="leading" secondItem="Kt7-fP-lH1" secondAttribute="leading" constant="158" id="WFb-Ig-IHA"/>
                                     <constraint firstItem="cJ2-wg-dbh" firstAttribute="centerY" secondItem="Kt7-fP-lH1" secondAttribute="centerY" id="a7X-rd-BBr"/>
                                     <constraint firstItem="Cqr-MH-g6D" firstAttribute="leading" secondItem="Kt7-fP-lH1" secondAttribute="leading" id="cid-XK-94K"/>
                                     <constraint firstItem="Cqr-MH-g6D" firstAttribute="top" secondItem="Kt7-fP-lH1" secondAttribute="top" id="eR6-Lo-qQj"/>
-                                    <constraint firstItem="v7q-Lr-LF7" firstAttribute="top" secondItem="0fI-fg-r8d" secondAttribute="bottom" id="lHl-Se-qoL"/>
                                     <constraint firstItem="cJ2-wg-dbh" firstAttribute="centerX" secondItem="Kt7-fP-lH1" secondAttribute="centerX" id="s9p-Ye-dae"/>
                                     <constraint firstAttribute="bottom" secondItem="Cqr-MH-g6D" secondAttribute="bottom" id="sP5-zv-7sR"/>
                                     <constraint firstAttribute="trailing" secondItem="Cqr-MH-g6D" secondAttribute="trailing" id="vBU-JZ-aQF"/>
                                     <constraint firstItem="v7q-Lr-LF7" firstAttribute="top" secondItem="cJ2-wg-dbh" secondAttribute="bottom" constant="-8" id="yBO-06-qet"/>
-                                    <constraint firstItem="0fI-fg-r8d" firstAttribute="top" secondItem="Kt7-fP-lH1" secondAttribute="top" id="zS3-2v-vMR"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="0fI-fg-r8d"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="nJX-bX-bFu">
                                 <rect key="frame" x="0.0" y="215" width="320" height="25"/>
@@ -859,7 +846,6 @@
                         <outlet property="TheLiveInfoSongName" destination="m8Z-qP-jTK" id="GB5-Ig-7aU"/>
                         <outlet property="bottomBackButton" destination="oQn-vl-xIf" id="JVS-hE-OmO"/>
                         <outlet property="cityLabel" destination="nJX-bX-bFu" id="4jT-X3-f8v"/>
-                        <outlet property="iCarousel" destination="0fI-fg-r8d" id="H38-f6-1yT"/>
                         <outlet property="kmLabel" destination="v7q-Lr-LF7" id="udc-sr-Pnc"/>
                         <outlet property="longPress" destination="73s-7x-gDi" id="UjM-It-p59"/>
                         <outlet property="speedButton" destination="sqX-1x-2C1" id="fi6-fI-Qdd"/>

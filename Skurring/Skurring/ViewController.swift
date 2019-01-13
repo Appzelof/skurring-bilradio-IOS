@@ -13,7 +13,6 @@ import MediaPlayer
 import AudioToolbox
 import FBSDKCoreKit
 import StoreKit
-import TransitionTreasury
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ParkingOrEmergencyWasPressed, StationWasLongOrJustPressed {
     

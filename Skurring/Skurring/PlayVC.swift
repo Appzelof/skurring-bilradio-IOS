@@ -12,7 +12,6 @@ import MediaPlayer
 import CoreLocation
 import StoreKit
 import Alamofire
-import SwiftyJSON
 
 class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
    
@@ -134,7 +133,9 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         let currentOffset = self.theCollectionView.contentOffset
         var targetOffsetX: CGFloat!
         let offsetChange = self.theCollectionView.frame.width / 3
-        if counter == 0 {
+        if self.amountOfRadioStations.count == 1 {
+            return
+        } else if counter == 0 && self.amountOfRadioStations.count > 1 {
             targetOffsetX = currentOffset.x + offsetChange
         } else if counter == self.amountOfRadioStations.count - 1 {
             targetOffsetX = currentOffset.x - offsetChange

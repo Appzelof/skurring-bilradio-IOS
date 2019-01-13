@@ -759,6 +759,11 @@
                                     <constraint firstItem="v7q-Lr-LF7" firstAttribute="top" secondItem="cJ2-wg-dbh" secondAttribute="bottom" constant="-8" id="yBO-06-qet"/>
                                     <constraint firstItem="0fI-fg-r8d" firstAttribute="top" secondItem="Kt7-fP-lH1" secondAttribute="top" id="zS3-2v-vMR"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="0fI-fg-r8d"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="nJX-bX-bFu">
                                 <rect key="frame" x="0.0" y="215" width="320" height="25"/>

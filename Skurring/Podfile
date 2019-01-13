@@ -16,7 +16,6 @@ target 'Skurring' do
   pod 'SwiftyJSON'
   pod 'TableViewReloadAnimation'
   pod 'TransitionAnimation'
-  pod 'SimpleAnimation'
   pod "AssistantKit"
 end
 

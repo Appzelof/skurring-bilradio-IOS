@@ -39,18 +39,14 @@
 		65EB87A61F5C2006007044B4 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EB87A51F5C2006007044B4 /* SoundPlayer.swift */; };
 		65F5C5E51E6030000069C190 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F5C5E41E6030000069C190 /* MapVC.swift */; };
 		9486C2590155DA80BEC320E7 /* Pods_Skurring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72ED233012358625B1E404AD /* Pods_Skurring.framework */; };
-		DF0775FE20248FA900A2B7AE /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0775FC20248FA900A2B7AE /* iCarousel.m */; };
 		DF07760020249E4800A2B7AE /* PlayRadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0775FF20249E4800A2B7AE /* PlayRadioCell.swift */; };
 		DF1CA1E31FBDDBCE005F88F4 /* MapLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1CA1E21FBDDBCE005F88F4 /* MapLogic.swift */; };
 		DF276BE61FB3A72A0068F1A3 /* XMLWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF276BE51FB3A72A0068F1A3 /* XMLWeather.swift */; };
 		DF3C7A6D217D1C3300FE35D6 /* MyCustomPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3C7A6C217D1C3300FE35D6 /* MyCustomPinAnnotation.swift */; };
 		DF586F531FB3D87300255E31 /* WeatherCollectionObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF586F521FB3D87300255E31 /* WeatherCollectionObject.swift */; };
 		DF9842C71FCD782600266AAB /* WeatherFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9842C61FCD782600266AAB /* WeatherFilter.swift */; };
-		DF9E72B51FCA1DD900CEEAA3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF9E72B41FCA1DD800CEEAA3 /* Info.plist */; };
 		DFA3CE521FC60D1900AA939A /* BorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA3CE511FC60D1900AA939A /* BorderedView.swift */; };
 		DFA3CE541FC60D7E00AA939A /* ShadowCircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA3CE531FC60D7E00AA939A /* ShadowCircularButton.swift */; };
-		DFE517461E5DD56700A352B6 /* TimerBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE517451E5DD56700A352B6 /* TimerBrain.swift */; };
-		DFE5174A1E61CB7800A352B6 /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE517491E61CB7800A352B6 /* SaveData.swift */; };
 		DFE5174D1E61D10D00A352B6 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE5174C1E61D10D00A352B6 /* RadioPlayer.swift */; };
 		DFE517501E61D9DF00A352B6 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE5174F1E61D9DF00A352B6 /* Alerts.swift */; };
 		DFE579E61FC46DF2008905B8 /* HjelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE579E51FC46DF2008905B8 /* HjelpVC.swift */; };
@@ -120,9 +116,6 @@
 		65F5C5E41E6030000069C190 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		72ED233012358625B1E404AD /* Pods_Skurring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skurring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C697287DDD74DB217FDC3430 /* Pods-Skurring.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skurring.release.xcconfig"; path = "Pods/Target Support Files/Pods-Skurring/Pods-Skurring.release.xcconfig"; sourceTree = "<group>"; };
-		DF0775FB20248FA800A2B7AE /* Skurring-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Skurring-Bridging-Header.h"; sourceTree = "<group>"; };
-		DF0775FC20248FA900A2B7AE /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
-		DF0775FD20248FA900A2B7AE /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		DF0775FF20249E4800A2B7AE /* PlayRadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRadioCell.swift; sourceTree = "<group>"; };
 		DF1CA1E21FBDDBCE005F88F4 /* MapLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLogic.swift; sourceTree = "<group>"; };
 		DF276BE51FB3A72A0068F1A3 /* XMLWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLWeather.swift; sourceTree = "<group>"; };
@@ -132,8 +125,6 @@
 		DF9E72B41FCA1DD800CEEAA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFA3CE511FC60D1900AA939A /* BorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedView.swift; sourceTree = "<group>"; };
 		DFA3CE531FC60D7E00AA939A /* ShadowCircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowCircularButton.swift; sourceTree = "<group>"; };
-		DFE517451E5DD56700A352B6 /* TimerBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerBrain.swift; sourceTree = "<group>"; };
-		DFE517491E61CB7800A352B6 /* SaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
 		DFE5174C1E61D10D00A352B6 /* RadioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		DFE5174F1E61D9DF00A352B6 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		DFE579E51FC46DF2008905B8 /* HjelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HjelpVC.swift; sourceTree = "<group>"; };
@@ -225,13 +216,10 @@
 		652782C41E4F5F160069A18A /* Skurring */ = {
 			isa = PBXGroup;
 			children = (
-				DF0775FA20248F7E00A2B7AE /* iCarousel */,
 				DFF4E93C1FB49E5A006262BD /* DataService */,
 				DF276BE41FB3A7120068F1A3 /* XMLManager */,
 				DFE5174E1E61D9C700A352B6 /* hvis ikke radioen vil spille av */,
 				DFE5174B1E61D10000A352B6 /* RadioPlayer */,
-				DFE517481E61CB6A00A352B6 /* SaveData */,
-				DFE517471E5DD73700A352B6 /* TimerBrain */,
 				BC6516AA1E546255008AB3C3 /* View */,
 				65B4628E1E56E93300815203 /* Model */,
 				65B4628F1E56E94400815203 /* Controllers */,
@@ -317,16 +305,6 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		DF0775FA20248F7E00A2B7AE /* iCarousel */ = {
-			isa = PBXGroup;
-			children = (
-				DF0775FD20248FA900A2B7AE /* iCarousel.h */,
-				DF0775FC20248FA900A2B7AE /* iCarousel.m */,
-				DF0775FB20248FA800A2B7AE /* Skurring-Bridging-Header.h */,
-			);
-			name = iCarousel;
-			sourceTree = "<group>";
-		};
 		DF276BE41FB3A7120068F1A3 /* XMLManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,22 +338,6 @@
 				DFA3CE531FC60D7E00AA939A /* ShadowCircularButton.swift */,
 			);
 			name = UIElements;
-			sourceTree = "<group>";
-		};
-		DFE517471E5DD73700A352B6 /* TimerBrain */ = {
-			isa = PBXGroup;
-			children = (
-				DFE517451E5DD56700A352B6 /* TimerBrain.swift */,
-			);
-			name = TimerBrain;
-			sourceTree = "<group>";
-		};
-		DFE517481E61CB6A00A352B6 /* SaveData */ = {
-			isa = PBXGroup;
-			children = (
-				DFE517491E61CB7800A352B6 /* SaveData.swift */,
-			);
-			name = SaveData;
 			sourceTree = "<group>";
 		};
 		DFE5174B1E61D10000A352B6 /* RadioPlayer */ = {
@@ -441,7 +403,6 @@
 				652782BF1E4F5F160069A18A /* Frameworks */,
 				652782C01E4F5F160069A18A /* Resources */,
 				AB7F8702FF9519C7C7868AA6 /* [CP] Embed Pods Frameworks */,
-				24477826A51821EBE8384802 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -495,7 +456,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Appzelof;
 				TargetAttributes = {
 					652782C11E4F5F160069A18A = {
@@ -561,7 +522,6 @@
 				652782F81E5331040069A18A /* Assets.xcassets in Resources */,
 				65B04DC11EFBE2AE002B60FB /* Digital.ttf in Resources */,
 				652782CB1E4F5F160069A18A /* Main.storyboard in Resources */,
-				DF9E72B51FCA1DD900CEEAA3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,21 +542,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		24477826A51821EBE8384802 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Skurring/Pods-Skurring-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AB7F8702FF9519C7C7868AA6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -608,7 +553,6 @@
 				"${BUILT_PRODUCTS_DIR}/AssistantKit/AssistantKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/SimpleAnimation/SimpleAnimation.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TableViewReloadAnimation/TableViewReloadAnimation.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionAnimation/TransitionAnimation.framework",
@@ -620,7 +564,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AssistantKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleAnimation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableViewReloadAnimation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionAnimation.framework",
@@ -666,14 +609,12 @@
 				65B462971E5AE49D00815203 /* GifEngine.swift in Sources */,
 				DF276BE61FB3A72A0068F1A3 /* XMLWeather.swift in Sources */,
 				DFA3CE541FC60D7E00AA939A /* ShadowCircularButton.swift in Sources */,
-				DFE5174A1E61CB7800A352B6 /* SaveData.swift in Sources */,
 				5B12CB1E21E9EC840014A1C3 /* Stations.xcdatamodeld in Sources */,
 				65B462951E59CC1400815203 /* RadioInfoCell.swift in Sources */,
 				DF9842C71FCD782600266AAB /* WeatherFilter.swift in Sources */,
 				DFE579E61FC46DF2008905B8 /* HjelpVC.swift in Sources */,
 				65B4628D1E55C9F000815203 /* PlayVC.swift in Sources */,
 				DF1CA1E31FBDDBCE005F88F4 /* MapLogic.swift in Sources */,
-				DF0775FE20248FA900A2B7AE /* iCarousel.m in Sources */,
 				DFA3CE521FC60D1900AA939A /* BorderedView.swift in Sources */,
 				DF07760020249E4800A2B7AE /* PlayRadioCell.swift in Sources */,
 				DF586F531FB3D87300255E31 /* WeatherCollectionObject.swift in Sources */,
@@ -681,7 +622,6 @@
 				DFE579EB1FC4725E008905B8 /* EmergencyCell.swift in Sources */,
 				652782C81E4F5F160069A18A /* ViewController.swift in Sources */,
 				65C8FD111FB08E2300870682 /* DownloadManager.swift in Sources */,
-				DFE517461E5DD56700A352B6 /* TimerBrain.swift in Sources */,
 				DFF4E9411FB4AE59006262BD /* XMLVegvesen.swift in Sources */,
 				DFF4E9431FB4AF95006262BD /* FylkeDict.swift in Sources */,
 				5B12CB2021E9EFDD0014A1C3 /* CoreDataConfigurations.swift in Sources */,
@@ -759,15 +699,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -808,15 +756,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

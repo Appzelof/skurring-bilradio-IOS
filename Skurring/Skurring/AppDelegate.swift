@@ -12,6 +12,7 @@ import FBSDKLoginKit
 import GoogleMobileAds
 import Firebase
 import Alamofire
+import CoreData
 
 
 @UIApplicationMain
@@ -63,7 +64,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Stations")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error: \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
 
+    func saveContext() {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Could not save context: error: \(nsError), userinfo: \(nsError.userInfo)")
+            }
+        }
+    }
 
 }
 

@@ -14,15 +14,15 @@ import StoreKit
 import Alamofire
 import SwiftyJSON
 
-class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout {
+class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate, UICollectionViewDelegateFlowLayout, iCarouselDelegate, iCarouselDataSource {
    
     @IBOutlet var weatherImg: UIImageView!
     @IBOutlet var tempLabel: UILabel!
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet weak var theCollectionView: UICollectionView!
     @IBOutlet weak var bottomBackButton: UIButton!
+    @IBOutlet weak var iCarousel: iCarousel!
     
-    var counterTime: Int = 0
     var counter: Int = 0
     var minInt: Int = 0
     var maxInt: Int = 4
@@ -32,7 +32,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
     var currentPlayingSong: String!
     var activeProduct: SKProduct?
     var weatherTimerHasBegan = false
-    var timer: Timer?
     var placemark: CLPlacemark?
     
     @IBOutlet weak var TheLiveInfoSongName: UILabel!
@@ -49,7 +48,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
     @IBOutlet var tapGest: UITapGestureRecognizer!
     
     private let DataServiceInstance = DS.dsInstance
-    private var amountOfRadioStations: [MainScreenRadioObjects]!
+    var amountOfRadioStations: [Radiostations]!
     private let remoteCenter = MPRemoteCommandCenter.shared()
     private var thePrevCounter = 0
     private var scrolledToIndex: Bool!
@@ -57,15 +56,16 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrolledToIndex = false
-        self.amountOfRadioStations = []
-        self.getObjects()
         self.counter = self.getRadioRow()
         self.thePrevCounter = self.counter
         self.theCollectionView.delegate = self
         self.theCollectionView.dataSource = self
         self.theCollectionView.isPagingEnabled = true
-       
-        print("Number of radios: \(MainScreenRadioObjects.mainScreenRadioObjectsArray.count)")
+        
+        self.iCarousel.delegate = self
+        self.iCarousel.dataSource = self
+        self.iCarousel.isPagingEnabled = true
+        self.iCarousel.type = .cylinder
         
         kmLabel.isHidden = true
         
@@ -83,6 +83,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        
         speedLabel.isHidden = true
         speedLabel.font = UIFont(name: "Digital-7Mono", size: 175)
         speedLabel.textAlignment = NSTextAlignment.center
@@ -106,7 +107,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         setUpPlayer()
         print(channelInfo.URL)
         
-        playRadio(linken: self.amountOfRadioStations[counter].URL)
+        playRadio(linken: self.amountOfRadioStations[counter].radioStream)
     
         
         UIApplication.shared.isIdleTimerDisabled = true
@@ -149,9 +150,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         UIView.animate(withDuration: 0.5, animations: {
             self.theCollectionView.contentOffset = CGPoint.init(x: targetOffsetX, y: 0)
         }) { (success) in
-            UIView.animate(withDuration: 0.5, animations: {
-                self.theCollectionView.contentOffset = currentOffset
-            }, completion: nil)
+            self.theCollectionView.setContentOffset(currentOffset, animated: true)
         }
     }
     
@@ -161,7 +160,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
     
     //CollectionView methods
     
-    private var theIndex: MainScreenRadioObjects!
+    private var theIndex: Radiostations!
     private var wantToDismiss = false
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -197,6 +196,33 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         return 1.5
     }
     
+    
+    //ICarousel
+    
+    func numberOfItems(in carousel: iCarousel) -> Int {
+        return self.amountOfRadioStations.count
+    }
+    
+    func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
+        var radioImageView: UIImageView!
+        if let theRadioImageData = self.amountOfRadioStations[index].radioImage as Data? {
+            if let resuableView = view as? UIImageView {
+                resuableView.image = UIImage.init(data: theRadioImageData)
+                radioImageView = resuableView
+            } else {
+                let carouselRadioImage = UIImageView()
+                carouselRadioImage.image = UIImage.init(data: theRadioImageData)
+                carouselRadioImage.frame = CGRect.init(x: 0, y: 0, width: carousel.bounds.width, height: carousel.bounds.height)
+                carouselRadioImage.contentMode = .scaleAspectFit
+                carouselRadioImage.backgroundColor = UIColor.black
+                radioImageView = carouselRadioImage
+            }
+        }
+        return radioImageView
+    }
+    
+    
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if !wantToDismiss {
             self.findVisibleCellAndPlay()
@@ -204,13 +230,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         }
     }
     
-    private func getObjects() {
-        for radioObject in MainScreenRadioObjects.mainScreenRadioObjectsArray {
-            if radioObject.URL != "" {
-                self.amountOfRadioStations.append(radioObject)
-            }
-        }
-    }
     
     private func getRadioRow() -> Int {
         var selectedRow = 0
@@ -236,7 +255,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
             
             self.counter = visibleIndexPath.row
             if self.counter != thePrevCounter {
-                self.playRadio(linken: indexObject.URL)
+                self.playRadio(linken: indexObject.radioStream)
                 DS.dsInstance.checkDevice()
             }
             thePrevCounter = self.counter
@@ -288,22 +307,23 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
             
             updateTheLockscreen()
         }
-        
     }
     
     
-    private func getCurrentPlayingStationObject() -> MainScreenRadioObjects {
+    private func getCurrentPlayingStationObject() -> Radiostations {
         return self.amountOfRadioStations[counter]
     }
  
     
     private func updateTheLockscreen() {
-        if let currentPlayingSong = DS.dsInstance.currentPlayingSong["song"], let currentPlayingArtist = DS.dsInstance.currentPlayingSong["artist"] {
-            updateLockScreen(Artist: currentPlayingArtist, songName: currentPlayingSong, channelName: getCurrentPlayingStationObject().radioInfo)
-        } else if CurrentPlayingTrack.artistName != "" && CurrentPlayingTrack.songName != "" {
-            updateLockScreen(Artist: CurrentPlayingTrack.artistName, songName: CurrentPlayingTrack.songName, channelName: getCurrentPlayingStationObject().radioInfo)
-        } else {
-            updateLockScreen(Artist: "", songName: "", channelName: getCurrentPlayingStationObject().radioInfo)
+        if let radioInfo = getCurrentPlayingStationObject().radioInfo {
+            if let currentPlayingSong = DS.dsInstance.currentPlayingSong["song"], let currentPlayingArtist = DS.dsInstance.currentPlayingSong["artist"] {
+                updateLockScreen(Artist: currentPlayingArtist, songName: currentPlayingSong, channelName: radioInfo)
+            } else if CurrentPlayingTrack.artistName != "" && CurrentPlayingTrack.songName != "" {
+                updateLockScreen(Artist: CurrentPlayingTrack.artistName, songName: CurrentPlayingTrack.songName, channelName: radioInfo)
+            } else {
+                updateLockScreen(Artist: "", songName: "", channelName: radioInfo)
+            }
         }
     }
     
@@ -320,21 +340,16 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         }
     }
 
-    func playRadio(linken: String) {
+    func playRadio(linken: String?) {
         Player.radio.prepareToPlay()
-        let url = URL.init(string: linken)
-        
-        Player.radio.contentURL = url
-        
-        Player.radio.play()
+        if let theLink = linken {
+            let url = URL.init(string: theLink)
+            Player.radio.contentURL = url
+            Player.radio.play()
+        }
     }
     
     func stopRadio() {
-        if timer != nil {
-            timer!.invalidate()
-            timer = nil
-        }
-        
         Player.radio.pause()
     }
     
@@ -351,19 +366,14 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
     
 
     @IBAction func longPressOnSpeedButton(_ sender: Any) {
-        
         tempLabel.isHidden = false
         UserDefaults.standard.set(tempLabel.isEnabled, forKey: "isNotHidden")
-        print("long press detected")
-        
     }
     
     @IBAction func pressDisableButton(_sender: Any) {
-       
         tempLabel.isHidden = true
         UserDefaults.standard.set(tempLabel.isHidden, forKey: "hidden")
         UserDefaults.standard.synchronize()
-        print("tap detected")
     }
     
     
@@ -372,7 +382,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         if self.counter > self.amountOfRadioStations.count - 1 {
             self.counter = 0
         }
-        self.playRadio(linken: self.amountOfRadioStations[counter].URL)
+        self.playRadio(linken: self.amountOfRadioStations[counter].radioStream)
     }
     
     private func previousStation() {
@@ -380,14 +390,14 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         if self.counter < 0 {
             self.counter = self.amountOfRadioStations.count - 1
         }
-        self.playRadio(linken: self.amountOfRadioStations[self.counter].URL)
+        self.playRadio(linken: self.amountOfRadioStations[self.counter].radioStream)
     }
     
     override func remoteControlReceived(with event: UIEvent?) {
         super.remoteControlReceived(with: event)
         switch event!.subtype {
         case .remoteControlPlay:
-            self.playRadio(linken: self.amountOfRadioStations[counter].URL)
+            self.playRadio(linken: self.amountOfRadioStations[counter].radioStream)
             break
         case .remoteControlPause:
             self.stopRadio()
@@ -439,7 +449,8 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
                 if error == nil {
                     if let placemark = placemarks?[0] {
                         self.placemark = placemark
-                        self.updateFunction()
+                      //  self.updateFunction()
+                        self.downloadWeatherData()
                     }
                 } else {
                     print(error!)
@@ -512,25 +523,6 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
             })
         }
     }
-    
-    func updateFunction() {
-        if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-            downloadWeatherData()
-            UserDefaults.standard.synchronize()
-        }
-    }
-    
-    func updateCounter() {
-        if counterTime == 0 {
-            downloadWeatherData()
-        } else if counterTime == 400 {
-            counterTime = -1
-        }
-        counterTime += 1
-        print("Counting... \(counterTime)")
-    }
-
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("location manager failed")

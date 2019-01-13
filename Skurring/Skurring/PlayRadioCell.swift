@@ -11,12 +11,9 @@ import UIKit
 class PlayRadioCell: UICollectionViewCell {
     
     @IBOutlet weak var theRadioImage: UIImageView!
-    
-    public var theObject: MainScreenRadioObjects!
-    
-    func configureCell(radioObject: MainScreenRadioObjects) {
-        theObject = radioObject
-        theRadioImage.image = UIImage(named: radioObject.image)
+        
+    func configureCell(radioObject: Radiostations) {
+        theRadioImage.image = UIImage.init(data: radioObject.radioImage! as Data)
     }
     
 }

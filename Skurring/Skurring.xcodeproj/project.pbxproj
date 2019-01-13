@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B12CB1921E9E9390014A1C3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB1821E9E9390014A1C3 /* CoreDataManager.swift */; };
+		5B12CB1B21E9EA560014A1C3 /* Radiostations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB1A21E9EA560014A1C3 /* Radiostations.swift */; };
+		5B12CB1E21E9EC840014A1C3 /* Stations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB1C21E9EC840014A1C3 /* Stations.xcdatamodeld */; };
+		5B12CB2021E9EFDD0014A1C3 /* CoreDataConfigurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB1F21E9EFDD0014A1C3 /* CoreDataConfigurations.swift */; };
+		5B12CB2221EA3DCF0014A1C3 /* MainPageChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB2121EA3DCF0014A1C3 /* MainPageChannelCell.swift */; };
+		5B12CB2421EA405E0014A1C3 /* DrivingToolsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB2321EA405E0014A1C3 /* DrivingToolsCell.swift */; };
 		6524D7B51EF7FD6800A11C15 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6524D7B11EF7FD6800A11C15 /* Bolts.framework */; };
 		6524D7B61EF7FD6800A11C15 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6524D7B21EF7FD6800A11C15 /* FBSDKCoreKit.framework */; };
 		6524D7B71EF7FD6800A11C15 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6524D7B31EF7FD6800A11C15 /* FBSDKLoginKit.framework */; };
@@ -75,6 +81,12 @@
 
 /* Begin PBXFileReference section */
 		173A62CA87489ECA4030F5CE /* Pods-Skurring.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skurring.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Skurring/Pods-Skurring.debug.xcconfig"; sourceTree = "<group>"; };
+		5B12CB1821E9E9390014A1C3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		5B12CB1A21E9EA560014A1C3 /* Radiostations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radiostations.swift; sourceTree = "<group>"; };
+		5B12CB1D21E9EC840014A1C3 /* Stations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stations.xcdatamodel; sourceTree = "<group>"; };
+		5B12CB1F21E9EFDD0014A1C3 /* CoreDataConfigurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConfigurations.swift; sourceTree = "<group>"; };
+		5B12CB2121EA3DCF0014A1C3 /* MainPageChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageChannelCell.swift; sourceTree = "<group>"; };
+		5B12CB2321EA405E0014A1C3 /* DrivingToolsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingToolsCell.swift; sourceTree = "<group>"; };
 		6524D7B11EF7FD6800A11C15 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		6524D7B21EF7FD6800A11C15 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		6524D7B31EF7FD6800A11C15 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -177,6 +189,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5B12CB1721E9E8B10014A1C3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5B12CB1821E9E9390014A1C3 /* CoreDataManager.swift */,
+				5B12CB1A21E9EA560014A1C3 /* Radiostations.swift */,
+				5B12CB1F21E9EFDD0014A1C3 /* CoreDataConfigurations.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		652782B91E4F5F160069A18A = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +241,7 @@
 				DF9E72B41FCA1DD800CEEAA3 /* Info.plist */,
 				65B04DC01EFBE2AE002B60FB /* Digital.ttf */,
 				652782F71E5331040069A18A /* Assets.xcassets */,
+				5B12CB1C21E9EC840014A1C3 /* Stations.xcdatamodeld */,
 				652782C51E4F5F160069A18A /* AppDelegate.swift */,
 			);
 			path = Skurring;
@@ -245,6 +268,7 @@
 		65B4628E1E56E93300815203 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5B12CB1721E9E8B10014A1C3 /* CoreData */,
 				DF9842C51FCD780900266AAB /* WeatherFilter */,
 				DFE579E71FC46E51008905B8 /* CallOptions */,
 				65B4629D1E5B1B9B00815203 /* MainScreenRadioObjects.swift */,
@@ -287,6 +311,8 @@
 				DFE579EA1FC4725E008905B8 /* EmergencyCell.swift */,
 				DF0775FF20249E4800A2B7AE /* PlayRadioCell.swift */,
 				DF3C7A6C217D1C3300FE35D6 /* MyCustomPinAnnotation.swift */,
+				5B12CB2121EA3DCF0014A1C3 /* MainPageChannelCell.swift */,
+				5B12CB2321EA405E0014A1C3 /* DrivingToolsCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -636,10 +662,12 @@
 				65A0DC311FA1F597008DC69E /* xmlParser.swift in Sources */,
 				65EB87A61F5C2006007044B4 /* SoundPlayer.swift in Sources */,
 				DFF4E93E1FB49E69006262BD /* DataService.swift in Sources */,
+				5B12CB1B21E9EA560014A1C3 /* Radiostations.swift in Sources */,
 				65B462971E5AE49D00815203 /* GifEngine.swift in Sources */,
 				DF276BE61FB3A72A0068F1A3 /* XMLWeather.swift in Sources */,
 				DFA3CE541FC60D7E00AA939A /* ShadowCircularButton.swift in Sources */,
 				DFE5174A1E61CB7800A352B6 /* SaveData.swift in Sources */,
+				5B12CB1E21E9EC840014A1C3 /* Stations.xcdatamodeld in Sources */,
 				65B462951E59CC1400815203 /* RadioInfoCell.swift in Sources */,
 				DF9842C71FCD782600266AAB /* WeatherFilter.swift in Sources */,
 				DFE579E61FC46DF2008905B8 /* HjelpVC.swift in Sources */,
@@ -649,13 +677,16 @@
 				DFA3CE521FC60D1900AA939A /* BorderedView.swift in Sources */,
 				DF07760020249E4800A2B7AE /* PlayRadioCell.swift in Sources */,
 				DF586F531FB3D87300255E31 /* WeatherCollectionObject.swift in Sources */,
+				5B12CB2421EA405E0014A1C3 /* DrivingToolsCell.swift in Sources */,
 				DFE579EB1FC4725E008905B8 /* EmergencyCell.swift in Sources */,
 				652782C81E4F5F160069A18A /* ViewController.swift in Sources */,
 				65C8FD111FB08E2300870682 /* DownloadManager.swift in Sources */,
 				DFE517461E5DD56700A352B6 /* TimerBrain.swift in Sources */,
 				DFF4E9411FB4AE59006262BD /* XMLVegvesen.swift in Sources */,
 				DFF4E9431FB4AF95006262BD /* FylkeDict.swift in Sources */,
+				5B12CB2021E9EFDD0014A1C3 /* CoreDataConfigurations.swift in Sources */,
 				DF3C7A6D217D1C3300FE35D6 /* MyCustomPinAnnotation.swift in Sources */,
+				5B12CB2221EA3DCF0014A1C3 /* MainPageChannelCell.swift in Sources */,
 				652782C61E4F5F160069A18A /* AppDelegate.swift in Sources */,
 				65B4629E1E5B1B9B00815203 /* MainScreenRadioObjects.swift in Sources */,
 				65B4629C1E5B12F800815203 /* RadioList.swift in Sources */,
@@ -663,6 +694,7 @@
 				DFE579E91FC46E5D008905B8 /* CallOptions.swift in Sources */,
 				65B462911E56F3E700815203 /* RadioINFO.swift in Sources */,
 				DFE517501E61D9DF00A352B6 /* Alerts.swift in Sources */,
+				5B12CB1921E9E9390014A1C3 /* CoreDataManager.swift in Sources */,
 				65B462A01E5B290600815203 /* SendObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -823,7 +855,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Skurring/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appzelof.skurring;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -848,7 +880,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Skurring/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appzelof.skurring;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -956,6 +988,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5B12CB1C21E9EC840014A1C3 /* Stations.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5B12CB1D21E9EC840014A1C3 /* Stations.xcdatamodel */,
+			);
+			currentVersion = 5B12CB1D21E9EC840014A1C3 /* Stations.xcdatamodel */;
+			path = Stations.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 652782BA1E4F5F160069A18A /* Project object */;
 }

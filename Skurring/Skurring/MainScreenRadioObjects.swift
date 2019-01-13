@@ -9,13 +9,24 @@
 import Foundation
 import UIKit
 
-class MainScreenRadioObjects: NSObject, NSCoding {
+class MainScreenRadioObjects {
     
-    private var _image: String!
+    private var _image: UIImage!
     private var _URL: String!
     private var _radioInfo: String!
+    private var _radioSpot: Int!
     
-    var image: String{
+    var radioSpot: Int {
+        get {
+            return self._radioSpot
+        }
+        
+        set {
+            self._radioSpot = newValue
+        }
+    }
+    
+    var image: UIImage {
         
         get{
             return _image
@@ -46,11 +57,12 @@ class MainScreenRadioObjects: NSObject, NSCoding {
             self._radioInfo = newValue
         }
     }
-    
+    /*
     override init() {
     
     }
-    
+ */
+    /*
     required convenience init?(coder aDecoder: NSCoder) {
         self.init()
         self._image = aDecoder.decodeObject(forKey: "image") as? String
@@ -63,11 +75,13 @@ class MainScreenRadioObjects: NSObject, NSCoding {
         aCoder.encode(self._URL, forKey: "URL")
         aCoder.encode(self._radioInfo, forKey: "radioInfo")
     }
+ */
     
-    init(image: String, URL: String, radioInfo: String) {
+    init(image: UIImage, URL: String, radioInfo: String, radioSpot: Int) {
         self._image = image
         self._URL = URL
         self._radioInfo = radioInfo
+        self._radioSpot = radioSpot
     }
     
     static var mainScreenRadioObjectsArray: [MainScreenRadioObjects] = []

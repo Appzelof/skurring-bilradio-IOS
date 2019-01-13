@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
@@ -16,6 +15,8 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet weak var backButton: UIButton!
     var arrayList = radioInformation.theStationObjects
     var filteredArrayList = radioInformation.theFilteredStationsObjects
+    var radioSpot: Int!
+    var coreDataManager: CoreDataManager!
     
     var inSearchMode: Bool = false
     
@@ -86,11 +87,15 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
             index = filteredArrayList[indexPath.row]
         }
         
-        let Object = MainScreenRadioObjects.init(image: index.imgPNG, URL: index.radioStream, radioInfo: index.radioINFO)
-        MainScreenRadioObjects.mainScreenRadioObjectsArray[actionInt] = Object
+       //let Object = MainScreenRadioObjects.init(image: index.imgPNG, URL: index.radioStream, radioInfo: index.radioINFO, radioSpot: radioSpot)
+       // MainScreenRadioObjects.mainScreenRadioObjectsArray[actionInt] = Object
         
-        saveData()
-        self.dismiss(animated: false, completion: nil)
+        //saveData()
+        if let tappedCell = self.tableView.cellForRow(at: indexPath) as? RadioInfoCell, let cellImage = tappedCell.theImage.image {
+            let tappedObject = MainScreenRadioObjects.init(image: cellImage, URL: index.radioStream, radioInfo: index.radioINFO, radioSpot: self.radioSpot)
+            self.coreDataManager.saveOrReplaceRadioStation(radioStation: tappedObject)
+            self.dismiss(animated: false, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

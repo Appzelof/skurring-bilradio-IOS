@@ -400,7 +400,7 @@ struct radioInformation{
             "search": "kiss",
             "desc": "Top40",
             "name": "Kiss",
-            "streamURL": "http://stream.bauermedia.no/kiss.mp3",
+            "streamURL": "https://live-bauerno.sharp-stream.com/kiss_no_mp3?",
             "imageURL": "Kiss"
         ],
         
@@ -408,7 +408,7 @@ struct radioInformation{
             "search": "kisstory",
             "desc": "Top40",
             "name": "Kisstory",
-            "streamURL": "http://stream.bauermedia.no/kisstory.mp3.m3u",
+            "streamURL": "https://live-bauerno.sharp-stream.com/kisstory_no_mp3?",
             "imageURL": "23"
         ],
         
@@ -452,7 +452,7 @@ struct radioInformation{
             "search": "topp 40",
             "desc": "Hits/Top40",
             "name": "Topp 40",
-            "streamURL": "http://edge-bauersefm-09-gos2.sharp-stream.com/top40_no_hq",
+            "streamURL": "https://live-bauerno.sharp-stream.com/top40_no_mp3",
             "imageURL": "topp 40"
         ],
         
@@ -470,7 +470,7 @@ struct radioInformation{
             "search": "radio norge",
             "desc": "Adult Contemporary",
             "name": "Radio Norge",
-            "streamURL": "http://stream2.sbsradio.no/radionorge.mp3.m3u",
+            "streamURL": "https://live-bauerno.sharp-stream.com/radionorge_no_mp3",
             "imageURL": "2"
         ],
         
@@ -478,14 +478,14 @@ struct radioInformation{
             "search": "radio rock",
             "desc": "Rock",
             "name": "Radio Rock",
-            "streamURL": "http://stream2.sbsradio.no/radiorock.mp3.m3u",
+            "streamURL": "https://live-bauerno.sharp-stream.com/radiorock_no_mp3",
             "imageURL": "21"
         ],
         [
             "search": "radio norge soft",
             "desc": "Easy Listening",
             "name": "Radio Norge Soft",
-            "streamURL": "http://stream.bauermedia.no/radionorgesoft.mp3.m3u",
+            "streamURL": "http://onair.100fmlive.dk/soft_live.mp3",
             "imageURL": "22"
         ],
         
@@ -512,7 +512,7 @@ struct radioInformation{
             "search": "radio revolt",
             "desc": "Student Radio",
             "name": "Radio Revolt",
-            "streamURL": "http://streamer.radiorevolt.no:8000/revolt.m3u",
+            "streamURL": "https://direkte.radiorevolt.no/revolt.aac",
             "imageURL": "Radio Revolt"
         ],
         
@@ -529,7 +529,7 @@ struct radioInformation{
             "search": "radio metro",
             "desc": "Adult Contemporary",
             "name": "Radio Metro",
-            "streamURL": "http://stream.21stventure.com:8100/listen.pls",
+            "streamURL": "http://stream.radiometro.no/metro64.mp3",
             "imageURL": "RadioMetro"
         ],
         

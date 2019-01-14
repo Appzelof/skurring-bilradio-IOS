@@ -19,3 +19,4 @@ target 'Skurring' do
   pod "AssistantKit"
 end
 
+topp 40 https://live-bauerno.sharp-stream.com/top40_no_mp3

@@ -15,9 +15,10 @@ protocol StationWasLongOrJustPressed {
 
 class MainPageChannelsCell: UICollectionViewCell {
     
+    
     @IBOutlet weak var holdToChooseChannel: UILabel!
     @IBOutlet weak var choosenChannelImage: UIImageView!
-    
+
     private var stationWasLongOrJustPressedDelegate: StationWasLongOrJustPressed!
     private var currentStation: Radiostations!
     
@@ -26,6 +27,7 @@ class MainPageChannelsCell: UICollectionViewCell {
         self.currentStation = station
         self.addLongGesture()
         self.addTapGesture()
+    
         if station.radioStream == "" {
             holdToChooseChannel.isHidden = false
             holdToChooseChannel.text = "Hold to store preset"
@@ -39,6 +41,7 @@ class MainPageChannelsCell: UICollectionViewCell {
             }
         }
     }
+    
     
     private func addLongGesture() {
         let longGesture = UILongPressGestureRecognizer.init(target: self, action: #selector(longPressMethod))

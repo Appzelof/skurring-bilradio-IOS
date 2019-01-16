@@ -12,10 +12,6 @@ target 'Skurring' do
   pod 'Firebase/Core'
   pod 'Google-Mobile-Ads-SDK'
   pod 'Alamofire'
-  pod 'TransitionTreasury'
-  pod 'SwiftyJSON'
-  pod 'TableViewReloadAnimation'
-  pod 'TransitionAnimation'
   pod "AssistantKit"
 end
 

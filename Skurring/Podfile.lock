@@ -27,11 +27,6 @@ PODS:
   - "GoogleToolboxForMac/NSData+zlib (2.1.0)":
     - GoogleToolboxForMac/Defines (= 2.1.0)
   - MarqueeLabel/Swift (3.0.1)
-  - SwiftyJSON (3.1.4)
-  - TableViewReloadAnimation (0.0.5)
-  - TransitionAnimation (4.0.0):
-    - TransitionTreasury (~> 4.0)
-  - TransitionTreasury (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -40,10 +35,6 @@ DEPENDENCIES:
   - Firebase/Database
   - Google-Mobile-Ads-SDK
   - MarqueeLabel/Swift
-  - SwiftyJSON
-  - TableViewReloadAnimation
-  - TransitionAnimation
-  - TransitionTreasury
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -59,10 +50,6 @@ SPEC REPOS:
     - GoogleSymbolUtilities
     - GoogleToolboxForMac
     - MarqueeLabel
-    - SwiftyJSON
-    - TableViewReloadAnimation
-    - TransitionAnimation
-    - TransitionTreasury
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
@@ -77,11 +64,7 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   MarqueeLabel: 80ba85d2b76a9f5fa6c13de337db80bcd94feb1d
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
-  TransitionAnimation: c397b9ca41ab593b35b1e8f8673df17bae0db20a
-  TransitionTreasury: dcf3fe6e5c740525d9e7d4544af45e6fbfd71c88
 
-PODFILE CHECKSUM: 95835ee71eac2683886ba02ca91119420ef35ce2
+PODFILE CHECKSUM: 79afd6db78e6a3c9ebc79cb75d1bd67960a522f6
 
 COCOAPODS: 1.5.3

@@ -19,15 +19,20 @@ class MainPageChannelsCell: UICollectionViewCell {
     @IBOutlet weak var holdToChooseChannel: UILabel!
     @IBOutlet weak var choosenChannelImage: UIImageView!
 
+
+
+    @IBOutlet weak var animationButton: UIButton!
+    
+
     private var stationWasLongOrJustPressedDelegate: StationWasLongOrJustPressed!
     private var currentStation: Radiostations!
     
     func configureCell(station: Radiostations, delegateListener: UIViewController) {
         self.stationWasLongOrJustPressedDelegate = delegateListener as? StationWasLongOrJustPressed
         self.currentStation = station
-        self.addLongGesture()
-        self.addTapGesture()
     
+        self.animationButton.setImage(UIImage(named: "BlackButtonPNG"), for: .highlighted)
+        setupAnimationBtn()
         if station.radioStream == "" {
             holdToChooseChannel.isHidden = false
             holdToChooseChannel.text = "Hold to store preset"
@@ -42,15 +47,20 @@ class MainPageChannelsCell: UICollectionViewCell {
         }
     }
     
-    
-    private func addLongGesture() {
-        let longGesture = UILongPressGestureRecognizer.init(target: self, action: #selector(longPressMethod))
-        self.contentView.addGestureRecognizer(longGesture)
+
+    private func setupAnimationBtn() {
+        self.animationButton.addGestureRecognizer(addLongGesture())
+        self.animationButton.addGestureRecognizer(addTapGesture())
     }
     
-    private func addTapGesture() {
+    private func addLongGesture() -> UILongPressGestureRecognizer {
+        let longGesture = UILongPressGestureRecognizer.init(target: self, action: #selector(longPressMethod))
+        return longGesture
+    }
+    
+    private func addTapGesture() -> UITapGestureRecognizer {
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapGestureMethod))
-        self.contentView.addGestureRecognizer(tapGesture)
+        return tapGesture
     }
     
     @objc private func tapGestureMethod() {

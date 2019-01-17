@@ -31,8 +31,13 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
         self.TheSearchBar.delegate = self
         self.TheSearchBar.returnKeyType = .done
         self.backButton.imageView?.contentMode = .scaleAspectFit
+        getRadioStationsFromFirebase()
+    }
+    
+    /* Calling method to retrieve all stations from firebase */
+    private func getRadioStationsFromFirebase() {
         loadingView.isLoading()
-        self.firebaseApiCalls.getAllNorwegianChannels { (allChannels, error) in
+        self.firebaseApiCalls.getAllNorwegianChannels { (allChannels) in
             self.loadingView.finishedLoading()
             self.arrayList = allChannels
             self.tableView.reloadData()

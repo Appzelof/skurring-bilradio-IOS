@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0DE78221F1004C001DA587 /* API_CALLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DE78121F1004C001DA587 /* API_CALLS.swift */; };
+		5B0DE78721F110F8001DA587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DE78621F110F8001DA587 /* GoogleService-Info.plist */; };
+		5B0DE78921F12649001DA587 /* RadioListLoadingVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DE78821F12649001DA587 /* RadioListLoadingVIew.swift */; };
 		5B12CB1921E9E9390014A1C3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB1821E9E9390014A1C3 /* CoreDataManager.swift */; };
 		5B12CB1B21E9EA560014A1C3 /* Radiostations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB1A21E9EA560014A1C3 /* Radiostations.swift */; };
 		5B12CB1E21E9EC840014A1C3 /* Stations.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB1C21E9EC840014A1C3 /* Stations.xcdatamodeld */; };
@@ -77,6 +80,9 @@
 
 /* Begin PBXFileReference section */
 		173A62CA87489ECA4030F5CE /* Pods-Skurring.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skurring.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Skurring/Pods-Skurring.debug.xcconfig"; sourceTree = "<group>"; };
+		5B0DE78121F1004C001DA587 /* API_CALLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_CALLS.swift; sourceTree = "<group>"; };
+		5B0DE78621F110F8001DA587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B0DE78821F12649001DA587 /* RadioListLoadingVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListLoadingVIew.swift; sourceTree = "<group>"; };
 		5B12CB1821E9E9390014A1C3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5B12CB1A21E9EA560014A1C3 /* Radiostations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radiostations.swift; sourceTree = "<group>"; };
 		5B12CB1D21E9EC840014A1C3 /* Stations.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stations.xcdatamodel; sourceTree = "<group>"; };
@@ -180,6 +186,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5B0DE78021F0FFFD001DA587 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				5B0DE78121F1004C001DA587 /* API_CALLS.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
 		5B12CB1721E9E8B10014A1C3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +230,8 @@
 		652782C41E4F5F160069A18A /* Skurring */ = {
 			isa = PBXGroup;
 			children = (
+				5B0DE78621F110F8001DA587 /* GoogleService-Info.plist */,
+				5B0DE78021F0FFFD001DA587 /* Firebase */,
 				DFF4E93C1FB49E5A006262BD /* DataService */,
 				DF276BE41FB3A7120068F1A3 /* XMLManager */,
 				DFE5174E1E61D9C700A352B6 /* hvis ikke radioen vil spille av */,
@@ -301,6 +317,7 @@
 				DF3C7A6C217D1C3300FE35D6 /* MyCustomPinAnnotation.swift */,
 				5B12CB2121EA3DCF0014A1C3 /* MainPageChannelCell.swift */,
 				5B12CB2321EA405E0014A1C3 /* DrivingToolsCell.swift */,
+				5B0DE78821F12649001DA587 /* RadioListLoadingVIew.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -520,6 +537,7 @@
 			files = (
 				652782D01E4F5F160069A18A /* LaunchScreen.storyboard in Resources */,
 				652782F81E5331040069A18A /* Assets.xcassets in Resources */,
+				5B0DE78721F110F8001DA587 /* GoogleService-Info.plist in Resources */,
 				65B04DC11EFBE2AE002B60FB /* Digital.ttf in Resources */,
 				652782CB1E4F5F160069A18A /* Main.storyboard in Resources */,
 			);
@@ -551,15 +569,19 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Skurring/Pods-Skurring-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AssistantKit/AssistantKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AssistantKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -597,6 +619,7 @@
 				65A0DC311FA1F597008DC69E /* xmlParser.swift in Sources */,
 				65EB87A61F5C2006007044B4 /* SoundPlayer.swift in Sources */,
 				DFF4E93E1FB49E69006262BD /* DataService.swift in Sources */,
+				5B0DE78921F12649001DA587 /* RadioListLoadingVIew.swift in Sources */,
 				5B12CB1B21E9EA560014A1C3 /* Radiostations.swift in Sources */,
 				65B462971E5AE49D00815203 /* GifEngine.swift in Sources */,
 				DF276BE61FB3A72A0068F1A3 /* XMLWeather.swift in Sources */,
@@ -621,6 +644,7 @@
 				5B12CB2221EA3DCF0014A1C3 /* MainPageChannelCell.swift in Sources */,
 				652782C61E4F5F160069A18A /* AppDelegate.swift in Sources */,
 				65B4629E1E5B1B9B00815203 /* MainScreenRadioObjects.swift in Sources */,
+				5B0DE78221F1004C001DA587 /* API_CALLS.swift in Sources */,
 				65B4629C1E5B12F800815203 /* RadioList.swift in Sources */,
 				659D88E11F614AF700FA1118 /* weatherDataModel.swift in Sources */,
 				DFE579E91FC46E5D008905B8 /* CallOptions.swift in Sources */,

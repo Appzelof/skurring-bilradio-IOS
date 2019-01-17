@@ -13,20 +13,30 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var TheSearchBar: UISearchBar!
     @IBOutlet weak var backButton: UIButton!
-    var arrayList = radioInformation.theStationObjects
-    var filteredArrayList = radioInformation.theFilteredStationsObjects
+    @IBOutlet weak var loadingView: RadioListLoadingView!
+    
+    var arrayList = [RadioPlayer]() //radioInformation.theStationObjects
+    var filteredArrayList = [RadioPlayer]() //radioInformation.theFilteredStationsObjects
     var radioSpot: Int!
     var coreDataManager: CoreDataManager!
+    private var firebaseApiCalls: API_CALLS!
     
     var inSearchMode: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.firebaseApiCalls = API_CALLS()
         tableView.delegate = self
         tableView.dataSource = self
         self.TheSearchBar.delegate = self
         self.TheSearchBar.returnKeyType = .done
         self.backButton.imageView?.contentMode = .scaleAspectFit
+        loadingView.isLoading()
+        self.firebaseApiCalls.getAllNorwegianChannels { (allChannels, error) in
+            self.loadingView.finishedLoading()
+            self.arrayList = allChannels
+            self.tableView.reloadData()
+        }
     }
     
     //SearchBarMetoder
@@ -87,10 +97,6 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
             index = filteredArrayList[indexPath.row]
         }
         
-       //let Object = MainScreenRadioObjects.init(image: index.imgPNG, URL: index.radioStream, radioInfo: index.radioINFO, radioSpot: radioSpot)
-       // MainScreenRadioObjects.mainScreenRadioObjectsArray[actionInt] = Object
-        
-        //saveData()
         if let tappedCell = self.tableView.cellForRow(at: indexPath) as? RadioInfoCell, let cellImage = tappedCell.theImage.image {
             let tappedObject = MainScreenRadioObjects.init(image: cellImage, URL: index.radioStream, radioInfo: index.radioINFO, radioSpot: self.radioSpot)
             self.coreDataManager.saveOrReplaceRadioStation(radioStation: tappedObject)

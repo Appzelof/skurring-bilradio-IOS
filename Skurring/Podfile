@@ -7,12 +7,11 @@ target 'Skurring' do
 
   # Pods for Skurring
 
-  pod 'MarqueeLabel/Swift' 
-  pod 'Firebase/Database'
-  pod 'Firebase/Core'
+  pod 'MarqueeLabel/Swift'
   pod 'Google-Mobile-Ads-SDK'
   pod 'Alamofire'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod "AssistantKit"
 end
 
-topp 40 https://live-bauerno.sharp-stream.com/top40_no_mp3

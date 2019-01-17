@@ -14,7 +14,6 @@ class DS {
     
     public static var dsInstance = DS()
     
-    
     public var currentPlayingSong: Dictionary<String, String> = [
         "song": "Laster...",
         "artist": "Laster...",

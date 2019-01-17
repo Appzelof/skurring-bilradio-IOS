@@ -43,7 +43,7 @@ class DownloadCurrentArtImage {
 }
 
 func getAppIcon() -> UIImage {
-    return UIImage(named: "Skurring.png")!
+    return UIImage(named: "AppIcon")!
 }
 
 class makeImageFromUrl {

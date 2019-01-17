@@ -7,6 +7,7 @@
 
 
 import Foundation
+import FirebaseDatabase
 
 class RadioPlayer {
 
@@ -35,7 +36,41 @@ class RadioPlayer {
         return _radioStream
     }
     
+    /* Radiostations from firebase */
+    
+    var parsedRadioStations: [RadioPlayer]!
+    
+    /* Getting data from firebase */
+    
+    init?(dataFromFirebase: Any) {
+        parsedRadioStations = []
+        guard let firebaseSnapshots = dataFromFirebase as? [DataSnapshot] else {
+            return nil
+        }
+        
+        for stationsSnapshot in firebaseSnapshots {
+            if let station = stationsSnapshot.value as? [String: String] {
+                if let radioStation = RadioPlayer.init(imageUrl: station["imageUrl"], radioName: station["name"], radioStream: station["streamUrl"], radioSearchName: station["search"]) {
+                    parsedRadioStations.append(radioStation)
+                }
+            }
+        }
+ 
+    }
+    
+    /* Parsing each station from firebase */
+    
+    private init?(imageUrl: String?, radioName: String?, radioStream: String?, radioSearchName: String?) {
+        guard let theImageUrl = imageUrl, let theRadioName = radioName, let theRadioStream = radioStream, let theRadioSearchName = radioSearchName else {
+            return nil
+        }
+        self._imgPNG = theImageUrl
+        self._radioINFO = theRadioName
+        self._radioStream = theRadioStream
+        self._radioSearchName = theRadioSearchName
+    }
 
+    /* Useless */
     init(TheDict: Dictionary<String, String>) {
         self._imgPNG = TheDict["imageURL"]
         self._radioINFO = TheDict["name"]

@@ -11,7 +11,6 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleMobileAds
 import Firebase
-import Alamofire
 import CoreData
 
 
@@ -22,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         let vc = ViewController()
         let numberOfLaunches = UserDefaults.standard.integer(forKey: "launch")
             UserDefaults.standard.set(numberOfLaunches + 1, forKey: "launch")

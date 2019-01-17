@@ -41,6 +41,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } else {
             self.allStations = self.coreDataManager.getAllStations()
         }
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {

@@ -37,7 +37,7 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     /* Calling method to retrieve all stations from firebase */
     private func getRadioStationsFromFirebase() {
         loadingView.isLoading()
-        self.firebaseApiCalls.getAllNorwegianChannels { (allChannels) in
+        self.firebaseApiCalls.getAllNorwegianChannels(country: "Norway") { (allChannels) in
             self.loadingView.finishedLoading()
             self.arrayList = allChannels
             self.tableView.reloadData()

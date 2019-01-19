@@ -13,8 +13,8 @@ class API_CALLS {
     
     let database = Database.database().reference()
     
-    func getAllNorwegianChannels(when completed: @escaping (_ channels: [RadioPlayer]) -> Void) {
-        database.child("Norway").observeSingleEvent(of: .value, with: { (snapshot) in
+    func getAllNorwegianChannels(country: String, when completed: @escaping (_ channels: [RadioPlayer]) -> Void) {
+        database.child(country).observeSingleEvent(of: .value, with: { (snapshot) in
             if let allNorwegianStations = RadioPlayer.init(dataFromFirebase: snapshot.children.allObjects) {
                 completed(allNorwegianStations.parsedRadioStations)
             } 

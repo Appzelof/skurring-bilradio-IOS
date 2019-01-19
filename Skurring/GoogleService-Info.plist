@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>587873155413-np1kq85cmbja8bs2m89g416h7dk7bmcb.apps.googleusercontent.com</string>
+	<string>340678485281-dph5ai48o0aiua1ctucbih5tcbof1pn0.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.587873155413-np1kq85cmbja8bs2m89g416h7dk7bmcb</string>
+	<string>com.googleusercontent.apps.340678485281-dph5ai48o0aiua1ctucbih5tcbof1pn0</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAScJukqOG1RkxOZNTTpXj4WZq4fmYPWSg</string>
+	<string>AIzaSyD45BKqLZ7jaA2V_PbCcT5Mc8tq03mQ4O4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>587873155413</string>
+	<string>340678485281</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Appzelof.Skurring</string>
+	<string>com.appzelof.skurring</string>
 	<key>PROJECT_ID</key>
-	<string>dab-radio-bbe73</string>
+	<string>skurring-bilradio</string>
 	<key>STORAGE_BUCKET</key>
-	<string>dab-radio-bbe73.appspot.com</string>
+	<string>skurring-bilradio.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:587873155413:ios:968cfd79d01345d6</string>
+	<string>1:340678485281:ios:fe14411af2405e88</string>
 	<key>DATABASE_URL</key>
-	<string>https://dab-radio-bbe73.firebaseio.com</string>
+	<string>https://skurring-bilradio.firebaseio.com</string>
 </dict>
 </plist>

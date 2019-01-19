@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DBstations" representedClassName="DBstations" syncable="YES" codeGenerationType="class">
+        <attribute name="radioImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="radioName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="radioUrl" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Radiostations" representedClassName="Radiostations" syncable="YES" codeGenerationType="category">
         <attribute name="radioImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="radioInfo" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,5 +13,6 @@
     </entity>
     <elements>
         <element name="Radiostations" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="DBstations" positionX="-63" positionY="9" width="128" height="90"/>
     </elements>
 </model>

@@ -55,5 +55,45 @@ class CoreDataConfigurations {
         return stations
     }
     
+    //Metode som kan ta i mot og lagre data i coreData (Denne skal primært bli brukt mot parset data fra firebase)
+    func saveStationsFromDatabase(dbEntity: String, radioName: String, radioUrl: String, radioImage: NSData?) {
+        
+        //Setter entity så vi vet hvor dataen skal bli lagret
+        let entity = NSEntityDescription.entity(forEntityName: dbEntity, in: context)
+        let newValue = NSManagedObject.init(entity: entity!, insertInto: context)
+        
+        //Lagrer verdier fra denne funksjones parametere
+        newValue.setValue(radioName, forKey: radioName)
+        newValue.setValue(radioUrl, forKey: radioUrl)
+        newValue.setValue(radioImage, forKey: "radioImage")
+        
+        do {
+            try context.save()
+        } catch {
+            print("Could not save station")
+        }
+    }
+    
+    //Denne metoden henter ut alle data som er lagret i "DBStations" i data modellen
+    func getAllStationsFromCoreData(entityName: String, sortBy: String) -> [Any?] {
+        //Ny liste for radiostatsjonene
+        var objectList = [NSFetchRequestResult]()
+        
+        //Request
+        let request = NSFetchRequest<DBstations>(entityName: entityName)
+        
+        //Ny fetch requestController for å hente data
+        request.sortDescriptors = [NSSortDescriptor(key: sortBy, ascending: true, selector: nil)]
+        let fetchController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        
+        do {
+            try fetchController.performFetch()
+            objectList = fetchController.fetchedObjects!
+        } catch {
+            fatalError("Could not fetch data")
+        }
+        
+        return objectList
+    }
     
 }

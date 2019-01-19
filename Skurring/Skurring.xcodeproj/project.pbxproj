@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5B0DE78221F1004C001DA587 /* API_CALLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DE78121F1004C001DA587 /* API_CALLS.swift */; };
-		5B0DE78721F110F8001DA587 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0DE78621F110F8001DA587 /* GoogleService-Info.plist */; };
 		5B0DE78921F12649001DA587 /* RadioListLoadingVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0DE78821F12649001DA587 /* RadioListLoadingVIew.swift */; };
 		5B12CB1921E9E9390014A1C3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB1821E9E9390014A1C3 /* CoreDataManager.swift */; };
 		5B12CB1B21E9EA560014A1C3 /* Radiostations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B12CB1A21E9EA560014A1C3 /* Radiostations.swift */; };
@@ -27,6 +26,7 @@
 		652782DB1E4F5F160069A18A /* SkurringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652782DA1E4F5F160069A18A /* SkurringTests.swift */; };
 		652782E61E4F5F160069A18A /* SkurringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652782E51E4F5F160069A18A /* SkurringUITests.swift */; };
 		652782F81E5331040069A18A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 652782F71E5331040069A18A /* Assets.xcassets */; };
+		654D70EC21F3687D00FBF309 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 654D70EB21F3687D00FBF309 /* GoogleService-Info.plist */; };
 		659D88E11F614AF700FA1118 /* weatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659D88E01F614AF700FA1118 /* weatherDataModel.swift */; };
 		65A0DC311FA1F597008DC69E /* xmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A0DC301FA1F597008DC69E /* xmlParser.swift */; };
 		65A96C8B1E71656B0009F39D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A96C8A1E71656B0009F39D /* MapKit.framework */; };
@@ -81,7 +81,6 @@
 /* Begin PBXFileReference section */
 		173A62CA87489ECA4030F5CE /* Pods-Skurring.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skurring.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Skurring/Pods-Skurring.debug.xcconfig"; sourceTree = "<group>"; };
 		5B0DE78121F1004C001DA587 /* API_CALLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_CALLS.swift; sourceTree = "<group>"; };
-		5B0DE78621F110F8001DA587 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B0DE78821F12649001DA587 /* RadioListLoadingVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioListLoadingVIew.swift; sourceTree = "<group>"; };
 		5B12CB1821E9E9390014A1C3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5B12CB1A21E9EA560014A1C3 /* Radiostations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Radiostations.swift; sourceTree = "<group>"; };
@@ -106,6 +105,7 @@
 		652782E71E4F5F160069A18A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		652782F71E5331040069A18A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6545D5901F0041FA001D256A /* Skurring.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Skurring.entitlements; path = Skurring/Skurring.entitlements; sourceTree = "<group>"; };
+		654D70EB21F3687D00FBF309 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		659D88E01F614AF700FA1118 /* weatherDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = weatherDataModel.swift; sourceTree = "<group>"; };
 		65A0DC301FA1F597008DC69E /* xmlParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xmlParser.swift; sourceTree = "<group>"; };
 		65A96C8A1E71656B0009F39D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -230,7 +230,7 @@
 		652782C41E4F5F160069A18A /* Skurring */ = {
 			isa = PBXGroup;
 			children = (
-				5B0DE78621F110F8001DA587 /* GoogleService-Info.plist */,
+				654D70EB21F3687D00FBF309 /* GoogleService-Info.plist */,
 				5B0DE78021F0FFFD001DA587 /* Firebase */,
 				DFF4E93C1FB49E5A006262BD /* DataService */,
 				DF276BE41FB3A7120068F1A3 /* XMLManager */,
@@ -537,7 +537,7 @@
 			files = (
 				652782D01E4F5F160069A18A /* LaunchScreen.storyboard in Resources */,
 				652782F81E5331040069A18A /* Assets.xcassets in Resources */,
-				5B0DE78721F110F8001DA587 /* GoogleService-Info.plist in Resources */,
+				654D70EC21F3687D00FBF309 /* GoogleService-Info.plist in Resources */,
 				65B04DC11EFBE2AE002B60FB /* Digital.ttf in Resources */,
 				652782CB1E4F5F160069A18A /* Main.storyboard in Resources */,
 			);

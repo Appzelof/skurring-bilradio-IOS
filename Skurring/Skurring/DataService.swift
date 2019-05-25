@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AssistantKit
 import AudioToolbox
 
 class DS {
@@ -20,8 +19,8 @@ class DS {
         "radioChannel": "Laster..."
     ]
     
-    let phoneVersion = Device.version
-    
+    //let phoneVersion = Device.version
+    /*
     public func checkDevice() {
         switch phoneVersion {
         case .phone4, .phone4S, .phone5, .phone5C, .phone5S, .phone6, .phone6S, .phone6Plus, .phone6SPlus, .phoneSE:
@@ -61,4 +60,5 @@ class DS {
         let vibrate = kSystemSoundID_Vibrate
         AudioServicesPlaySystemSound(vibrate)
     }
+ */
 }

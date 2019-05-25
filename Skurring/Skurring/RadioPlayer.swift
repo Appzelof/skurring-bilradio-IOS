@@ -32,7 +32,7 @@ func setUpPlayer() {
 //Just in case noen klikker på sleep mens radioen spiller av, så stopper ikke radioen, setter også opp bluetooth her
 func setUpBackgroundMode() {
     do {
-        try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .defaultToSpeaker)
+        try AVAudioSession.sharedInstance().setCategory(.playback, options: .defaultToSpeaker)
     } catch let err as NSError {
         print("Noe gikk galt, dette er err: \(err.debugDescription)")
     }

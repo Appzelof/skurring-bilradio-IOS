@@ -25,7 +25,7 @@ class MapLogic: NSObject, MKMapViewDelegate {
     }
     
     private func configureMap(map: MKMapView) {
-        let span = MKCoordinateSpanMake(0.1, 0.1)
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         self.addAnnotation(multiLocation: true, span: span, map: map)
     }
     
@@ -65,7 +65,7 @@ class MapLogic: NSObject, MKMapViewDelegate {
         self.addOrCheck(map: map, add: true, location: nil)
         if multiLocations.count > 0 {
             let location = CLLocationCoordinate2DMake(map.userLocation.coordinate.latitude, map.userLocation.coordinate.longitude)
-            let region = MKCoordinateRegionMake(location, span)
+            let region = MKCoordinateRegion(center: location, span: span)
             map.setRegion(region, animated: true)
         }
     }

@@ -114,7 +114,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
      */
     
     func longPressed(spot: Int) {
-        DS.dsInstance.checkDevice()
+      //  DS.dsInstance.checkDevice()
         print("Spot: \(spot)")
         self.performSegue(withIdentifier: "RadioList", sender: spot)
     }
@@ -122,7 +122,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func pressed(station: Radiostations) {
         if station.radioStream != "" {
             if let imageData = station.radioImage, let radioStream = station.radioStream, let radioInfo = station.radioInfo {
-                let theObjectSender = SendObject.init(image: imageData, URL: radioStream, radioInfo: radioInfo, radioNumber: Int(station.radioSpot))
+                let theObjectSender = SendObject.init(image: imageData as NSData, URL: radioStream, radioInfo: radioInfo, radioNumber: Int(station.radioSpot))
                 self.performSegue(withIdentifier: "PlayVC", sender: theObjectSender)
             }
             

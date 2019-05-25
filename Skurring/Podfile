@@ -6,12 +6,9 @@ target 'Skurring' do
   use_frameworks!
 
   # Pods for Skurring
-
-  pod 'MarqueeLabel/Swift'
-  pod 'Google-Mobile-Ads-SDK'
-  pod 'Alamofire'
+  pod 'MarqueeLabel'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
-  pod "AssistantKit"
+  pod 'Alamofire'
 end
 

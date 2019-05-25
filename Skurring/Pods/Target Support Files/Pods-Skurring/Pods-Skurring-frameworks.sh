@@ -144,7 +144,6 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/AssistantKit/AssistantKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework"
@@ -152,7 +151,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/AssistantKit/AssistantKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework"

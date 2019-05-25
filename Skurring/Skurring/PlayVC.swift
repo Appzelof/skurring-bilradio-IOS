@@ -151,7 +151,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
     }
     
     private func updateCollectionViewPositionAndRadioName() {
-        self.theCollectionView.scrollToItem(at: IndexPath.init(row: counter, section: 0), at: UICollectionViewScrollPosition.left, animated: false)
+        self.theCollectionView.scrollToItem(at: IndexPath.init(row: counter, section: 0), at: UICollectionView.ScrollPosition.left, animated: false)
     }
     
     //CollectionView methods
@@ -229,7 +229,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
             self.counter = visibleIndexPath.row
             if self.counter != thePrevCounter {
                 self.playRadio(linken: indexObject.radioStream)
-                DS.dsInstance.checkDevice()
+              //  DS.dsInstance.checkDevice()
             }
             thePrevCounter = self.counter
         }
@@ -239,7 +239,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         NotificationCenter.default.removeObserver(self)
     }
     
-    func NårManFårNyRadioInfo(notification: NSNotification) {
+    @objc func NårManFårNyRadioInfo(notification: NSNotification) {
         
         if Player.radio.timedMetadata != nil && Player.radio.timedMetadata.count > 0 {
             let firstMeta: MPTimedMetadata = Player.radio.timedMetadata.first as! MPTimedMetadata
@@ -300,7 +300,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
         }
     }
     
-    func NårEnErrorOppstårMenSpilling(notification: NSNotification) {
+    @objc func NårEnErrorOppstårMenSpilling(notification: NSNotification) {
         
         //Her kan du skrive inn hvilke beskjed du vil gi bruker hvis en error oppstår ved avspilling, også sette inn enten flere eller andre funksjoner
         

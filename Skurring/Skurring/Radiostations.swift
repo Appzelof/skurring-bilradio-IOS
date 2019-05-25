@@ -21,9 +21,9 @@ class Radiostations: NSManagedObject {
         self.radioInfo = radioRequestedToSave.radioInfo
         self.radioSpot = Int32(radioRequestedToSave.radioSpot)
         
-        let imageData = UIImagePNGRepresentation(radioImageRequestedToSave)
+        let imageData = radioImageRequestedToSave.pngData()
         if imageData != nil {
-            self.radioImage = imageData! as NSData
+            self.radioImage = imageData! as Data
         }
     }
     

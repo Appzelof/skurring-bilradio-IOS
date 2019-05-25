@@ -78,7 +78,7 @@ class HjelpVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKM
                     annotation.coordinate = location
                     annotation.title = "Her har du parkert"
                     mapView.addAnnotation(annotation)
-                    self.parkBtn.setTitle("", for: UIControlState.normal)
+                    self.parkBtn.setTitle("", for: UIControl.State.normal)
                     
                     if let endParkingImage = UIImage(named: "no-parking-sign") {
                         self.parkBtn.setImage(endParkingImage, for: .normal)
@@ -194,25 +194,25 @@ class HjelpVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKM
     }
     
     @objc private func scrollToUserLocation() {
-        let span = MKCoordinateSpanMake(0.002, 0.002)
+        let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
         let myLocation = CLLocationCoordinate2DMake(self.mapView.userLocation.coordinate.latitude, self.mapView.userLocation.coordinate.longitude)
-        let region = MKCoordinateRegionMake(myLocation, span)
+        let region = MKCoordinateRegion(center: myLocation, span: span)
         self.mapView.setRegion(region, animated: true)
     }
     
     @objc private func scrollToCarLocation() {
-        let span = MKCoordinateSpanMake(0.002, 0.002)
+        let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
         let carLocation = CLLocationCoordinate2DMake(self.annotation.coordinate.latitude, self.annotation.coordinate.longitude)
-        let region = MKCoordinateRegionMake(carLocation, span)
+        let region = MKCoordinateRegion(center: carLocation, span: span)
         self.mapView.setRegion(region, animated: true)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if !locations.isEmpty {
             let location = locations[0]
-            let span = MKCoordinateSpanMake(0.002, 0.002)
+            let span = MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
             let myLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-            let region = MKCoordinateRegionMake(myLocation, span)
+            let region = MKCoordinateRegion(center: myLocation, span: span)
             if !hasUpdatedMap {
                 mapView.setRegion(region, animated: true)
                 hasUpdatedMap = true
@@ -264,8 +264,8 @@ class HjelpVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKM
             self.drawLineToCarBtn.isHidden = true
             self.carInfoView.alpha = 0
             self.carInfoView.isHidden = true
-            self.mapView.remove(self.polyLineOverlay.polyline)
-            self.parkBtn.setTitle("P", for: UIControlState.normal)
+            self.mapView.removeOverlay(self.polyLineOverlay.polyline)
+            self.parkBtn.setTitle("P", for: UIControl.State.normal)
             self.parkBtn.setImage(UIImage(), for: .normal)
         })
     }
@@ -286,7 +286,7 @@ class HjelpVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKM
             self.carInfoView.isHidden = false
             self.drawLineToCarBtn.alpha = 1
             self.drawLineToCarBtn.isHidden = false
-            self.parkBtn.setTitle("", for: UIControlState.normal)
+            self.parkBtn.setTitle("", for: UIControl.State.normal)
             if let endParkingImage = UIImage(named: "no-parking-sign") {
                 self.parkBtn.setImage(endParkingImage, for: .normal)
             }
@@ -305,7 +305,7 @@ class HjelpVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKM
     
     private func drawLineFromCarToUser(transportType: MKDirectionsTransportType) {
         if self.mapView.overlays.count > 0 {
-            self.mapView.remove(self.polyLineOverlay.polyline)
+            self.mapView.removeOverlay(self.polyLineOverlay.polyline)
         }
         
         let sourceLocation = CLLocationCoordinate2D.init(latitude: mapView.userLocation.coordinate.latitude, longitude: mapView.userLocation.coordinate.longitude)
@@ -317,7 +317,7 @@ class HjelpVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKM
         let sourceMapItem = MKMapItem.init(placemark: sourcePlacemark)
         let destinationMapItem = MKMapItem.init(placemark: destinationPlacemark)
         
-        let directionRequest = MKDirectionsRequest()
+        let directionRequest = MKDirections.Request()
         directionRequest.source = sourceMapItem
         directionRequest.destination = destinationMapItem
         directionRequest.transportType = transportType
@@ -329,7 +329,7 @@ class HjelpVC: UIViewController, UITableViewDelegate, UITableViewDataSource, MKM
                     if !theResponse.routes.isEmpty {
                         let route = theResponse.routes[0]
                         self.polyLineOverlay = route
-                        self.mapView.add(self.polyLineOverlay.polyline, level: MKOverlayLevel.aboveRoads)
+                        self.mapView.addOverlay(self.polyLineOverlay.polyline, level: MKOverlayLevel.aboveRoads)
                     }
                 }
             } else {

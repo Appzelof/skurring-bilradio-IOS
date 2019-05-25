@@ -19,6 +19,8 @@ class DS {
         "radioChannel": "Laster..."
     ]
     
+    var stationImageCache: NSCache<NSString, UIImage> = NSCache()
+    
     //let phoneVersion = Device.version
     /*
     public func checkDevice() {

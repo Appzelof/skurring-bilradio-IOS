@@ -51,7 +51,7 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
             self.inSearchMode = true
             self.TheSearchBar.setShowsCancelButton(true, animated: true)
             let lower = self.TheSearchBar.text!.lowercased()
-            filteredArrayList = radioInformation.theStationObjects.filter({ $0.radioSearchName.range(of: lower) != nil})
+            filteredArrayList = arrayList.filter({ $0.radioSearchName.range(of: lower) != nil})
             self.tableView.reloadData()
         } else {
             self.inSearchMode = false

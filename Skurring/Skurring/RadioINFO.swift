@@ -7,7 +7,6 @@
 
 
 import Foundation
-import FirebaseDatabase
 
 class RadioPlayer {
 
@@ -41,7 +40,7 @@ class RadioPlayer {
     var parsedRadioStations: [RadioPlayer]!
     
     /* Getting data from firebase */
-    
+    /*
     init?(dataFromFirebase: Any) {
         parsedRadioStations = []
         guard let firebaseSnapshots = dataFromFirebase as? [DataSnapshot] else {
@@ -57,7 +56,7 @@ class RadioPlayer {
         }
  
     }
-    
+ */
     /* Parsing each station from firebase */
     
     private init?(imageUrl: String?, radioName: String?, radioStream: String?, radioSearchName: String?) {

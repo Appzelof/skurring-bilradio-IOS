@@ -15,8 +15,8 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var loadingView: RadioListLoadingView!
     
-    var arrayList = [RadioPlayer]() //radioInformation.theStationObjects
-    var filteredArrayList = [RadioPlayer]() //radioInformation.theFilteredStationsObjects
+    var arrayList = radioInformation.theStationObjects
+    var filteredArrayList = radioInformation.theFilteredStationsObjects
     var radioSpot: Int!
     var coreDataManager: CoreDataManager!
     private var firebaseApiCalls: API_CALLS!
@@ -31,17 +31,6 @@ class RadioListVC: UIViewController, UITableViewDataSource, UITableViewDelegate,
         self.TheSearchBar.delegate = self
         self.TheSearchBar.returnKeyType = .done
         self.backButton.imageView?.contentMode = .scaleAspectFit
-        getRadioStationsFromFirebase()
-    }
-    
-    /* Calling method to retrieve all stations from firebase */
-    private func getRadioStationsFromFirebase() {
-        loadingView.isLoading()
-        self.firebaseApiCalls.getAllNorwegianChannels(country: "Norway") { (allChannels) in
-            self.loadingView.finishedLoading()
-            self.arrayList = allChannels
-            self.tableView.reloadData()
-        }
     }
     
     //SearchBarMetoder

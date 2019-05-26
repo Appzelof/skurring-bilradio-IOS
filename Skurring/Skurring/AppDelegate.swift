@@ -9,7 +9,6 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-import Firebase
 import CoreData
 
 
@@ -20,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
         let vc = ViewController()
         let numberOfLaunches = UserDefaults.standard.integer(forKey: "launch")
             UserDefaults.standard.set(numberOfLaunches + 1, forKey: "launch")

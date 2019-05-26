@@ -7,8 +7,6 @@ target 'Skurring' do
 
   # Pods for Skurring
   pod 'MarqueeLabel'
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
   pod 'Alamofire'
 end
 

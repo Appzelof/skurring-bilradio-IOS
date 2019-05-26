@@ -6,11 +6,10 @@
 //  Copyright © 2019 Appzelof. All rights reserved.
 //
 
-import FirebaseDatabase
 
 class API_CALLS {
     
-    
+    /*
     let database = Database.database().reference()
     
     func getAllNorwegianChannels(country: String, when completed: @escaping (_ channels: [RadioPlayer]) -> Void) {
@@ -21,5 +20,6 @@ class API_CALLS {
             } 
         })
     }
+ */
         
 }

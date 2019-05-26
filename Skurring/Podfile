@@ -8,5 +8,6 @@ target 'Skurring' do
   # Pods for Skurring
   pod 'MarqueeLabel'
   pod 'Alamofire'
+  pod 'AssistantKit'
 end
 

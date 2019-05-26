@@ -25,6 +25,10 @@ class CoreDataManager {
         self.coreDataConfigurations.saveOrReplaceRadioStation(radioStation: radioStation, radioImage: radioStation.image)
     }
     
+    func deleteRadioStation(radioStationsObject: Radiostations) {
+        self.coreDataConfigurations.deleteRadioStation(radioStationsObject: radioStationsObject)
+    }
+    
     func getAllStations() -> [Radiostations] {
         return self.coreDataConfigurations.getAllStations()
     }

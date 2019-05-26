@@ -316,14 +316,6 @@ struct radioInformation{
         ],
         
         [
-            "search": "nrk p3 nationalrapshow",
-            "desc": "Rap/Hipop",
-            "name": "NRKP3 National Rapshow",
-            "streamURL": "http://lyd.nrk.no/nrk_radio_p3_national_rap_show_mp3_h.m3u",
-            "imageURL": "NationalRap"
-        ],
-        
-        [
             "search": "nrk p3 urørt",
             "desc": "Pop/Contemporary",
             "name": "NRKP3 Urørt",
@@ -344,14 +336,14 @@ struct radioInformation{
             "search": "p4",
             "desc": "Entertainment/Hits",
             "name": "P4",
-            "streamURL": "http://stream.p4.no/p4_mp3_hq",
+            "streamURL": "https://p4.p4groupaudio.com/P04_MH",
             "imageURL": "1"
         ],
         [
             "search": "p4 bandit",
             "desc": "Classic rock/Alternative rock",
             "name": "P4 Bandit",
-            "streamURL": "http://stream.p4.no/bandit_mp3_hq",
+            "streamURL": "https://p11.p4groupaudio.com/P11_MH",
             "imageURL": "27"
         ],
         
@@ -359,43 +351,23 @@ struct radioInformation{
             "search": "p5 nonstop hits",
             "desc": "Hits/Top40",
             "name": "P5 Nonstop Hits",
-            "streamURL": "http://stream.p4.no/p5nonstophits_mp3_hq",
+            "streamURL": "https://p5n.p4groupaudio.com/P05AMM",
             "imageURL": "28"
         ],
         
         [
-            "search": "p5 oslo",
+            "search": "p5 hits",
             "desc": "Hits/Top40",
-            "name": "P5 Oslo",
-            "streamURL": "http://stream.p4.no/p5oslo_mp3_hq",
-            "imageURL": "29"
+            "name": "P5 Hits",
+            "streamURL": "https://p5.p4groupaudio.com/P05_MM",
+            "imageURL": "p5 hits"
         ],
-        [
-            "search": "p5 bergen",
-            "desc": "Hits/Top40",
-            "name": "P5 Bergen",
-            "streamURL": "http://stream.p4.no/p5bergen_mp3_hq",
-            "imageURL": "Bergen"
-        ],
-        [
-            "search": "p5 stavanger",
-            "desc": "Hits/Top40",
-            "name": "P5 Stavanger",
-            "streamURL": "http://stream.p4.no/p5stavanger_mp3_hq",
-            "imageURL": "Stavanger"
-        ],
-        [
-            "search": "p5 trondheim",
-            "desc": "Hits/Top40",
-            "name": "P5 Trondheim",
-            "streamURL": "http://stream.p4.no/p5trondheim_mp3_hq",
-            "imageURL": "31"
-        ],
+        
         [
             "search": "p6 rock",
             "desc": "Rock",
             "name": "P6 Rock",
-            "streamURL": "http://stream.p4.no/p6_mp3_hq",
+            "streamURL": "https://p6.p4groupaudio.com/P06_MM",
             "imageURL": "18"
         ],
         
@@ -403,14 +375,14 @@ struct radioInformation{
             "search": "p7 klem",
             "desc": "Adult Contemporary",
             "name": "P7 Klem",
-            "streamURL": "http://stream.p4.no/p7_mp3_hq",
+            "streamURL": "https://p7.p4groupaudio.com/P07_MM",
             "imageURL": "4"
         ],
         [
             "search": "p8 pop",
             "desc": "Hits/80s",
             "name": "P8 Pop",
-            "streamURL": "http://stream.p4.no/p8_mp3_hq",
+            "streamURL": "https://p8.p4groupaudio.com/P08_MM",
             "imageURL": "33"
         ],
         
@@ -418,7 +390,7 @@ struct radioInformation{
             "search": "p9 retro",
             "desc": "Classics",
             "name": "P9 Retro",
-            "streamURL": "http://stream.p4.no/p9_mp3_hq",
+            "streamURL": "https://p9.p4groupaudio.com/P09_MM",
             "imageURL": "35"
         ],
         
@@ -426,7 +398,7 @@ struct radioInformation{
             "search": "p10 country",
             "desc": "Country",
             "name": "P10 Country",
-            "streamURL": "http://stream.p4.no/p10_mp3_hq",
+            "streamURL": "https://p10.p4groupaudio.com/P10_MM",
             "imageURL": "country"
         ],
         
@@ -434,7 +406,7 @@ struct radioInformation{
             "search": "kiss",
             "desc": "Top40",
             "name": "Kiss",
-            "streamURL": "https://live-bauerno.sharp-stream.com/kiss_no_mp3?",
+            "streamURL": "https://live-bauerno.sharp-stream.com/kiss_no_mp3",
             "imageURL": "Kiss"
         ],
         
@@ -442,7 +414,7 @@ struct radioInformation{
             "search": "kisstory",
             "desc": "Top40",
             "name": "Kisstory",
-            "streamURL": "https://live-bauerno.sharp-stream.com/kisstory_no_mp3?",
+            "streamURL": "https://live-bauerno.sharp-stream.com/kisstory_no_mp3",
             "imageURL": "23"
         ],
         
@@ -472,7 +444,13 @@ struct radioInformation{
         ],
         
         
-        
+        [
+            "search": "p24-7 mix",
+            "desc": "Easy Listening",
+            "name": "P24-7 mix",
+            "streamURL": "https://live-bauerno.sharp-stream.com/p247mix_no_mp3",
+            "imageURL": "p24-mix"
+        ],
         
         [
             "search": "the beat",
@@ -490,13 +468,11 @@ struct radioInformation{
             "imageURL": "topp 40"
         ],
         
-        
-        
         [
             "search": "nrj",
             "desc": "Hits/Top40",
             "name": "NRJ",
-            "streamURL": "http://stream.p4.no/nrj_mp3_hq",
+            "streamURL": "https://nrj.p4groupaudio.com/NRJ_MH",
             "imageURL": "3"
         ],
         
@@ -515,15 +491,6 @@ struct radioInformation{
             "streamURL": "https://live-bauerno.sharp-stream.com/radiorock_no_mp3",
             "imageURL": "21"
         ],
-        [
-            "search": "radio norge soft",
-            "desc": "Easy Listening",
-            "name": "Radio Norge Soft",
-            "streamURL": "http://onair.100fmlive.dk/soft_live.mp3",
-            "imageURL": "22"
-        ],
-        
-        
         
         
         [
@@ -532,14 +499,6 @@ struct radioInformation{
             "name": "Radio 102",
             "streamURL": "http://downstream.radio.raw.no:8000/radio102.m3u",
             "imageURL": "Radio102"
-        ],
-        
-        [
-            "search": "radio trondheim",
-            "desc": "Local",
-            "name": "Radio Trondheim",
-            "streamURL": "http://nettradio.radiotrondheim.no:8000/lytte",
-            "imageURL": "Radio Trondheim"
         ],
         
         [
@@ -612,15 +571,6 @@ struct radioInformation{
             "streamURL": "http://stream.radiorox.no:8040/listen.pls",
             "imageURL": "rox"
         ],
-        
-        [
-            "search": "scansat",
-            "desc": "Scandinavian Satelite Radio",
-            "name": "Scansat",
-            "streamURL": "http://stream.radioh.no:443/scan128.m3u",
-            "imageURL": "Scansat"
-        ],
-        
         
         [
             "search": "ordentlig radio",

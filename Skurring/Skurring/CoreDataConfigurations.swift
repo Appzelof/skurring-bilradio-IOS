@@ -35,6 +35,11 @@ class CoreDataConfigurations {
         }
     }
     
+    func deleteRadioStation(radioStationsObject: Radiostations) {
+        self.context.delete(radioStationsObject)
+        self.appDelegate.saveContext()
+    }
+    
     /*Lagrer ny radiostasjon på plassen den ble klikket på, på viewController(MainPage)*/
     func saveOrReplaceRadioStation(radioStation: MainScreenRadioObjects, radioImage: UIImage) {
         checkIfSpotIsTaken(spot: radioStation.radioSpot)

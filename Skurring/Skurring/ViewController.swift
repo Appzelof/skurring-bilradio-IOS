@@ -28,13 +28,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.viewDidLoad()
         
         coreDataManager = CoreDataManager()
-        allStations = coreDataManager.getAllStations()
         self.channelCollectionView.delegate = self
         self.channelCollectionView.dataSource = self
         self.channelCollectionView.isScrollEnabled = false
         setUpBackgroundMode()
-        radioInformation.parse()
-        
+        radioInformation.parse(coreDataManager: coreDataManager)
+        allStations = coreDataManager.getAllStations()
         
         if allStations.isEmpty {
             self.allStations = lagTommeObjekterTilMainScreenRadioObjectsHvisArrayenErTom(context: self.coreDataManager.context)
@@ -54,7 +53,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var channelCellIndexInfo: Radiostations!
         if indexPath.row < 6 {
-            channelCellIndexInfo = self.allStations[indexPath.row] //May need to sort this?
+            channelCellIndexInfo = self.allStations[indexPath.row]
         }
         
         if indexPath.row == 6 {
@@ -114,7 +113,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
      */
     
     func longPressed(spot: Int) {
-      //  DS.dsInstance.checkDevice()
+        DS.dsInstance.checkDevice()
         print("Spot: \(spot)")
         self.performSegue(withIdentifier: "RadioList", sender: spot)
     }

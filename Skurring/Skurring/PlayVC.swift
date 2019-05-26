@@ -229,7 +229,7 @@ class PlayVC:  UIViewController, CLLocationManagerDelegate, UICollectionViewData
             self.counter = visibleIndexPath.row
             if self.counter != thePrevCounter {
                 self.playRadio(linken: indexObject.radioStream)
-              //  DS.dsInstance.checkDevice()
+                DS.dsInstance.checkDevice()
             }
             thePrevCounter = self.counter
         }

@@ -7,6 +7,7 @@
 
 
 import Foundation
+import UIKit
 
 class RadioPlayer {
 
@@ -91,17 +92,42 @@ struct radioInformation{
     static var theStationObjects: [RadioPlayer] = []
     static var theFilteredStationsObjects: [RadioPlayer] = []
     
-    static func parse(){
+    static func parse(coreDataManager: CoreDataManager){
+        var stationDict: Dictionary<String, RadioPlayer> = [:]
         for data in stations {
             let Object = RadioPlayer.init(TheDict: data)
+            stationDict[Object.radioINFO] = Object
             radioInformation.theStationObjects.append(Object)
         }
         
+        let savedStations = coreDataManager.getAllStations()
+        
+        if !savedStations.isEmpty {
+            for savedStation in savedStations {
+                
+                if let theRadioInfo = savedStation.radioInfo, let theSavedRadioStreamUrl = savedStation.radioStream {
+                    //Checking if a newer version exists and then it's replaced with the new one.
+                    if let theUpdatedStation = stationDict[theRadioInfo], let theImage = UIImage(named: theUpdatedStation.imgPNG) {
+                        let mainScreenRadioObject = MainScreenRadioObjects(image: theImage, URL: theUpdatedStation.radioStream, radioInfo: theRadioInfo, radioSpot: Int(savedStation.radioSpot))
+                        
+                        //Making sure that nothing will be updated unless it has to.
+                        if theUpdatedStation.radioStream != theSavedRadioStreamUrl {
+                            coreDataManager.saveOrReplaceRadioStation(radioStation: mainScreenRadioObject)
+                        }
+                    } else {
+                        //If the station doesnt exist anymore, it gets replaced (deleted).
+                        if theRadioInfo != "" {
+                            coreDataManager.saveOrReplaceRadioStation(radioStation: MainScreenRadioObjects(image: UIImage(), URL: "", radioInfo: "", radioSpot: Int(savedStation.radioSpot)))
+                        }
+                    }
+                    
+                }
+                
+            }
+        }
     }
     
     static let stations: [Dictionary<String, String>] = [
-        
-       
         [
             "search": "nrk mp3",
             "desc": "Hits/Top40",

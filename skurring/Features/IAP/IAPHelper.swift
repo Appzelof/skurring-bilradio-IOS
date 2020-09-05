@@ -11,9 +11,6 @@ import StoreKit
 
 final class IAPHelper: NSObject {
     static let shared = IAPHelper()
-
-    private let monthlySubscriptionID = "com.appzelof.skurring.subscription"
-
     private var products: [String: SKProduct] = [:]
 
     override init() {
@@ -22,7 +19,7 @@ final class IAPHelper: NSObject {
     }
 
     func fetchProducts() {
-        let productIDs = Set([monthlySubscriptionID])
+        let productIDs = Set([monthlySubscriptionId])
         let request = SKProductsRequest(productIdentifiers: productIDs)
         request.delegate = self
         request.start()

@@ -231,10 +231,6 @@ class RadioPlayerViewController: UIViewController {
         portraitConstraints =
 
             [
-                weatherView.heightAnchor.constraint(equalToConstant: 100),
-                weatherView.widthAnchor.constraint(equalToConstant: 100),
-                weatherView.topAnchor.constraint(equalTo: speedometer.bottomAnchor, constant: 40),
-                weatherView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
                 speedometer.heightAnchor.constraint(equalToConstant: 100),
                 speedometer.widthAnchor.constraint(equalToConstant: 120),
@@ -244,7 +240,12 @@ class RadioPlayerViewController: UIViewController {
                 featureStack.widthAnchor.constraint(equalToConstant: 270),
                 featureStack.heightAnchor.constraint(equalToConstant: 40),
                 featureStack.bottomAnchor.constraint(equalTo: radioNameTextLabel.topAnchor, constant: -20),
-                featureStack.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+                featureStack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
+                weatherView.heightAnchor.constraint(equalToConstant: 100),
+                weatherView.widthAnchor.constraint(equalToConstant: 100),
+                weatherView.topAnchor.constraint(equalTo: speedometer.bottomAnchor, constant: 40),
+                weatherView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             ]
 
         NSLayoutConstraint.activate(portraitConstraints)

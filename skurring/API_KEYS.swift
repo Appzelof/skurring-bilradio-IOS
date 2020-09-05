@@ -8,4 +8,4 @@
 
 import Foundation
 
-static let monthlySubscriptionId = "com.appzelof.skurring.subscription"
+public let monthlySubscriptionId = "com.appzelof.skurring.subscription"

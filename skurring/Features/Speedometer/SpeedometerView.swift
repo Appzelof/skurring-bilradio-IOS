@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 import CoreLocation
 
-
-//TODO: - Location logic needs to come from an own class.
-class SpeedometerView: UIView {
+final class SpeedometerView: UIView {
 
     private lazy var speedLabel: UILabel = createLabel()
 
@@ -21,7 +19,12 @@ class SpeedometerView: UIView {
         addSubview(speedLabel)
         addConstraints()
 
-        LocationManager.shared.locationDelegate = self
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateSpeed(notification:)),
+            name: .kilometersPerHour,
+            object: nil
+        )
     }
 
     private func addConstraints() {
@@ -38,8 +41,13 @@ class SpeedometerView: UIView {
     }
 
     deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: .kilometersPerHour,
+            object: nil
+        )
+        
         LocationManager.shared.stopUpdatingLocation()
-        LocationManager.shared.locationDelegate = nil
     }
 
     required init?(coder: NSCoder) {
@@ -50,7 +58,7 @@ class SpeedometerView: UIView {
         let mutableSpeed = NSMutableAttributedString()
 
         let speedAttribute = NSAttributedString(
-            string: info + "\n", attributes: [NSAttributedString.Key.font: UIFont(name: "Digital dream Fat", size: 60) ?? .italicSystemFont(ofSize: 50)]
+            string: info + "\n", attributes: [NSAttributedString.Key.font: UIFont(name: "Digital dream Fat", size: 50) ?? .italicSystemFont(ofSize: 50)]
         )
         let kilometerAttribute = NSAttributedString(
             string: "km/h", attributes: [NSAttributedString.Key.font : UIFont(name: "Digital dream Narrow", size: 15) ?? .italicSystemFont(ofSize: 10)]
@@ -63,9 +71,15 @@ class SpeedometerView: UIView {
     }
 }
 
-extension SpeedometerView: LocationHandlerDelegate {
-    func speedDidUpdate(speed: String) {
-        speedLabel.attributedText = createMutableText(with: speed)
+extension SpeedometerView {
+    @objc
+    private func updateSpeed(notification: Notification) {
+        guard
+            let dictionary = notification.userInfo as? [LocationKeys: String],
+            let kilometersPerHour = dictionary[.kilometersPerHour]?.description
+            else { return }
+
+        speedLabel.attributedText = createMutableText(with: kilometersPerHour)
     }
 }
 

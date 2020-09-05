@@ -94,7 +94,6 @@ extension WeatherView: LocationHandlerDelegate {
     func coordinatesDidUpdate(lat: Double, lon: Double) {
         guard weatherImageView.image == nil else { return }
         self.weatherUri = "https://api.met.no/weatherapi/locationforecast/2.0/complete.json?lat=" + "\(lat)" + "&lon=" + "\(lon)"
-        print(weatherUri)
         self.fetchWeather(uri: self.weatherUri)
     }
 }

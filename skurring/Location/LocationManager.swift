@@ -10,12 +10,15 @@ import Foundation
 import CoreLocation
 
 protocol LocationHandlerDelegate: class {
-    func speedDidUpdate(speed: String)
     func coordinatesDidUpdate(lat: Double, lon: Double)
 }
 extension LocationHandlerDelegate {
-    func speedDidUpdate(speed: String) {}
     func coordinatesDidUpdate(lat: Double, lon: Double) {}
+}
+
+enum LocationKeys: String {
+    case kilometersPerHour = "KilometersPerHour"
+    case coordinates = "Coordinates"
 }
 
 class LocationManager: NSObject {
@@ -25,6 +28,8 @@ class LocationManager: NSObject {
     weak var locationDelegate: LocationHandlerDelegate?
 
     private let locationManager = CLLocationManager()
+
+    private lazy var kilometersPerHourDict: [LocationKeys: String] = [:]
 
      private override init() {
         super.init()
@@ -55,11 +60,19 @@ extension LocationManager: CLLocationManagerDelegate {
 
         let convertedSpeed = Int(location.speed * 3600 / 1000)
         let isNegative = convertedSpeed < 0
-        let kilometerPerHour = !isNegative ? convertedSpeed : 0
-
+        let kilometersPerHour = !isNegative ? convertedSpeed : 0
 
 // MARK: - lat and lon should only have 4 decimals.Œ
         locationDelegate?.coordinatesDidUpdate(lat: latitude, lon: longitude)
-        locationDelegate?.speedDidUpdate(speed: "\(kilometerPerHour)")
+        kilometersPerHourDict[.kilometersPerHour] = kilometersPerHour.description
+        NotificationCenter.default.post(
+            name: .kilometersPerHour,
+            object: nil,
+            userInfo: kilometersPerHourDict
+        )
     }
+}
+
+extension Notification.Name {
+    static let kilometersPerHour = Notification.Name(rawValue: "KilometersPerHour")
 }

@@ -38,6 +38,8 @@
 		A648100E23A192B000BD1193 /* audio.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A648100D23A192B000BD1193 /* audio.mp4 */; };
 		A648101123A1957E00BD1193 /* FeatureStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648101023A1957E00BD1193 /* FeatureStackView.swift */; };
 		A64FF9972503C8390092886D /* API_KEYS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF9962503C8390092886D /* API_KEYS.swift */; };
+		A64FF99925042E420092886D /* WeatherViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF99825042E420092886D /* WeatherViewProvider.swift */; };
+		A64FF99B250434EA0092886D /* SpeedometerViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF99A250434EA0092886D /* SpeedometerViewProvider.swift */; };
 		A670FD3D22DCBDD600A8A223 /* StyleGuideFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670FD3C22DCBDD600A8A223 /* StyleGuideFactory.swift */; };
 		A671D9AB239C55EF009ECF19 /* CommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A671D9AA239C55EF009ECF19 /* CommandCenter.swift */; };
 		A676B5EB2501005300538A03 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A676B5EA2501005300538A03 /* AlertManager.swift */; };
@@ -119,6 +121,8 @@
 		A648100D23A192B000BD1193 /* audio.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio.mp4; sourceTree = "<group>"; };
 		A648101023A1957E00BD1193 /* FeatureStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureStackView.swift; sourceTree = "<group>"; };
 		A64FF9962503C8390092886D /* API_KEYS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_KEYS.swift; sourceTree = "<group>"; };
+		A64FF99825042E420092886D /* WeatherViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewProvider.swift; sourceTree = "<group>"; };
+		A64FF99A250434EA0092886D /* SpeedometerViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerViewProvider.swift; sourceTree = "<group>"; };
 		A670FD3C22DCBDD600A8A223 /* StyleGuideFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuideFactory.swift; sourceTree = "<group>"; };
 		A671D9AA239C55EF009ECF19 /* CommandCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandCenter.swift; sourceTree = "<group>"; };
 		A676B5EA2501005300538A03 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				A676B5F2250126ED00538A03 /* WeatherView.swift */,
+				A64FF99825042E420092886D /* WeatherViewProvider.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				A69E07B9244DE0D600A6668B /* SpeedometerView.swift */,
+				A64FF99A250434EA0092886D /* SpeedometerViewProvider.swift */,
 			);
 			path = Speedometer;
 			sourceTree = "<group>";
@@ -777,6 +783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6A4B7F3239B224600CB9B90 /* MediaPlayerControls.swift in Sources */,
+				A64FF99925042E420092886D /* WeatherViewProvider.swift in Sources */,
 				A6E35774234E12910001004A /* NetworkManager.swift in Sources */,
 				A627318A2347F8F5007FB7E4 /* RadioInterfaceCollectionView.swift in Sources */,
 				A6358C5023BFEF6A009EF213 /* AppEnvironmentHelper.swift in Sources */,
@@ -786,6 +793,7 @@
 				A69E07BA244DE0D600A6668B /* SpeedometerView.swift in Sources */,
 				A676B5F12501194F00538A03 /* LocationManager.swift in Sources */,
 				A6334001235CFB1D002B5848 /* RadioStationsViewController.swift in Sources */,
+				A64FF99B250434EA0092886D /* SpeedometerViewProvider.swift in Sources */,
 				A6EBAC4722DC922E0043C030 /* TabBarController.swift in Sources */,
 				A6BD927A2395C671004DD7F2 /* VideoPlayer.swift in Sources */,
 				A6B1795823834C5000CDBCCB /* CoreDataManager.swift in Sources */,

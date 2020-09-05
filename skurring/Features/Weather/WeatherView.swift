@@ -14,7 +14,8 @@ class WeatherView: UIView {
 
     private lazy var tempLabel: UILabel = makeTempLabel()
     private lazy var weatherImageView: UIImageView = makeWeatherLabel()
-    private var weatherViewModel: WeatherViewProvider?
+
+    private var weatherViewProvider: WeatherViewProvider?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,7 +23,7 @@ class WeatherView: UIView {
         [tempLabel, weatherImageView].forEach(addSubview)
         addConstraints()
 
-        weatherViewModel = WeatherViewProvider(
+        weatherViewProvider = WeatherViewProvider(
             tempLabel: tempLabel,
             weatherImageView: weatherImageView
         )
@@ -31,6 +32,8 @@ class WeatherView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+
+    deinit { weatherViewProvider = nil }
 
     private func makeTempLabel() -> UILabel {
         let label = UILabel()

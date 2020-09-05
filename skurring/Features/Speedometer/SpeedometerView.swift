@@ -21,7 +21,7 @@ final class SpeedometerView: UIView {
 
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(updateSpeed(notification:)),
+            selector: #selector(updateSpeed),
             name: .kilometersPerHour,
             object: nil
         )

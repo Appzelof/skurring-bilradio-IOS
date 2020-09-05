@@ -30,6 +30,7 @@ class LocationManager: NSObject {
     private let locationManager = CLLocationManager()
 
     private lazy var kilometersPerHourDict: [LocationKeys: String] = [:]
+    private lazy var coordinatesDict: [LocationKeys: [Double]] = [:]
 
      private override init() {
         super.init()
@@ -62,17 +63,25 @@ extension LocationManager: CLLocationManagerDelegate {
         let isNegative = convertedSpeed < 0
         let kilometersPerHour = !isNegative ? convertedSpeed : 0
 
-// MARK: - lat and lon should only have 4 decimals.Œ
-        locationDelegate?.coordinatesDidUpdate(lat: latitude, lon: longitude)
+// MARK: - lat and lon should only have 4 decimals. This need to be fixed due to GDPR. Yr is saving logs for every client
+        coordinatesDict[.coordinates] = [latitude, longitude]
         kilometersPerHourDict[.kilometersPerHour] = kilometersPerHour.description
+
         NotificationCenter.default.post(
             name: .kilometersPerHour,
             object: nil,
             userInfo: kilometersPerHourDict
         )
+
+        NotificationCenter.default.post(
+            name: .coordinates,
+            object: nil,
+            userInfo: coordinatesDict
+        )
     }
 }
 
 extension Notification.Name {
-    static let kilometersPerHour = Notification.Name(rawValue: "KilometersPerHour")
+    static let kilometersPerHour = Notification.Name("KilometersPerHour")
+    static let coordinates = Notification.Name("Coordinates")
 }

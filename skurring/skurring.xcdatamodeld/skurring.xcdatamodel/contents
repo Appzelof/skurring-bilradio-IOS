@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17189" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="RadioChannel" representedClassName="RadioChannel" syncable="YES" codeGenerationType="class">
+        <attribute name="buttonTag" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="radioCountry" optional="YES" attributeType="String"/>
+        <attribute name="radioHQURL" optional="YES" attributeType="String"/>
+        <attribute name="radioImage" optional="YES" attributeType="Binary"/>
+        <attribute name="radioName" optional="YES" attributeType="String"/>
+        <attribute name="radioURL" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="RadioChannel" positionX="-63" positionY="-18" width="128" height="133"/>
+    </elements>
+</model>

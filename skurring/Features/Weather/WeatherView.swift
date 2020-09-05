@@ -71,20 +71,17 @@ class WeatherView: UIView {
     private func fetchWeather(uri: String) {
         guard let url = URL(string: uri) else { return }
         NetworkManager.shared.fetch(url: url, model: METForecast.self)
-            .sink { completion in
+            .sink(receiveCompletion: { completion in
                 switch completion {
-                case .failure(let error): print(error)
+                case .failure(let error):
+                    print(error)
                 case .finished: break
                 }
-            } receiveValue: { [weak self] metForecast in
-                guard let self = self else { return }
-
+            }) { metForecast in
                 let temperature = metForecast.properties.timeSeries.first?.data.instant.details?.airTemperature
                 let imageSymbol = metForecast.properties.timeSeries.first?.data.nextOneHour?.summary.symbolCode ?? ""
-
                 self.tempLabel.text = (temperature?.description ?? "") + " Cº"
                 self.weatherImageView.image = UIImage(named: imageSymbol)
-
             }
             .store(in: &cancellable)
     }

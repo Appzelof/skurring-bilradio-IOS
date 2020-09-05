@@ -78,8 +78,11 @@ class WeatherView: UIView {
                 case .finished: break
                 }
             }) { [weak self] metForecast in
+                guard let self = self else { return }
+
                 let temperature = metForecast.properties.timeSeries.first?.data.instant.details?.airTemperature
                 let imageSymbol = metForecast.properties.timeSeries.first?.data.nextOneHour?.summary.symbolCode ?? ""
+
                 self.tempLabel.text = (temperature?.description ?? "") + " Cº"
                 self.weatherImageView.image = UIImage(named: imageSymbol)
             }

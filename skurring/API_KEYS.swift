@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+static let monthlySubscriptionId = "com.appzelof.skurring.subscription"

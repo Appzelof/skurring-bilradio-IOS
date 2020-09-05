@@ -12,8 +12,6 @@ import StoreKit
 final class IAPHelper: NSObject {
     static let shared = IAPHelper()
 
-    private let monthlySubscriptionID = "com.appzelof.skurring.subscription"
-
     private var products: [String: SKProduct] = [:]
 
     override init() {

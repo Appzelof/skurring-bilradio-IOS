@@ -22,8 +22,8 @@ xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 
-## Files
 GoogleService-Info.plist
+API_KEYS.swift
 
 ## Obj-C/Swift specific
 *.hmap

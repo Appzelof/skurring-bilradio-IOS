@@ -30,16 +30,17 @@
 		A63B75D224FD85E0005150FE /* DIGITALDREAM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A63B75CA24FD85E0005150FE /* DIGITALDREAM.ttf */; };
 		A63B75D324FD85E0005150FE /* DIGITALDREAMNARROW.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A63B75CB24FD85E0005150FE /* DIGITALDREAMNARROW.ttf */; };
 		A643C260239D9C78000A43DE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A643C25F239D9C78000A43DE /* SettingsViewController.swift */; };
-		A645AD43234690810013D0CC /* RadioButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645AD42234690810013D0CC /* RadioButton+Extension.swift */; };
-		A645AD47234699D40013D0CC /* Constraints+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645AD46234699D40013D0CC /* Constraints+Extension.swift */; };
+		A645AD43234690810013D0CC /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645AD42234690810013D0CC /* UIButton+Extensions.swift */; };
+		A645AD47234699D40013D0CC /* Constraints+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A645AD46234699D40013D0CC /* Constraints+Extensions.swift */; };
 		A646477A24FE580D005B7F3E /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646477924FE580D005B7F3E /* IAPHelper.swift */; };
 		A646A9DF23984AA100C2BE2E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A646A9DE23984AA100C2BE2E /* StoreKit.framework */; };
-		A646A9E5239B143400C2BE2E /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646A9E4239B143400C2BE2E /* Image+Extension.swift */; };
+		A646A9E5239B143400C2BE2E /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646A9E4239B143400C2BE2E /* UIImage+Extensions.swift */; };
 		A648100E23A192B000BD1193 /* audio.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A648100D23A192B000BD1193 /* audio.mp4 */; };
 		A648101123A1957E00BD1193 /* FeatureStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648101023A1957E00BD1193 /* FeatureStackView.swift */; };
 		A64FF9972503C8390092886D /* API_KEYS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF9962503C8390092886D /* API_KEYS.swift */; };
 		A64FF99925042E420092886D /* WeatherViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF99825042E420092886D /* WeatherViewProvider.swift */; };
 		A64FF99B250434EA0092886D /* SpeedometerViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF99A250434EA0092886D /* SpeedometerViewProvider.swift */; };
+		A64FF9A22504F1D80092886D /* Notification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF9A12504F1D80092886D /* Notification+Extensions.swift */; };
 		A670FD3D22DCBDD600A8A223 /* StyleGuideFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670FD3C22DCBDD600A8A223 /* StyleGuideFactory.swift */; };
 		A671D9AB239C55EF009ECF19 /* CommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A671D9AA239C55EF009ECF19 /* CommandCenter.swift */; };
 		A676B5EB2501005300538A03 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A676B5EA2501005300538A03 /* AlertManager.swift */; };
@@ -112,17 +113,18 @@
 		A63B75CA24FD85E0005150FE /* DIGITALDREAM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIGITALDREAM.ttf; sourceTree = "<group>"; };
 		A63B75CB24FD85E0005150FE /* DIGITALDREAMNARROW.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DIGITALDREAMNARROW.ttf; sourceTree = "<group>"; };
 		A643C25F239D9C78000A43DE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A645AD42234690810013D0CC /* RadioButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RadioButton+Extension.swift"; sourceTree = "<group>"; };
-		A645AD46234699D40013D0CC /* Constraints+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constraints+Extension.swift"; sourceTree = "<group>"; };
+		A645AD42234690810013D0CC /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		A645AD46234699D40013D0CC /* Constraints+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constraints+Extensions.swift"; sourceTree = "<group>"; };
 		A646477724FE579F005B7F3E /* skurring.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = skurring.entitlements; sourceTree = "<group>"; };
 		A646477924FE580D005B7F3E /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		A646A9DE23984AA100C2BE2E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		A646A9E4239B143400C2BE2E /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		A646A9E4239B143400C2BE2E /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		A648100D23A192B000BD1193 /* audio.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio.mp4; sourceTree = "<group>"; };
 		A648101023A1957E00BD1193 /* FeatureStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureStackView.swift; sourceTree = "<group>"; };
 		A64FF9962503C8390092886D /* API_KEYS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_KEYS.swift; sourceTree = "<group>"; };
 		A64FF99825042E420092886D /* WeatherViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewProvider.swift; sourceTree = "<group>"; };
 		A64FF99A250434EA0092886D /* SpeedometerViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerViewProvider.swift; sourceTree = "<group>"; };
+		A64FF9A12504F1D80092886D /* Notification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extensions.swift"; sourceTree = "<group>"; };
 		A670FD3C22DCBDD600A8A223 /* StyleGuideFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuideFactory.swift; sourceTree = "<group>"; };
 		A671D9AA239C55EF009ECF19 /* CommandCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandCenter.swift; sourceTree = "<group>"; };
 		A676B5EA2501005300538A03 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
@@ -308,9 +310,10 @@
 		A670FD3B22DCBD9C00A8A223 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A645AD42234690810013D0CC /* RadioButton+Extension.swift */,
-				A645AD46234699D40013D0CC /* Constraints+Extension.swift */,
-				A646A9E4239B143400C2BE2E /* Image+Extension.swift */,
+				A645AD42234690810013D0CC /* UIButton+Extensions.swift */,
+				A645AD46234699D40013D0CC /* Constraints+Extensions.swift */,
+				A646A9E4239B143400C2BE2E /* UIImage+Extensions.swift */,
+				A64FF9A12504F1D80092886D /* Notification+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -801,15 +804,15 @@
 				A671D9AB239C55EF009ECF19 /* CommandCenter.swift in Sources */,
 				A648101123A1957E00BD1193 /* FeatureStackView.swift in Sources */,
 				A627318F23480FE6007FB7E4 /* AppDelegate.swift in Sources */,
-				A645AD43234690810013D0CC /* RadioButton+Extension.swift in Sources */,
+				A645AD43234690810013D0CC /* UIButton+Extensions.swift in Sources */,
 				A6E3577E2353A7840001004A /* FirebaseDataFetcher.swift in Sources */,
 				A6E3577B2353A7180001004A /* ImageProvider.swift in Sources */,
 				A670FD3D22DCBDD600A8A223 /* StyleGuideFactory.swift in Sources */,
 				A6E35771234D47510001004A /* RadioPlayer.swift in Sources */,
 				A676B5EB2501005300538A03 /* AlertManager.swift in Sources */,
 				A6E3576D234BEFE10001004A /* RadioCell.swift in Sources */,
-				A645AD47234699D40013D0CC /* Constraints+Extension.swift in Sources */,
-				A646A9E5239B143400C2BE2E /* Image+Extension.swift in Sources */,
+				A645AD47234699D40013D0CC /* Constraints+Extensions.swift in Sources */,
+				A646A9E5239B143400C2BE2E /* UIImage+Extensions.swift in Sources */,
 				A6358C4E23BFEAAD009EF213 /* AppRatingManager.swift in Sources */,
 				A6323D0F22E7033200C71A6F /* NetworkMonitor.swift in Sources */,
 				A6323D1622EAED2F00C71A6F /* RadioPlayerViewController.swift in Sources */,
@@ -819,6 +822,7 @@
 				A60EF2D824FE6A3B00161946 /* IAPViewController.swift in Sources */,
 				A6323D0C22E7006800C71A6F /* RadioStation.swift in Sources */,
 				A646477A24FE580D005B7F3E /* IAPHelper.swift in Sources */,
+				A64FF9A22504F1D80092886D /* Notification+Extensions.swift in Sources */,
 				A643C260239D9C78000A43DE /* SettingsViewController.swift in Sources */,
 				A64FF9972503C8390092886D /* API_KEYS.swift in Sources */,
 				A676B5EF250112E700538A03 /* Weather.swift in Sources */,

@@ -23,13 +23,9 @@ final class RadioStationsTableView: UITableView {
 
     private var coreDataManager = CoreDataManager()
 
-    private var radioStations: [RadioStation]? {
-        didSet {
-            self.reloadData()
-        }
-    }
+    private var radioStations: [RadioStation]? = []
 
-    private var nonFilteredRadioStations: [RadioStation]?
+    private var nonFilteredRadioStations: [RadioStation]? = []
 
     init(radioStationsViewController: RadioStationsViewController) {
         super.init(frame: .zero, style: .grouped)
@@ -44,9 +40,11 @@ final class RadioStationsTableView: UITableView {
     }
 
     private func fetchData() {
-        NetworkManager.shared.fetchRadioData { (radioData) in
-            self.radioStations = radioData
-            self.nonFilteredRadioStations = radioData
+        NetworkManager.shared.fetchRadioStation { radioStation in
+            guard let radioStation = radioStation else { return }
+            self.radioStations?.append(radioStation)
+            self.nonFilteredRadioStations?.append(radioStation)
+            self.reloadData()
         }
     }
 }

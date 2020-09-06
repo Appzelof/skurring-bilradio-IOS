@@ -26,7 +26,6 @@ class RadioPlayer: NSObject, MediaPlayerControls {
         super.init()
         self.channelName = channelName
         self.prepareToPlay(radioStream: radioStream)
-        play()
     }
 
     private func prepareToPlay(radioStream: String) {

@@ -32,8 +32,6 @@ final class SpeedometerViewProvider {
         )
 
         LocationManager.shared.stopUpdatingLocation()
-
-        print("deinit")
     }
 
     private func createAttributedKPH(with info: String) -> NSMutableAttributedString {

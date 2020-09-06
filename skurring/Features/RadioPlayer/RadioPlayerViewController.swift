@@ -63,6 +63,8 @@ class RadioPlayerViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    deinit { radioPlayer = nil }
     
     override func viewDidLoad() {
         addSubViews()
@@ -170,8 +172,6 @@ class RadioPlayerViewController: UIViewController {
             }
         }
     }
-
-    deinit { radioPlayer = nil }
 
     @objc
     func dismissVC() {

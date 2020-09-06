@@ -36,7 +36,6 @@ final class RadioPlayer: NSObject, MediaPlayerControls {
         avPlayerItem.add(metaDataOutput)
         player = AVPlayer(playerItem: avPlayerItem)
         commandCenter = CommandCenter(player: player)
-
     }
 
     func play() {

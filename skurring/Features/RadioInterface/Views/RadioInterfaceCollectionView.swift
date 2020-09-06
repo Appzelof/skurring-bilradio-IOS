@@ -62,7 +62,7 @@ extension RadioInterfaceCollectionView: UICollectionViewDataSource, UICollection
 
                     let buttonTag = stations.value(forKey: ConstantHelper.buttonTag) as? Int
                     let radioName = stations.value(forKey: ConstantHelper.radioName) as? String ?? ""
-                    let imageData = stations.value(forKey: ConstantHelper.radioImage) as? Data ?? Data()
+                    let imageData = stations.value(forKey: ConstantHelper.radioImageData) as? Data ?? Data()
                     let radioURL = stations.value(forKey: ConstantHelper.radioURL) as? String ?? ""
                     let radioHQURL = stations.value(forKey: ConstantHelper.radioHQURL) as? String ?? ""
                     let image = UIImage(data: imageData)

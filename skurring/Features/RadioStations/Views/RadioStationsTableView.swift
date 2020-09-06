@@ -23,7 +23,11 @@ final class RadioStationsTableView: UITableView {
 
     private var coreDataManager = CoreDataManager()
 
-    private var radioStations: [RadioStation]? = []
+    private var radioStations: [RadioStation]? {
+        didSet {
+            reloadData()
+        }
+    }
 
     private var nonFilteredRadioStations: [RadioStation]? = []
 
@@ -40,10 +44,9 @@ final class RadioStationsTableView: UITableView {
     }
 
     private func fetchData() {
-        NetworkManager.shared.fetchRadioStation { radioStation in
-            guard let radioStation = radioStation else { return }
-            self.radioStations?.append(radioStation)
-            self.nonFilteredRadioStations?.append(radioStation)
+        NetworkManager.shared.fetchRadioStation { radioStations in
+            self.radioStations = radioStations
+            self.nonFilteredRadioStations = radioStations
             self.reloadData()
         }
     }
@@ -72,31 +75,22 @@ extension RadioStationsTableView: UITableViewDataSource, UITableViewDelegate {
             cellForRow(at: indexPath)?.imageView?.image != nil
         else { return }
 
-        let radioName = stations[indexPath.row].name ?? ""
-        let radioCountry = stations[indexPath.row].radioCountry ?? ""
-        let radioURL = stations[indexPath.row].radioURL ?? ""
-        let radioHQURL = stations[indexPath.row].radioHQURL ?? ""
-
-        coreDataManager.saveChannel(radioName: radioName,
-                                    radioCountry: radioCountry,
-                                    radioURL: radioURL,
-                                    radioHQURL: radioHQURL,
-                                    radioImage: radioImageData,
-                                    buttonTag: buttonTag)
+        coreDataManager.saveChannel(
+            radioStation: stations[indexPath.row],
+            imageData: radioImageData,
+            buttonTag: buttonTag
+        )
 
         tableViewHandlerDelegate?.dismissTableView()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = dequeueReusableCell(withIdentifier: "tableCell") as? RadioStationTableViewCell else { return UITableViewCell() }
+        guard let cell = dequeueReusableCell(
+                withIdentifier: "tableCell") as? RadioStationTableViewCell
+        else { return UITableViewCell() }
 
         if let radioStations = radioStations {
-            let imageURL = radioStations[indexPath.row].imageURL ?? ""
-            let radioName = radioStations[indexPath.row].name ?? ""
-            
-            NetworkManager.shared.fetchRadioImage(url: imageURL) { image in
-                cell.updateCell(radioImage: image, radioName: radioName)
-            }
+            cell.updateUI(with: radioStations[indexPath.row])
         }
         return cell
     }
@@ -135,8 +129,8 @@ fileprivate class RadioStationTableViewCell: UITableViewCell {
     }
 
     override func prepareForReuse() {
-        imageView?.image = nil
         textLabel?.text = nil
+        imageView?.image = nil
     }
 
     func configurePrerequisits() {
@@ -147,10 +141,18 @@ fileprivate class RadioStationTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
 
-    func updateCell(radioImage: UIImage?, radioName: String?) {
-        DispatchQueue.main.async {
-            self.imageView?.image = radioImage
-            self.textLabel?.text = radioName
+     func updateUI(with radioStation: RadioStation) {
+        let imageURL = radioStation.imageURL ?? ""
+        let radioName = radioStation.name ?? ""
+
+        textLabel?.text = radioName
+
+        NetworkManager.shared.fetchRadioImage(url: imageURL) { [weak self] image in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.imageView?.image = image
+                self.setNeedsLayout()
+            }
         }
     }
 }

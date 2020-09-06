@@ -14,14 +14,20 @@ final class FirebaseDataFetcher {
 
     init() { ref = Database.database().reference(fromURL: "https://skurring-bilradio.firebaseio.com/") }
 
-    func fetchData(completion: @escaping (RadioStation?) -> Void) {
-        ref.observeSingleEvent(of: .childAdded) { (snapshot) in
-            guard snapshot.exists() else { return }
-            let value = snapshot.value as? NSDictionary
-            if let value = value {
-                let items = value.allKeys as? [String] ?? []
+    private var radioStations: [RadioStation] = []
+
+    func fetchData(completion: @escaping ([RadioStation]?) -> Void) {
+        if radioStations.isEmpty {
+            ref.observeSingleEvent(of: .childAdded) { (snapshot) in
+                guard
+                    snapshot.exists(),
+                    let value = snapshot.value as? NSDictionary,
+                    let items = value.allKeys as? [String] ?? []
+                else { return }
+
                 for stationName in items {
                     if snapshot.hasChildren() {
+
                         let radioDictionary = snapshot.childSnapshot(forPath: stationName).value as? NSDictionary
                         let radioName = radioDictionary?.value(forKey: "name") as? String ?? ""
                         let radioImage = radioDictionary?.value(forKey: "imageURL") as? String ?? ""
@@ -36,11 +42,18 @@ final class FirebaseDataFetcher {
                             radioURL: radioURL,
                             radioHQURL: radioHQURL
                         )
+
+                        self.radioStations.append(radioStation)
+
                         DispatchQueue.main.async {
-                            completion(radioStation)
+                            completion(self.radioStations)
                         }
                     }
                 }
+            }
+        } else {
+            DispatchQueue.main.async {
+                completion(self.radioStations)
             }
         }
     }

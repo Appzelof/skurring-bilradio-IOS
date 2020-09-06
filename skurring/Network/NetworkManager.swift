@@ -30,7 +30,7 @@ final class NetworkManager {
         imageProvider.fetchImage(url: url, completion: completion)
     }
 
-    func fetchRadioStation(at completion: @escaping (RadioStation?) -> Void) {
+    func fetchRadioStation(at completion: @escaping ([RadioStation]?) -> Void) {
         firebaseData.fetchData(completion: completion)
     }
 }

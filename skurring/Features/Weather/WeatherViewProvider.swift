@@ -36,8 +36,14 @@ final class WeatherViewProvider {
         )
     }
 
-    private func createWeatherURI(latitude: Double, longitude: Double) -> String {
-        return "https://api.met.no/weatherapi/locationforecast/2.0/complete.json?lat=" + "\(latitude)" + "&lon=" + "\(longitude)"
+    private func createWeatherURI(latitude: Float, longitude: Float) -> String {
+        //Only 4 digit decimals
+        let format = "%.4f"
+
+        let lat = String(format: format, latitude)
+        let lon = String(format: format, longitude)
+
+        return "https://api.met.no/weatherapi/locationforecast/2.0/complete.json?lat=" + lat + "&lon=" + lon
     }
 
     private func fetchWeather(uri: String) {
@@ -64,11 +70,12 @@ final class WeatherViewProvider {
     @objc
     private func updateWeather(notification: Notification) {
         guard
-            let coordinatesDict = notification.userInfo as? [LocationKeys: [Double]],
+            UserDefaults().bool(forKey: ConstantHelper.weather),
+            self.weatherImageView?.image == nil,
+            let coordinatesDict = notification.userInfo as? [LocationKeys: [Float]],
             let coordinates = coordinatesDict[.coordinates],
             let latitude = coordinates.first,
-            let longitude = coordinates.last,
-            self.weatherImageView?.image == nil
+            let longitude = coordinates.last
         else { return }
 
         fetchWeather(uri: createWeatherURI(latitude: latitude, longitude: longitude))

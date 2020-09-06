@@ -126,7 +126,9 @@ final class RadioPlayerViewController: UIViewController {
         videoPlayerView.isHidden = !UserDefaults().bool(forKey: ConstantHelper.volumeIndicator)
         weatherView.isHidden = !UserDefaults().bool(forKey: ConstantHelper.weather)
 
-        if !speedometer.isHidden, !weatherView.isHidden { LocationManager.shared.startUpdatingLocation() }
+        if !speedometer.isHidden || !weatherView.isHidden {
+            LocationManager.shared.startUpdatingLocation()
+        }
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

@@ -9,7 +9,7 @@
 import Foundation
 import Network
 
-class NetworkMonitor {
+final class NetworkMonitor {
     static var shared = NetworkMonitor()
 
     private var isMonitoring = false

@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
+    
     private let styleGuide = StyleGuideFactory.current
     private let appareance = UITabBarAppearance()
     

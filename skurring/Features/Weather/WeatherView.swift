@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Combine
 
-class WeatherView: UIView {
+final class WeatherView: UIView {
 
     private lazy var tempLabel: UILabel = makeTempLabel()
     private lazy var weatherImageView: UIImageView = makeWeatherLabel()

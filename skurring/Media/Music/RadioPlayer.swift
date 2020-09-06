@@ -15,7 +15,7 @@ protocol MetaDataHandlerDelegate: class {
     func fetchMetaData(metaData: String?)
 }
 // TODO: - Add observer to get metadata
-class RadioPlayer: NSObject, MediaPlayerControls {
+final class RadioPlayer: NSObject, MediaPlayerControls {
 
     private var player: AVPlayer?
     private var commandCenter: CommandCenter?

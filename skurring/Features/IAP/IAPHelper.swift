@@ -10,6 +10,7 @@ import Foundation
 import StoreKit
 
 final class IAPHelper: NSObject {
+    
     static let shared = IAPHelper()
     private var products: [String: SKProduct] = [:]
 

@@ -14,7 +14,7 @@ protocol DeviceRotationHandler: class {
     func handleLandscapeRotation(isLandscape: Bool)
 }
 
-class RadioInterfaceViewController: UIViewController {
+final class RadioInterfaceViewController: UIViewController {
 
     weak var deviceRotationHandler: DeviceRotationHandler?
 

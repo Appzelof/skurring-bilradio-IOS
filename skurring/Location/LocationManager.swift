@@ -14,14 +14,14 @@ enum LocationKeys: String {
     case coordinates = "Coordinates"
 }
 
-class LocationManager: NSObject {
+final class LocationManager: NSObject {
 
     static let shared = LocationManager()
 
     private let locationManager = CLLocationManager()
 
     private lazy var kilometersPerHourDict: [LocationKeys: String] = [:]
-    private lazy var coordinatesDict: [LocationKeys: [Double]] = [:]
+    private lazy var coordinatesDict: [LocationKeys: [Float]] = [:]
 
      private override init() {
         super.init()
@@ -47,14 +47,13 @@ extension LocationManager: CLLocationManagerDelegate {
             let lastKnownLocation = locations.last?.coordinate
             else { return }
 
-        let latitude = lastKnownLocation.latitude
-        let longitude = lastKnownLocation.longitude
+        let latitude = Float(lastKnownLocation.latitude)
+        let longitude = Float(lastKnownLocation.longitude)
 
         let convertedSpeed = Int(location.speed * 3600 / 1000)
         let isNegative = convertedSpeed < 0
         let kilometersPerHour = !isNegative ? convertedSpeed : 0
 
-// MARK: - lat and lon should only have 4 decimals. This need to be fixed due to GDPR. Yr is saving logs for every client
         coordinatesDict[.coordinates] = [latitude, longitude]
         kilometersPerHourDict[.kilometersPerHour] = kilometersPerHour.description
 

@@ -11,7 +11,7 @@ import UIKit
 import CoreLocation
 
 final class SpeedometerView: UIView {
-
+    
     private lazy var speedLabel: UILabel = createLabel()
     private var speedometerViewProvider: SpeedometerViewProvider?
 

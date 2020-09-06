@@ -15,7 +15,8 @@ protocol RadioPlayerViewControllerHandler: class {
     func playerViewControllerDidShow()
 }
 
-class RadioPlayerViewController: UIViewController {
+final class RadioPlayerViewController: UIViewController {
+    
     private let styleGuide = StyleGuideFactory.current
 
     weak var radioPlayerViewControllerDelegate: RadioPlayerViewControllerHandler?
@@ -223,7 +224,6 @@ class RadioPlayerViewController: UIViewController {
         NSLayoutConstraint.activate(
             
             [
-
                 hiResLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5),
                 hiResLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5),
 
@@ -254,7 +254,6 @@ class RadioPlayerViewController: UIViewController {
         portraitConstraints =
 
             [
-
                 speedometer.heightAnchor.constraint(equalToConstant: 100),
                 speedometer.widthAnchor.constraint(equalToConstant: 120),
                 speedometer.centerYAnchor.constraint(equalTo: view.centerYAnchor),

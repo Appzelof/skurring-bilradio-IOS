@@ -11,6 +11,7 @@ import UIKit
 
 
 final class SettingsViewController: UIViewController {
+    
     private let styleGuide = StyleGuideFactory.current
     
     private lazy var tableView = UITableView()
@@ -128,7 +129,7 @@ fileprivate final class SettingsTableViewCell: UITableViewCell {
         }
     }
 
-    func addConstraints() {
+    private func addConstraints() {
         settingsSwitch.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             settingsSwitch.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),

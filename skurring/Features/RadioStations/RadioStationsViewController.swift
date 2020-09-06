@@ -12,7 +12,8 @@ import UIKit
 protocol SearchListener: class {
     func didSearchFor(searchText: String)
 }
-class RadioStationsViewController: UIViewController {
+
+final class RadioStationsViewController: UIViewController {
     
     private var buttonTag = 0
     private lazy var tableView = makeTableView()

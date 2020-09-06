@@ -13,7 +13,7 @@ protocol TableViewHandlerDelegate: class {
     func dismissTableView()
 }
 
-class RadioStationsTableView: UITableView {
+final class RadioStationsTableView: UITableView {
 
     var buttonTag = 0
 

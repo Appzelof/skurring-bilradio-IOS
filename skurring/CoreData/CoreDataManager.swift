@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class CoreDataManager {
+final class CoreDataManager {
     let appDelegate: AppDelegate?
     let managedContext: NSManagedObjectContext?
 

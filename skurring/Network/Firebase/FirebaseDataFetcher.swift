@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseDatabase
 
-class FirebaseDataFetcher {
+final class FirebaseDataFetcher {
     let ref: DatabaseReference!
 
     init() { ref = Database.database().reference(fromURL: "https://skurring-bilradio.firebaseio.com/") }

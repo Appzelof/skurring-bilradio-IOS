@@ -9,13 +9,6 @@
 import Foundation
 import CoreLocation
 
-protocol LocationHandlerDelegate: class {
-    func coordinatesDidUpdate(lat: Double, lon: Double)
-}
-extension LocationHandlerDelegate {
-    func coordinatesDidUpdate(lat: Double, lon: Double) {}
-}
-
 enum LocationKeys: String {
     case kilometersPerHour = "KilometersPerHour"
     case coordinates = "Coordinates"
@@ -24,8 +17,6 @@ enum LocationKeys: String {
 class LocationManager: NSObject {
 
     static let shared = LocationManager()
-
-    weak var locationDelegate: LocationHandlerDelegate?
 
     private let locationManager = CLLocationManager()
 

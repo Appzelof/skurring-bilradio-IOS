@@ -20,19 +20,20 @@ class RadioPlayerViewController: UIViewController {
 
     weak var radioPlayerViewControllerDelegate: RadioPlayerViewControllerHandler?
 
-    private var videoPlayerView = VideoPlayer()
     private var radioPlayer: RadioPlayer? {
         didSet {
             self.radioPlayer?.metaDataHandlerDelegate = self
         }
     }
 
-    private var currentIndex = 0
     private lazy var radioStations: [RadioObject] = []
+
+    private var currentIndex = 0
     private let isLandscape = UIDevice.current.orientation.isLandscape
 
     private let speedometer = SpeedometerView()
     private let featureStack = FeatureStackView()
+    private var videoPlayerView = VideoPlayer()
     private let weatherView = WeatherView()
     private let radioImageView = UIImageView()
     private let radioNameTextLabel = UILabel()
@@ -58,16 +59,29 @@ class RadioPlayerViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         self.currentIndex = index
         self.radioStations = radioStations
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applicationDidBecameActive),
+            name: .applicationDidBecomeActive, object: nil
+        )
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        radioPlayer = nil
+
     }
     
     override func viewDidLoad() {
         addSubViews()
         addDefaultConstraints()
         setupUIPrerequisits()
+        addGestures()
         handleLandscapeRotation(isLandscape: isLandscape)
         videoPlayerView.videoAnimatorListener = self
 
@@ -89,14 +103,12 @@ class RadioPlayerViewController: UIViewController {
             
             self.updateUIWithRadioStationData(with: radioStation)
         }
-
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissVC))
-        view.addGestureRecognizer(gesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.videoPlayerView.play()
+            self.radioPlayer?.play()
         }
     }
 
@@ -171,11 +183,22 @@ class RadioPlayerViewController: UIViewController {
         }
     }
 
-    deinit { radioPlayer = nil }
+    private func addGestures() {
+        let gesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissVC)
+        )
+        view.addGestureRecognizer(gesture)
+    }
 
     @objc
     func dismissVC() {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @objc
+    private func applicationDidBecameActive(notification: Notification) {
+        radioPlayer?.play()
     }
 
     private func handleLandscapeRotation(isLandscape: Bool) {

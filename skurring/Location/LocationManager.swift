@@ -9,22 +9,19 @@
 import Foundation
 import CoreLocation
 
-protocol LocationHandlerDelegate: class {
-    func speedDidUpdate(speed: String)
-    func coordinatesDidUpdate(lat: Double, lon: Double)
-}
-extension LocationHandlerDelegate {
-    func speedDidUpdate(speed: String) {}
-    func coordinatesDidUpdate(lat: Double, lon: Double) {}
+enum LocationKeys: String {
+    case kilometersPerHour = "KilometersPerHour"
+    case coordinates = "Coordinates"
 }
 
 class LocationManager: NSObject {
 
     static let shared = LocationManager()
 
-    weak var locationDelegate: LocationHandlerDelegate?
-
     private let locationManager = CLLocationManager()
+
+    private lazy var kilometersPerHourDict: [LocationKeys: String] = [:]
+    private lazy var coordinatesDict: [LocationKeys: [Double]] = [:]
 
      private override init() {
         super.init()
@@ -55,11 +52,22 @@ extension LocationManager: CLLocationManagerDelegate {
 
         let convertedSpeed = Int(location.speed * 3600 / 1000)
         let isNegative = convertedSpeed < 0
-        let kilometerPerHour = !isNegative ? convertedSpeed : 0
+        let kilometersPerHour = !isNegative ? convertedSpeed : 0
 
+// MARK: - lat and lon should only have 4 decimals. This need to be fixed due to GDPR. Yr is saving logs for every client
+        coordinatesDict[.coordinates] = [latitude, longitude]
+        kilometersPerHourDict[.kilometersPerHour] = kilometersPerHour.description
 
-// MARK: - lat and lon should only have 4 decimals.Œ
-        locationDelegate?.coordinatesDidUpdate(lat: latitude, lon: longitude)
-        locationDelegate?.speedDidUpdate(speed: "\(kilometerPerHour)")
+        NotificationCenter.default.post(
+            name: .kilometersPerHour,
+            object: nil,
+            userInfo: kilometersPerHourDict
+        )
+
+        NotificationCenter.default.post(
+            name: .coordinates,
+            object: nil,
+            userInfo: coordinatesDict
+        )
     }
 }

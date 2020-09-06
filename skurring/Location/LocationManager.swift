@@ -71,8 +71,3 @@ extension LocationManager: CLLocationManagerDelegate {
         )
     }
 }
-
-extension Notification.Name {
-    static let kilometersPerHour = Notification.Name("KilometersPerHour")
-    static let coordinates = Notification.Name("Coordinates")
-}

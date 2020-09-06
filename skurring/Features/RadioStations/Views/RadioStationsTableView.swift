@@ -145,11 +145,10 @@ fileprivate class RadioStationTableViewCell: UITableViewCell {
         let imageURL = radioStation.imageURL ?? ""
         let radioName = radioStation.name ?? ""
 
-        textLabel?.text = radioName
-
         NetworkManager.shared.fetchRadioImage(url: imageURL) { [weak self] image in
             guard let self = self else { return }
             DispatchQueue.main.async {
+                self.textLabel?.text = radioName
                 self.imageView?.image = image
                 self.setNeedsLayout()
             }

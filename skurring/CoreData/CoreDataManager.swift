@@ -19,12 +19,12 @@ final class CoreDataManager {
         managedContext = appDelegate?.persistentContainer.viewContext
     }
 
-    func saveChannel(radioName: String,
-                     radioCountry: String,
-                     radioURL: String,
-                     radioHQURL: String,
-                     radioImage: Data,
-                     buttonTag: Int) {
+    func saveChannel(radioStation: RadioStation, imageData: Data, buttonTag: Int) {
+
+        let radioName = radioStation.name ?? ""
+        let radioCountry = radioStation.radioCountry ?? ""
+        let radioURL = radioStation.radioURL ?? ""
+        let radioHQURL = radioStation.radioHQURL ?? ""
 
         guard let context = managedContext else { return }
         if let entity = NSEntityDescription.entity(forEntityName: ConstantHelper.entityName, in: context) {
@@ -33,7 +33,7 @@ final class CoreDataManager {
             radioChannel.setValue(radioCountry, forKey: ConstantHelper.radioCountry)
             radioChannel.setValue(radioURL, forKey: ConstantHelper.radioURL)
             radioChannel.setValue(radioHQURL, forKey: ConstantHelper.radioHQURL)
-            radioChannel.setValue(radioImage, forKey: ConstantHelper.radioImage)
+            radioChannel.setValue(imageData, forKey: ConstantHelper.radioImageData)
             radioChannel.setValue(buttonTag, forKey: ConstantHelper.buttonTag)
         }
 

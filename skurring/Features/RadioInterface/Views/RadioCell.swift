@@ -83,9 +83,9 @@ final class RadioCell: UICollectionViewCell {
             guard let self = self else { return }
 
             self.radioImageView.image = radioImage
-
             if self.radioImageView.image == nil {
                 self.radioNameLabel.text = "Hold"
+                self.setNeedsLayout()
             } else {
                 self.radioNameLabel.text = ""
             }

@@ -19,8 +19,9 @@ final class ImageProvider {
         if
             let key = cacheKey,
             let image = getCachedImage(forKey: key) {
-            completion(image)
-
+            DispatchQueue.main.async {
+                completion(image)
+            }
         } else {
             downloadImage(url: url, completion: completion)
         }

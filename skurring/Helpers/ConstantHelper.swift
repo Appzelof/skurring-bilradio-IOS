@@ -24,7 +24,7 @@ struct ConstantHelper {
     static let radioName = "radioName"
     static let radioURL = "radioURL"
     static let radioHQURL = "radioHQURL"
-    static let radioImage = "radioImage"
+    static let radioImageData = "radioImageData"
     static let buttonTag = "buttonTag"
     static let radioCountry = "radioCountry"
 

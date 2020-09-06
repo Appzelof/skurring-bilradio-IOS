@@ -13,6 +13,8 @@ final class AlertManager {
 
     static let shared = AlertManager()
 
+    private init() {}
+
     func noRadioStationSavedAlert() -> UIAlertController {
         let alert = UIAlertController(
             title: "No Radio Station Saved",

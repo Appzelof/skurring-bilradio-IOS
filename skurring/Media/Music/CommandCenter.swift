@@ -9,7 +9,7 @@
 import Foundation
 import MediaPlayer
 
-class CommandCenter {
+final class CommandCenter {
     private let commandCenter = MPRemoteCommandCenter.shared()
     private let audioSession = AVAudioSession.sharedInstance()
     private var player: AVPlayer?

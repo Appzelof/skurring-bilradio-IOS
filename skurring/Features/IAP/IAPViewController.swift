@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IAPViewController: UIViewController {
+final class IAPViewController: UIViewController {
 
     private lazy var premiumHeaderCard = makePremiumHeaderCard()
     private lazy var subscriptionButton = makeSubscriptionButton()

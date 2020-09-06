@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SpeedometerViewProvider {
+final class SpeedometerViewProvider {
     private weak var speedLabel: UILabel?
 
     init(speedLabel: UILabel) {

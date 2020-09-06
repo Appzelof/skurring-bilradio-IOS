@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ImageProvider {
+final class ImageProvider {
     private let imageCache = NSCache<AnyObject, AnyObject>()
     private var cacheKey: AnyObject?
 

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MediaPlayer
 
-class FeatureStackView: UIStackView {
+final class FeatureStackView: UIStackView {
     private let styleGuide = StyleGuideFactory.current
 
     private lazy var airplayButton = createStackButton(image: "airplay")

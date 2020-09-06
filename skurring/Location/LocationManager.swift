@@ -14,7 +14,7 @@ enum LocationKeys: String {
     case coordinates = "Coordinates"
 }
 
-class LocationManager: NSObject {
+final class LocationManager: NSObject {
 
     static let shared = LocationManager()
 

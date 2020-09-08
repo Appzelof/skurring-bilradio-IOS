@@ -133,7 +133,7 @@ fileprivate class RadioStationTableViewCell: UITableViewCell {
         imageView?.image = nil
     }
 
-    func configurePrerequisits() {
+    private func configurePrerequisits() {
         backgroundColor = .clear
         textLabel?.textColor = .white
         textLabel?.textAlignment = .right
@@ -141,17 +141,15 @@ fileprivate class RadioStationTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
 
-     func updateUI(with radioStation: RadioStation) {
+    func updateUI(with radioStation: RadioStation) {
         let imageURL = radioStation.imageURL ?? ""
         let radioName = radioStation.name ?? ""
 
         NetworkManager.shared.fetchRadioImage(url: imageURL) { [weak self] image in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.textLabel?.text = radioName
-                self.imageView?.image = image
-                self.setNeedsLayout()
-            }
+            self.setNeedsLayout()
+            self.textLabel?.text = radioName
+            self.imageView?.image = image
         }
     }
 }

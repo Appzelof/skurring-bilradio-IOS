@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
         AppRatingManager.shared.handleSKStoreReview()
+        UIApplication.shared.isIdleTimerDisabled = true
         return true
     }
 

@@ -17,13 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
         FirebaseApp.configure()
+        configureFirstLaunch()
+
         let tabBarVC = TabBarController()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
         AppRatingManager.shared.handleSKStoreReview()
         UIApplication.shared.isIdleTimerDisabled = true
+
         return true
     }
 
@@ -65,6 +69,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             return .all
         }
+    }
+
+    private func configureFirstLaunch() {
+        let haveLaunchedBefore = UserDefaults().bool(forKey: ConstantHelper.firstLaunch)
+
+        let userDefaultKeys = [
+            ConstantHelper.radioChannel,
+            ConstantHelper.metadataInfo,
+            ConstantHelper.volumeIndicator
+        ]
+
+        haveLaunchedBefore
+            ? UserDefaults().setValue(true, forKey: ConstantHelper.firstLaunch)
+            : userDefaultKeys.forEach { UserDefaults().setValue(true, forKey: $0 )}
     }
 
     // MARK: - Core Data stack

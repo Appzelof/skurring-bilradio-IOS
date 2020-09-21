@@ -244,6 +244,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		A61FC37F251942AC0097A11A /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
 		A631A9B923BFFE68001E4B87 /* AppRating */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +503,7 @@
 		A6EBAC3B22DC6AD50043C030 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A61FC37F251942AC0097A11A /* OnBoarding */,
 				A6EBAC4522DC92170043C030 /* TabBar */,
 				A6EBAC3D22DC6B080043C030 /* RadioInterface */,
 				A6323D1422EAECEE00C71A6F /* RadioPlayer */,

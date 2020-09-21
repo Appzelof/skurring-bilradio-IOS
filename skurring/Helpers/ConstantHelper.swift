@@ -12,6 +12,7 @@ struct ConstantHelper {
     //Cells
     static let radioCell = "radioCell"
     static let settingsCell = "settingsCell"
+    static let onboardingCell = "onboardingCell"
 
     static let iphoneCellPortraitAmount = 7
     static let iphoneCellLandscapeAmount = 10

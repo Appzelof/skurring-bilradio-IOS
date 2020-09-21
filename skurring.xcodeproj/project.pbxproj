@@ -10,6 +10,7 @@
 		0F3AAC4800A4C0C18270E317 /* Pods_skurringTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911498ABFAB6F371F532570C /* Pods_skurringTests.framework */; };
 		7B093D28B8E65664EEB47144 /* Pods_skurringUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8D6B4773F47A2F5674C5EA /* Pods_skurringUITests.framework */; };
 		A60EF2D824FE6A3B00161946 /* IAPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EF2D724FE6A3B00161946 /* IAPViewController.swift */; };
+		A61FC381251943A50097A11A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC380251943A50097A11A /* OnboardingViewController.swift */; };
 		A627318A2347F8F5007FB7E4 /* RadioInterfaceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62731892347F8F5007FB7E4 /* RadioInterfaceCollectionView.swift */; };
 		A627318F23480FE6007FB7E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A627318E23480FE6007FB7E4 /* AppDelegate.swift */; };
 		A6323D0722E64B7B00C71A6F /* ColorGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6323D0622E64B7B00C71A6F /* ColorGuide.swift */; };
@@ -93,6 +94,7 @@
 		732BF340E67A7F27C3558181 /* Pods-skurringTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-skurringTests.release.xcconfig"; path = "Target Support Files/Pods-skurringTests/Pods-skurringTests.release.xcconfig"; sourceTree = "<group>"; };
 		911498ABFAB6F371F532570C /* Pods_skurringTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_skurringTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60EF2D724FE6A3B00161946 /* IAPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPViewController.swift; sourceTree = "<group>"; };
+		A61FC380251943A50097A11A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A62731892347F8F5007FB7E4 /* RadioInterfaceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioInterfaceCollectionView.swift; sourceTree = "<group>"; };
 		A627318E23480FE6007FB7E4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6323D0622E64B7B00C71A6F /* ColorGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGuide.swift; sourceTree = "<group>"; };
@@ -244,11 +246,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A61FC37F251942AC0097A11A /* OnBoarding */ = {
+		A61FC37F251942AC0097A11A /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				A61FC380251943A50097A11A /* OnboardingViewController.swift */,
 			);
-			path = OnBoarding;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		A631A9B923BFFE68001E4B87 /* AppRating */ = {
@@ -503,7 +506,7 @@
 		A6EBAC3B22DC6AD50043C030 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				A61FC37F251942AC0097A11A /* OnBoarding */,
+				A61FC37F251942AC0097A11A /* Onboarding */,
 				A6EBAC4522DC92170043C030 /* TabBar */,
 				A6EBAC3D22DC6B080043C030 /* RadioInterface */,
 				A6323D1422EAECEE00C71A6F /* RadioPlayer */,
@@ -818,6 +821,7 @@
 				A670FD3D22DCBDD600A8A223 /* StyleGuideFactory.swift in Sources */,
 				A6E35771234D47510001004A /* RadioPlayer.swift in Sources */,
 				A676B5EB2501005300538A03 /* AlertManager.swift in Sources */,
+				A61FC381251943A50097A11A /* OnboardingViewController.swift in Sources */,
 				A6E3576D234BEFE10001004A /* RadioCell.swift in Sources */,
 				A645AD47234699D40013D0CC /* Constraints+Extensions.swift in Sources */,
 				A646A9E5239B143400C2BE2E /* UIImage+Extensions.swift in Sources */,

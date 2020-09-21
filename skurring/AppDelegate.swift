@@ -21,9 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         configureFirstLaunch()
 
-        let tabBarVC = TabBarController()
+        var firstVC: UIViewController?
+
+//        if !UserDefaults().bool(forKey: ConstantHelper.firstLaunch) {
+//            firstVC = OnboardingViewController()
+//        } else {
+//            firstVC = TabBarController()
+//        }
+
+        firstVC = OnboardingViewController()
+
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = tabBarVC
+        window?.rootViewController = firstVC
         window?.makeKeyAndVisible()
         AppRatingManager.shared.handleSKStoreReview()
         UIApplication.shared.isIdleTimerDisabled = true

@@ -96,7 +96,16 @@ final class RadioCell: UICollectionViewCell {
 extension RadioCell: RadioButtonHandler {
     @objc func didLongPressRadioButton(cell: RadioCell) {
         if radioButton.gestureRecognizers?.contains(where: { $0.state == .began }) == true {
-            self.radioButtonDelegate?.didLongPressRadioButton(cell: self)
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.5, options: .curveLinear) {
+                self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                self.radioButton.alpha = 0.2
+            } completion: { (_) in
+                self.radioButtonDelegate?.didLongPressRadioButton(cell: self)
+                UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 2, options: .curveLinear) {
+                    self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                    self.radioButton.alpha = 1
+                } completion: { (_) in }
+            }
         }
     }
 

@@ -14,9 +14,15 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
     private lazy var collectionView: UICollectionView = createCollectionView()
 
     private let dummyData: [String] = [
-        "Dette er en test",
-        "Du er kul",
-        "Skurring er best"
+        "Hei og velkommen til Skurring",
+        "Velg kanal",
+        "Trykk på radioknappen for å spille"
+    ]
+
+    private let onboardingImages: [String] = [
+        "happy_music.svg",
+        "listening.svg",
+        "test"
     ]
 
     override func viewDidLoad() {
@@ -99,7 +105,10 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
                 for: indexPath) as? OnboardingCell
             else { return UICollectionViewCell() }
 
-        cell.updateText(description: dummyData[indexPath.row])
+        cell.updateUI(
+            description: dummyData[indexPath.row],
+            image: UIImage(named: onboardingImages[indexPath.row])
+        )
 
         return cell
     }
@@ -120,27 +129,50 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
 
 fileprivate final class OnboardingCell: UICollectionViewCell {
     let descriptionLabel = UILabel()
+    let imageView = UIImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupUIPRerequisits()
+        setupUIPrerequisits()
+        addConstraints()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupUIPRerequisits() {
+    private func setupUIPrerequisits() {
         addSubview(descriptionLabel)
-        descriptionLabel.pinToEdges()
+        addSubview(imageView)
+
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.font = UIFont.boldSystemFont(ofSize: 30)
         descriptionLabel.textColor = .white
         descriptionLabel.numberOfLines = 5
-        descriptionLabel.font = UIFont.boldSystemFont(ofSize: 50)
     }
 
-    func updateText(description: String) {
+    private func addConstraints() {
+        NSLayoutConstraint.activate(
+            [
+                descriptionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50),
+                descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+                descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+
+                imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40),
+                imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0),
+                imageView.heightAnchor.constraint(equalToConstant: 300),
+                imageView.widthAnchor.constraint(equalToConstant: 300)
+            ]
+        )
+    }
+
+    func updateUI(description: String, image: UIImage?) {
         DispatchQueue.main.async {
             self.descriptionLabel.text = description
+            self.imageView.image = image
         }
     }
 }

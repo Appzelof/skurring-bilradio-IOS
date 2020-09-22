@@ -10,7 +10,7 @@ import UIKit
 
 final class OnboardingViewController: UIViewController, UIPageViewControllerDelegate {
 
-    private lazy var pageController: UIPageControl = createPageController()
+    private lazy var pageController: UIPageControl = createPageControl()
     private lazy var collectionView: UICollectionView = createCollectionView()
 
     private let dummyData: [String] = [
@@ -38,10 +38,15 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
         return collectionView
     }
 
-    private func createPageController() -> UIPageControl {
+    private func createPageControl() -> UIPageControl {
         let pageControl = UIPageControl()
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.numberOfPages = dummyData.count
+        pageControl.addTarget(
+            self,
+            action: #selector(pageControlSelectionAction(_:)),
+            for: .primaryActionTriggered
+        )
         return pageControl
     }
 
@@ -49,6 +54,15 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
         view.backgroundColor = .black
         let views = [pageController, collectionView]
         views.forEach(view.addSubview)
+    }
+
+    @objc
+    private func pageControlSelectionAction(_ sender: UIPageControl) {
+        let page: Int? = sender.currentPage
+        var frame: CGRect = collectionView.frame
+        frame.origin.x = frame.size.width * CGFloat(page ?? 0)
+        frame.origin.y = 0
+        collectionView.scrollRectToVisible(frame, animated: true)
     }
 
     private func addConstraints() {

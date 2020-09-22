@@ -23,13 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         var firstVC: UIViewController?
 
-//        if !UserDefaults().bool(forKey: ConstantHelper.firstLaunch) {
-//            firstVC = OnboardingViewController()
-//        } else {
-//            firstVC = TabBarController()
-//        }
-
-        firstVC = OnboardingViewController()
+        if !UserDefaults().bool(forKey: ConstantHelper.firstLaunch) {
+            firstVC = OnboardingViewController()
+        } else {
+            firstVC = TabBarController()
+        }
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = firstVC

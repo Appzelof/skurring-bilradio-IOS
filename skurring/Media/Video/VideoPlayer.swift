@@ -25,11 +25,11 @@ class VideoPlayer: UIView, MediaPlayerControls {
 
     private var player: AVPlayer?
     private var playerLayer: AVPlayerLayer?
+
     weak var videoAnimatorListener: VideoAnimationListener?
 
     init() {
         super.init(frame: .zero)
-        alpha = 0
     }
 
     func play() {
@@ -37,14 +37,27 @@ class VideoPlayer: UIView, MediaPlayerControls {
         player?.play()
     }
 
+
     func pause() {
         player?.pause()
+    }
+
+    func loopVideo() {
+        play()
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
+            object: nil,
+            queue: .main
+        ) { notification in
+            self.player?.seek(to: CMTime.zero)
+            self.player?.play()
+        }
     }
 
     private func prepareToPlay() {
         guard let path = Bundle
             .main
-            .path(forResource: "audio", ofType: "mp4")
+            .path(forResource: "tutorial_1", ofType: "mov")
         else { return }
 
         player = AVPlayer(url: URL(fileURLWithPath: path))
@@ -53,33 +66,6 @@ class VideoPlayer: UIView, MediaPlayerControls {
         playerLayer?.videoGravity = .resize
         playerLayer?.masksToBounds = true
         layer.addSublayer(playerLayer ?? CALayer())
-        handleAnimationsBasedOnPlayTime()
-    }
-
-    private func handleAnimationsBasedOnPlayTime(){
-        player?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), queue: .main, using: { (time) in
-            guard let player = self.player else { return }
-            if player.status == .readyToPlay {
-                switch time.seconds {
-                case 1...2:
-                    self.show()
-                case 5...6:
-                    self.hide()
-                default:
-                    return
-                }
-            }
-        })
-    }
-
-    private func hide() {
-        let duration = 3.0
-        UIView.animate(withDuration: duration) {
-            self.alpha = 0
-            DispatchQueue.main.asyncAfter(wallDeadline: .now() + duration) {
-                self.videoAnimatorListener?.videoDidStopAnimating()
-            }
-        }
     }
 
     private func show() {

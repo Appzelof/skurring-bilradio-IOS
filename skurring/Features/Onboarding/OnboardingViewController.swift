@@ -10,13 +10,15 @@ import UIKit
 
 fileprivate struct OnboardingData {
     let videoName: String?
+    let containsVideo: Bool
     let imageName: String?
     let description: String
 
-    init(videoName: String? = nil, imageName: String? = nil, description: String) {
+    init(videoName: String? = nil, imageName: String? = nil, description: String, containsVideo: Bool = false) {
         self.videoName = videoName
         self.imageName = imageName
         self.description = description
+        self.containsVideo = containsVideo
     }
 }
 
@@ -24,23 +26,12 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
 
     private lazy var pageController: UIPageControl = createPageControl()
     private lazy var collectionView: UICollectionView = createCollectionView()
+    private lazy var nextbutton: UIButton = createNextButton()
 
-    private let dummyData: [String] = [
-        "Hei og velkommen til Skurring",
-        "Velg kanal",
-        "Trykk på radioknappen for å spille"
-    ]
-
-    private let onboardingImages: [String] = [
-        "happy_music.svg",
-        "listening.svg",
-        "test"
-    ]
-
-    private let data = [
-        OnboardingData(imageName: "happy_music.svg", description: "Hei og velkommen til skurring"),
-        OnboardingData(videoName: "velg-kanal.mov", description: "Velg kanal"),
-        OnboardingData(videoName: "", imageName: "", description: "Spill av")
+    private let onboardingData = [
+        OnboardingData(imageName: "skurring.png", description: "Hei og velkommen til Skurring"),
+        OnboardingData(videoName: "tutorial_1.mov", description: "Velg stasjon ved å holde radioknappen inne", containsVideo: true),
+        OnboardingData(description: "Skurring Premium")
     ]
 
     override func viewDidLoad() {
@@ -65,27 +56,68 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
     private func createPageControl() -> UIPageControl {
         let pageControl = UIPageControl()
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.numberOfPages = dummyData.count
+        pageControl.numberOfPages = onboardingData.count
         pageControl.addTarget(
             self,
-            action: #selector(pageControlSelectionAction(_:)),
+            action: #selector(pageControlSelectionAction),
             for: .primaryActionTriggered
         )
         return pageControl
     }
 
+    private func createNextButton() -> UIButton {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(buttonSelectionAction), for: .primaryActionTriggered)
+        button.backgroundColor = .orange
+        button.layer.cornerRadius = 20
+        button.titleLabel?.textColor = .gray
+        button.setTitle("Neste", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        button.alpha = 0.8
+        return button
+    }
+
     private func configureUIPrerequisits() {
         view.backgroundColor = .black
-        let views = [pageController, collectionView]
+        let views = [pageController, collectionView, nextbutton]
         views.forEach(view.addSubview)
     }
 
     @objc
-    private func pageControlSelectionAction(_ sender: UIPageControl) {
-        let page: Int? = sender.currentPage
+    private func buttonSelectionAction() {
+        if pageController.currentPage != pageController.numberOfPages - 1 {
+            let page: Int? = pageController.currentPage + 1
+            var frame: CGRect = collectionView.frame
+            frame.origin.x = frame.size.width * CGFloat(page ?? 0)
+            frame.origin.y = 0
+
+            pageController.currentPage = page ?? 0
+
+            if pageController.currentPage == 2 {
+                nextbutton.setTitle("Kom i gang", for: .normal)
+            } else {
+                nextbutton.setTitle("Neste", for: .normal)
+            }
+
+            collectionView.scrollRectToVisible(frame, animated: true)
+
+        } else {
+            self.dismiss(animated: true)
+        }
+    }
+
+    @objc
+    private func pageControlSelectionAction() {
+        let page: Int? = pageController.currentPage
         var frame: CGRect = collectionView.frame
         frame.origin.x = frame.size.width * CGFloat(page ?? 0)
         frame.origin.y = 0
+        if pageController.currentPage == 2 {
+            nextbutton.setTitle("Kom i gang", for: .normal)
+        } else {
+            nextbutton.setTitle("Neste", for: .normal)
+        }
         collectionView.scrollRectToVisible(frame, animated: true)
     }
 
@@ -102,7 +134,12 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
                 pageController.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 10),
                 pageController.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 pageController.heightAnchor.constraint(equalToConstant: 50),
-                pageController.widthAnchor.constraint(equalToConstant: 200)
+                pageController.widthAnchor.constraint(equalToConstant: 200),
+
+                nextbutton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
+                nextbutton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+                nextbutton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
+                nextbutton.heightAnchor.constraint(equalToConstant: 50)
 
             ]
         )
@@ -113,7 +150,7 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
 extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dummyData.count
+        onboardingData.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -123,7 +160,7 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
                 for: indexPath) as? OnboardingCell
             else { return UICollectionViewCell() }
 
-        cell.updateUI(onboardingData: data[indexPath.row])
+        cell.updateUI(onboardingData: onboardingData[indexPath.row])
 
         return cell
     }
@@ -131,6 +168,11 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageWidth = self.collectionView.frame.size.width
         pageController.currentPage = Int(self.collectionView.contentOffset.x / pageWidth)
+        if pageController.currentPage == 2 {
+            nextbutton.setTitle("Kom i gang", for: .normal)
+        } else {
+            nextbutton.setTitle("Neste", for: .normal)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -143,8 +185,11 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
 }
 
 fileprivate final class OnboardingCell: UICollectionViewCell {
-    let descriptionLabel = UILabel()
-    let imageView = UIImageView()
+    private let descriptionLabel = UILabel()
+    private let imageView = UIImageView()
+    private let phoneImageView = UIImageView()
+
+    let videoPlayerView = VideoPlayer()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -159,11 +204,14 @@ fileprivate final class OnboardingCell: UICollectionViewCell {
     private func setupUIPrerequisits() {
         addSubview(descriptionLabel)
         addSubview(imageView)
+        addSubview(videoPlayerView)
 
+        videoPlayerView.translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        videoPlayerView.layer.cornerRadius = 10
+
+        imageView.contentMode = .scaleAspectFit
         descriptionLabel.font = UIFont.boldSystemFont(ofSize: 30)
         descriptionLabel.textColor = .white
         descriptionLabel.numberOfLines = 5
@@ -176,10 +224,17 @@ fileprivate final class OnboardingCell: UICollectionViewCell {
                 descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
                 descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
 
-                imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -40),
-                imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0),
-                imageView.heightAnchor.constraint(equalToConstant: 300),
-                imageView.widthAnchor.constraint(equalToConstant: 300)
+                imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+                imageView.heightAnchor.constraint(equalToConstant: 400),
+                imageView.widthAnchor.constraint(equalToConstant: 400),
+
+                videoPlayerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+                videoPlayerView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+                videoPlayerView.heightAnchor.constraint(equalToConstant: 400),
+                videoPlayerView.widthAnchor.constraint(equalToConstant: 240),
+
             ]
         )
     }
@@ -188,6 +243,7 @@ fileprivate final class OnboardingCell: UICollectionViewCell {
         DispatchQueue.main.async {
             self.descriptionLabel.text = onboardingData.description
             self.imageView.image = UIImage(named: onboardingData.imageName ?? "")
+            onboardingData.containsVideo ? self.videoPlayerView.loopVideo() : print("no video")
         }
     }
 }

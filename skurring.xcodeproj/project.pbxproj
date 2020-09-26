@@ -57,6 +57,7 @@
 		A6AB923622BC3922007C0C33 /* skurringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AB923522BC3922007C0C33 /* skurringUITests.swift */; };
 		A6B1795823834C5000CDBCCB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B1795723834C5000CDBCCB /* CoreDataManager.swift */; };
 		A6BD927A2395C671004DD7F2 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD92792395C671004DD7F2 /* VideoPlayer.swift */; };
+		A6DF78B2251F6C15006792BA /* velg-kanal.mov in Resources */ = {isa = PBXBuildFile; fileRef = A6DF78B1251F6C15006792BA /* velg-kanal.mov */; };
 		A6E3576D234BEFE10001004A /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3576C234BEFE10001004A /* RadioCell.swift */; };
 		A6E35771234D47510001004A /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E35770234D47500001004A /* RadioPlayer.swift */; };
 		A6E35774234E12910001004A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E35773234E12910001004A /* NetworkManager.swift */; };
@@ -148,6 +149,7 @@
 		A6AB923722BC3922007C0C33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6B1795723834C5000CDBCCB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A6BD92792395C671004DD7F2 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		A6DF78B1251F6C15006792BA /* velg-kanal.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = "velg-kanal.mov"; sourceTree = "<group>"; };
 		A6E3576C234BEFE10001004A /* RadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioCell.swift; sourceTree = "<group>"; };
 		A6E35770234D47500001004A /* RadioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		A6E35773234E12910001004A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 		A6BD927B2395C812004DD7F2 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
+				A6DF78B1251F6C15006792BA /* velg-kanal.mov */,
 				A648100D23A192B000BD1193 /* audio.mp4 */,
 			);
 			path = Videos;
@@ -674,6 +677,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6DF78B2251F6C15006792BA /* velg-kanal.mov in Resources */,
 				A63B75CF24FD85E0005150FE /* DIGITALDREAMFATNARROW.ttf in Resources */,
 				A63B75CC24FD85E0005150FE /* DIGITALDREAMFATSKEWNARROW.ttf in Resources */,
 				A63B75D324FD85E0005150FE /* DIGITALDREAMNARROW.ttf in Resources */,

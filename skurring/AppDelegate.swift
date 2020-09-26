@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             firstVC = TabBarController()
         }
 
+        firstVC = OnboardingViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = firstVC
         window?.makeKeyAndVisible()

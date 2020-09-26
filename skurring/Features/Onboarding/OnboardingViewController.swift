@@ -8,6 +8,18 @@
 
 import UIKit
 
+fileprivate struct OnboardingData {
+    let videoName: String?
+    let imageName: String?
+    let description: String
+
+    init(videoName: String? = nil, imageName: String? = nil, description: String) {
+        self.videoName = videoName
+        self.imageName = imageName
+        self.description = description
+    }
+}
+
 final class OnboardingViewController: UIViewController, UIPageViewControllerDelegate {
 
     private lazy var pageController: UIPageControl = createPageControl()
@@ -23,6 +35,12 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
         "happy_music.svg",
         "listening.svg",
         "test"
+    ]
+
+    private let data = [
+        OnboardingData(imageName: "happy_music.svg", description: "Hei og velkommen til skurring"),
+        OnboardingData(videoName: "velg-kanal.mov", description: "Velg kanal"),
+        OnboardingData(videoName: "", imageName: "", description: "Spill av")
     ]
 
     override func viewDidLoad() {
@@ -105,10 +123,7 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
                 for: indexPath) as? OnboardingCell
             else { return UICollectionViewCell() }
 
-        cell.updateUI(
-            description: dummyData[indexPath.row],
-            image: UIImage(named: onboardingImages[indexPath.row])
-        )
+        cell.updateUI(onboardingData: data[indexPath.row])
 
         return cell
     }
@@ -169,10 +184,10 @@ fileprivate final class OnboardingCell: UICollectionViewCell {
         )
     }
 
-    func updateUI(description: String, image: UIImage?) {
+    func updateUI(onboardingData: OnboardingData) {
         DispatchQueue.main.async {
-            self.descriptionLabel.text = description
-            self.imageView.image = image
+            self.descriptionLabel.text = onboardingData.description
+            self.imageView.image = UIImage(named: onboardingData.imageName ?? "")
         }
     }
 }

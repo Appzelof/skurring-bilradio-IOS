@@ -34,7 +34,6 @@ final class RadioPlayerViewController: UIViewController {
 
     private let speedometer = SpeedometerView()
     private let featureStack = FeatureStackView()
-    private var videoPlayerView = VideoPlayer()
     private let weatherView = WeatherView()
     private let radioImageView = UIImageView()
     private let radioNameTextLabel = UILabel()
@@ -84,7 +83,6 @@ final class RadioPlayerViewController: UIViewController {
         setupUIPrerequisits()
         addGestures()
         handleLandscapeRotation(isLandscape: isLandscape)
-        videoPlayerView.videoAnimatorListener = self
 
         setRadioData { [weak self] radioStation in
             guard let self = self else { return }
@@ -108,7 +106,6 @@ final class RadioPlayerViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.async {
-            self.videoPlayerView.play()
             self.radioPlayer?.play()
         }
     }
@@ -123,7 +120,6 @@ final class RadioPlayerViewController: UIViewController {
         featureStack.isHidden = !UserDefaults().bool(forKey: ConstantHelper.airPlay)
         radioNameTextLabel.isHidden = !UserDefaults().bool(forKey: ConstantHelper.radioChannel)
         metaDataTextLabel.isHidden = !UserDefaults().bool(forKey: ConstantHelper.metadataInfo)
-        videoPlayerView.isHidden = !UserDefaults().bool(forKey: ConstantHelper.volumeIndicator)
         weatherView.isHidden = !UserDefaults().bool(forKey: ConstantHelper.weather)
 
         if !speedometer.isHidden || !weatherView.isHidden {
@@ -164,7 +160,6 @@ final class RadioPlayerViewController: UIViewController {
     private func addSubViews() {
         let subViews = [
             radioImageView,
-            videoPlayerView,
             metaDataTextLabel,
             radioNameTextLabel,
             featureStack,
@@ -219,7 +214,6 @@ final class RadioPlayerViewController: UIViewController {
         radioImageView.translatesAutoresizingMaskIntoConstraints = false
         radioNameTextLabel.translatesAutoresizingMaskIntoConstraints = false
         metaDataTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        videoPlayerView.translatesAutoresizingMaskIntoConstraints = false
         speedometer.translatesAutoresizingMaskIntoConstraints = false
         hiResLabel.translatesAutoresizingMaskIntoConstraints = false
 
@@ -233,11 +227,6 @@ final class RadioPlayerViewController: UIViewController {
                 radioImageView.widthAnchor.constraint(equalToConstant: 200),
                 radioImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                 radioImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
-                videoPlayerView.widthAnchor.constraint(equalToConstant: 160),
-                videoPlayerView.heightAnchor.constraint(equalToConstant: 55),
-                videoPlayerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                videoPlayerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
 
                 radioNameTextLabel.heightAnchor.constraint(equalToConstant: 30),
                 radioNameTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -305,17 +294,10 @@ final class RadioPlayerViewController: UIViewController {
     }
 }
 
-extension RadioPlayerViewController: MetaDataHandlerDelegate, VideoAnimationListener {
+extension RadioPlayerViewController: MetaDataHandlerDelegate {
     func fetchMetaData(metaData: String?) {
         DispatchQueue.main.async {
             self.metaDataTextLabel.text = metaData
-        }
-    }
-
-    func videoDidStopAnimating() {
-        UIView.animate(withDuration: 3) {
-            self.radioNameTextLabel.alpha = 1
-            self.metaDataTextLabel.alpha = 1
         }
     }
 }

@@ -10,6 +10,7 @@
 		0F3AAC4800A4C0C18270E317 /* Pods_skurringTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911498ABFAB6F371F532570C /* Pods_skurringTests.framework */; };
 		7B093D28B8E65664EEB47144 /* Pods_skurringUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8D6B4773F47A2F5674C5EA /* Pods_skurringUITests.framework */; };
 		A60EF2D824FE6A3B00161946 /* IAPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EF2D724FE6A3B00161946 /* IAPViewController.swift */; };
+		A61FC381251943A50097A11A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61FC380251943A50097A11A /* OnboardingViewController.swift */; };
 		A627318A2347F8F5007FB7E4 /* RadioInterfaceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62731892347F8F5007FB7E4 /* RadioInterfaceCollectionView.swift */; };
 		A627318F23480FE6007FB7E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A627318E23480FE6007FB7E4 /* AppDelegate.swift */; };
 		A6323D0722E64B7B00C71A6F /* ColorGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6323D0622E64B7B00C71A6F /* ColorGuide.swift */; };
@@ -35,7 +36,6 @@
 		A646477A24FE580D005B7F3E /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646477924FE580D005B7F3E /* IAPHelper.swift */; };
 		A646A9DF23984AA100C2BE2E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A646A9DE23984AA100C2BE2E /* StoreKit.framework */; };
 		A646A9E5239B143400C2BE2E /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646A9E4239B143400C2BE2E /* UIImage+Extensions.swift */; };
-		A648100E23A192B000BD1193 /* audio.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A648100D23A192B000BD1193 /* audio.mp4 */; };
 		A648101123A1957E00BD1193 /* FeatureStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648101023A1957E00BD1193 /* FeatureStackView.swift */; };
 		A64FF9972503C8390092886D /* API_KEYS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF9962503C8390092886D /* API_KEYS.swift */; };
 		A64FF99925042E420092886D /* WeatherViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF99825042E420092886D /* WeatherViewProvider.swift */; };
@@ -56,6 +56,9 @@
 		A6AB923622BC3922007C0C33 /* skurringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AB923522BC3922007C0C33 /* skurringUITests.swift */; };
 		A6B1795823834C5000CDBCCB /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B1795723834C5000CDBCCB /* CoreDataManager.swift */; };
 		A6BD927A2395C671004DD7F2 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD92792395C671004DD7F2 /* VideoPlayer.swift */; };
+		A6DF78CB251FCDC3006792BA /* tutorial_1.mov in Resources */ = {isa = PBXBuildFile; fileRef = A6DF78CA251FCDC3006792BA /* tutorial_1.mov */; };
+		A6DF78D025212B99006792BA /* IAPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DF78CF25212B99006792BA /* IAPView.swift */; };
+		A6DF78D625213B2F006792BA /* SkurringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DF78D525213B2F006792BA /* SkurringButton.swift */; };
 		A6E3576D234BEFE10001004A /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3576C234BEFE10001004A /* RadioCell.swift */; };
 		A6E35771234D47510001004A /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E35770234D47500001004A /* RadioPlayer.swift */; };
 		A6E35774234E12910001004A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E35773234E12910001004A /* NetworkManager.swift */; };
@@ -93,6 +96,7 @@
 		732BF340E67A7F27C3558181 /* Pods-skurringTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-skurringTests.release.xcconfig"; path = "Target Support Files/Pods-skurringTests/Pods-skurringTests.release.xcconfig"; sourceTree = "<group>"; };
 		911498ABFAB6F371F532570C /* Pods_skurringTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_skurringTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A60EF2D724FE6A3B00161946 /* IAPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPViewController.swift; sourceTree = "<group>"; };
+		A61FC380251943A50097A11A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A62731892347F8F5007FB7E4 /* RadioInterfaceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioInterfaceCollectionView.swift; sourceTree = "<group>"; };
 		A627318E23480FE6007FB7E4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6323D0622E64B7B00C71A6F /* ColorGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGuide.swift; sourceTree = "<group>"; };
@@ -119,7 +123,6 @@
 		A646477924FE580D005B7F3E /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		A646A9DE23984AA100C2BE2E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A646A9E4239B143400C2BE2E /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
-		A648100D23A192B000BD1193 /* audio.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = audio.mp4; sourceTree = "<group>"; };
 		A648101023A1957E00BD1193 /* FeatureStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureStackView.swift; sourceTree = "<group>"; };
 		A64FF9962503C8390092886D /* API_KEYS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_KEYS.swift; sourceTree = "<group>"; };
 		A64FF99825042E420092886D /* WeatherViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewProvider.swift; sourceTree = "<group>"; };
@@ -146,6 +149,9 @@
 		A6AB923722BC3922007C0C33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6B1795723834C5000CDBCCB /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A6BD92792395C671004DD7F2 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		A6DF78CA251FCDC3006792BA /* tutorial_1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = tutorial_1.mov; sourceTree = "<group>"; };
+		A6DF78CF25212B99006792BA /* IAPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPView.swift; sourceTree = "<group>"; };
+		A6DF78D525213B2F006792BA /* SkurringButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkurringButton.swift; sourceTree = "<group>"; };
 		A6E3576C234BEFE10001004A /* RadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioCell.swift; sourceTree = "<group>"; };
 		A6E35770234D47500001004A /* RadioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		A6E35773234E12910001004A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -207,6 +213,7 @@
 			children = (
 				A646477924FE580D005B7F3E /* IAPHelper.swift */,
 				A60EF2D724FE6A3B00161946 /* IAPViewController.swift */,
+				A6DF78CF25212B99006792BA /* IAPView.swift */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -242,6 +249,14 @@
 				A6334002235CFB78002B5848 /* RadioStationsTableView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A61FC37F251942AC0097A11A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A61FC380251943A50097A11A /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		A631A9B923BFFE68001E4B87 /* AppRating */ = {
@@ -395,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				A646477724FE579F005B7F3E /* skurring.entitlements */,
+				A6DF78D425213AA5006792BA /* Common */,
 				A6EBAC3B22DC6AD50043C030 /* Features */,
 				A676B5F6250183D900538A03 /* Location */,
 				A6E35772234E12770001004A /* Network */,
@@ -455,7 +471,7 @@
 		A6BD927B2395C812004DD7F2 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				A648100D23A192B000BD1193 /* audio.mp4 */,
+				A6DF78CA251FCDC3006792BA /* tutorial_1.mov */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -473,6 +489,14 @@
 				A63B75C924FD85DF005150FE /* DIGITALDREAMSKEWNARROW.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A6DF78D425213AA5006792BA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A6DF78D525213B2F006792BA /* SkurringButton.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		A6E35772234E12770001004A /* Network */ = {
@@ -496,6 +520,7 @@
 		A6EBAC3B22DC6AD50043C030 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A61FC37F251942AC0097A11A /* Onboarding */,
 				A6EBAC4522DC92170043C030 /* TabBar */,
 				A6EBAC3D22DC6B080043C030 /* RadioInterface */,
 				A6323D1422EAECEE00C71A6F /* RadioPlayer */,
@@ -669,7 +694,7 @@
 				A63B75D024FD85E0005150FE /* DIGITALDREAMSKEW.ttf in Resources */,
 				A63B75D224FD85E0005150FE /* DIGITALDREAM.ttf in Resources */,
 				A6AB921D22BC3921007C0C33 /* Assets.xcassets in Resources */,
-				A648100E23A192B000BD1193 /* audio.mp4 in Resources */,
+				A6DF78CB251FCDC3006792BA /* tutorial_1.mov in Resources */,
 				A63B75CE24FD85E0005150FE /* DIGITALDREAMFAT.ttf in Resources */,
 				A63B75D124FD85E0005150FE /* DIGITALDREAMSKEWNARROW.ttf in Resources */,
 				A6EBAC3F22DC6EAD0043C030 /* LaunchScreen.storyboard in Resources */,
@@ -791,6 +816,7 @@
 				A627318A2347F8F5007FB7E4 /* RadioInterfaceCollectionView.swift in Sources */,
 				A6358C5023BFEF6A009EF213 /* AppEnvironmentHelper.swift in Sources */,
 				A6334003235CFB78002B5848 /* RadioStationsTableView.swift in Sources */,
+				A6DF78D025212B99006792BA /* IAPView.swift in Sources */,
 				A6323D0722E64B7B00C71A6F /* ColorGuide.swift in Sources */,
 				A6AB921B22BC3921007C0C33 /* skurring.xcdatamodeld in Sources */,
 				A69E07BA244DE0D600A6668B /* SpeedometerView.swift in Sources */,
@@ -804,12 +830,14 @@
 				A671D9AB239C55EF009ECF19 /* CommandCenter.swift in Sources */,
 				A648101123A1957E00BD1193 /* FeatureStackView.swift in Sources */,
 				A627318F23480FE6007FB7E4 /* AppDelegate.swift in Sources */,
+				A6DF78D625213B2F006792BA /* SkurringButton.swift in Sources */,
 				A645AD43234690810013D0CC /* UIButton+Extensions.swift in Sources */,
 				A6E3577E2353A7840001004A /* FirebaseDataFetcher.swift in Sources */,
 				A6E3577B2353A7180001004A /* ImageProvider.swift in Sources */,
 				A670FD3D22DCBDD600A8A223 /* StyleGuideFactory.swift in Sources */,
 				A6E35771234D47510001004A /* RadioPlayer.swift in Sources */,
 				A676B5EB2501005300538A03 /* AlertManager.swift in Sources */,
+				A61FC381251943A50097A11A /* OnboardingViewController.swift in Sources */,
 				A6E3576D234BEFE10001004A /* RadioCell.swift in Sources */,
 				A645AD47234699D40013D0CC /* Constraints+Extensions.swift in Sources */,
 				A646A9E5239B143400C2BE2E /* UIImage+Extensions.swift in Sources */,
@@ -912,7 +940,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -967,7 +995,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

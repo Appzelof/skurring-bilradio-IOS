@@ -19,13 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         FirebaseApp.configure()
-        configureFirstLaunch()
-
+  
         let tabBarVC = TabBarController()
+
+        configureFirstLaunch()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
+
+        if !UserDefaults().bool(forKey: ConstantHelper.firstLaunch) {
+            tabBarVC.present(OnboardingViewController(), animated: true, completion: nil)
+        }
+
         AppRatingManager.shared.handleSKStoreReview()
+
         UIApplication.shared.isIdleTimerDisabled = true
 
         return true
@@ -80,9 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ConstantHelper.volumeIndicator
         ]
 
-        haveLaunchedBefore
-            ? UserDefaults().setValue(true, forKey: ConstantHelper.firstLaunch)
-            : userDefaultKeys.forEach { UserDefaults().setValue(true, forKey: $0 )}
+        !haveLaunchedBefore
+            ? userDefaultKeys.forEach { UserDefaults().setValue(true, forKey: $0 )}
+            : UserDefaults().setValue(true, forKey: ConstantHelper.firstLaunch)
+
     }
 
     // MARK: - Core Data stack

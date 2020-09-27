@@ -24,7 +24,7 @@ fileprivate struct OnboardingData {
 
 final class OnboardingViewController: UIViewController, UIPageViewControllerDelegate {
 
-    private lazy var pageController: UIPageControl = createPageControl()
+    private lazy var pageControl: UIPageControl = createPageControl()
     private lazy var collectionView: UICollectionView = createCollectionView()
     private lazy var nextbutton: UIButton = createNextButton()
 
@@ -80,25 +80,21 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
 
     private func configureUIPrerequisits() {
         view.backgroundColor = .black
-        let views = [pageController, collectionView, nextbutton]
+        let views = [pageControl, collectionView, nextbutton]
         views.forEach(view.addSubview)
     }
 
     @objc
     private func buttonSelectionAction() {
-        if pageController.currentPage != pageController.numberOfPages - 1 {
-            let page: Int? = pageController.currentPage + 1
+        if pageControl.currentPage != pageControl.numberOfPages - 1 {
+            let page: Int? = pageControl.currentPage + 1
             var frame: CGRect = collectionView.frame
             frame.origin.x = frame.size.width * CGFloat(page ?? 0)
             frame.origin.y = 0
-
-            pageController.currentPage = page ?? 0
-
-            if pageController.currentPage == 2 {
-                nextbutton.setTitle("Kom i gang", for: .normal)
-            } else {
-                nextbutton.setTitle("Neste", for: .normal)
-            }
+            pageControl.currentPage = page ?? 0
+            pageControl.currentPage == 2
+                ? nextbutton.setTitle("Kom i gang", for: .normal)
+                : nextbutton.setTitle("Neste", for: .normal)
 
             collectionView.scrollRectToVisible(frame, animated: true)
 
@@ -109,15 +105,14 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
 
     @objc
     private func pageControlSelectionAction() {
-        let page: Int? = pageController.currentPage
+        let page: Int? = pageControl.currentPage
         var frame: CGRect = collectionView.frame
         frame.origin.x = frame.size.width * CGFloat(page ?? 0)
         frame.origin.y = 0
-        if pageController.currentPage == 2 {
-            nextbutton.setTitle("Kom i gang", for: .normal)
-        } else {
-            nextbutton.setTitle("Neste", for: .normal)
-        }
+        pageControl.currentPage == 2
+            ? nextbutton.setTitle("Kom i gang", for: .normal)
+            : nextbutton.setTitle("Neste", for: .normal)
+
         collectionView.scrollRectToVisible(frame, animated: true)
     }
 
@@ -131,10 +126,10 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
                 collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 collectionView.heightAnchor.constraint(equalToConstant: view.frame.height / 1.5),
 
-                pageController.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 10),
-                pageController.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                pageController.heightAnchor.constraint(equalToConstant: 50),
-                pageController.widthAnchor.constraint(equalToConstant: 200),
+                pageControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 10),
+                pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                pageControl.heightAnchor.constraint(equalToConstant: 50),
+                pageControl.widthAnchor.constraint(equalToConstant: 200),
 
                 nextbutton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
                 nextbutton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
@@ -167,12 +162,11 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageWidth = self.collectionView.frame.size.width
-        pageController.currentPage = Int(self.collectionView.contentOffset.x / pageWidth)
-        if pageController.currentPage == 2 {
-            nextbutton.setTitle("Kom i gang", for: .normal)
-        } else {
-            nextbutton.setTitle("Neste", for: .normal)
-        }
+        pageControl.currentPage = Int(self.collectionView.contentOffset.x / pageWidth)
+
+        pageControl.currentPage == 2
+            ? nextbutton.setTitle("Kom i gang", for: .normal)
+            : nextbutton.setTitle("Neste", for: .normal)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

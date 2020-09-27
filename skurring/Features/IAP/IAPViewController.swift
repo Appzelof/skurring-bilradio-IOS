@@ -10,43 +10,34 @@ import UIKit
 
 final class IAPViewController: UIViewController {
 
-    private lazy var premiumHeaderCard = makePremiumHeaderCard()
     private lazy var subscriptionButton = makeSubscriptionButton()
     private let restorePurchaseButton = UIButton()
+    private let purchaseCard = IAPView()
 
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = StyleGuideFactory.current.colors.backgroundColor
         let subviews = [
-            premiumHeaderCard,
             subscriptionButton,
-            restorePurchaseButton
+            purchaseCard
         ]
         subviews.forEach(view.addSubview)
         addConstraints()
     }
 
-    private func makePremiumHeaderCard() -> UIView {
-        let view = UIView()
-        view.backgroundColor = StyleGuideFactory.current.colors.backgroundColor
-        return view
-    }
-
-    private func makeSubscriptionButton() -> UIButton {
-        let button = UIButton()
+    private func makeSubscriptionButton() -> SkurringButton {
+        let button = SkurringButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(subscribe), for: .primaryActionTriggered)
-        button.setTitle("Enroll Now", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        button.layer.cornerRadius = 10
+        button.setTitle("Bli med nå", for: .normal)
         return button
     }
 
     private func makeDescriptionLabel() -> UILabel {
         let label = UILabel()
-        label.text = "La musikken flyte med skurring"
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.textColor = .white
         return label
@@ -55,10 +46,15 @@ final class IAPViewController: UIViewController {
     private func addConstraints() {
         NSLayoutConstraint.activate(
             [
-                subscriptionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-                subscriptionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
-                subscriptionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-                subscriptionButton.heightAnchor.constraint(equalToConstant: 50)
+                purchaseCard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+                purchaseCard.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+                purchaseCard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+                purchaseCard.heightAnchor.constraint(equalToConstant: 300),
+
+                subscriptionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                subscriptionButton.heightAnchor.constraint(equalToConstant: 50),
+                subscriptionButton.widthAnchor.constraint(equalToConstant: 200),
+                subscriptionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
             ]
         )
     }

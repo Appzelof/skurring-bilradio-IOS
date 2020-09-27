@@ -26,7 +26,7 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
 
     private lazy var pageControl: UIPageControl = createPageControl()
     private lazy var collectionView: UICollectionView = createCollectionView()
-    private lazy var nextbutton: UIButton = createNextButton()
+    private lazy var nextbutton: SkurringButton = createNextButton()
 
     private let onboardingData = [
         OnboardingData(imageName: "skurring.png", description: "Hei og velkommen til Skurring"),
@@ -65,16 +65,11 @@ final class OnboardingViewController: UIViewController, UIPageViewControllerDele
         return pageControl
     }
 
-    private func createNextButton() -> UIButton {
-        let button = UIButton()
+    private func createNextButton() -> SkurringButton {
+        let button = SkurringButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonSelectionAction), for: .primaryActionTriggered)
-        button.backgroundColor = .orange
-        button.layer.cornerRadius = 20
-        button.titleLabel?.textColor = .gray
         button.setTitle("Neste", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        button.alpha = 0.8
         return button
     }
 

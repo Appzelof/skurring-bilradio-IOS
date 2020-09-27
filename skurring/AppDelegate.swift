@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
 
-//     if !UserDefaults().bool(forKey: ConstantHelper.firstLaunch) {
-        tabBarVC.present(OnboardingViewController(), animated: true, completion: nil)
-//      }
+        if !UserDefaults().bool(forKey: ConstantHelper.firstLaunch) {
+            tabBarVC.present(OnboardingViewController(), animated: true, completion: nil)
+        }
 
         AppRatingManager.shared.handleSKStoreReview()
 

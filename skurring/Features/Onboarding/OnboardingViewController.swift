@@ -199,13 +199,15 @@ fileprivate final class OnboardingCell: UICollectionViewCell {
         addSubview(descriptionLabel)
         addSubview(imageView)
         addSubview(videoPlayerView)
+        addSubview(phoneImageView)
 
         videoPlayerView.translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        videoPlayerView.layer.cornerRadius = 10
+        phoneImageView.translatesAutoresizingMaskIntoConstraints = false
 
         imageView.contentMode = .scaleAspectFit
+        phoneImageView.contentMode = .scaleAspectFit
         descriptionLabel.font = UIFont.boldSystemFont(ofSize: 30)
         descriptionLabel.textColor = .white
         descriptionLabel.numberOfLines = 5
@@ -224,10 +226,15 @@ fileprivate final class OnboardingCell: UICollectionViewCell {
                 imageView.heightAnchor.constraint(equalToConstant: 400),
                 imageView.widthAnchor.constraint(equalToConstant: 400),
 
-                videoPlayerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+                videoPlayerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25),
                 videoPlayerView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                videoPlayerView.heightAnchor.constraint(equalToConstant: 400),
-                videoPlayerView.widthAnchor.constraint(equalToConstant: 240),
+                videoPlayerView.heightAnchor.constraint(equalToConstant: 350),
+                videoPlayerView.widthAnchor.constraint(equalToConstant: 165),
+
+                phoneImageView.centerYAnchor.constraint(equalTo: videoPlayerView.centerYAnchor),
+                phoneImageView.centerXAnchor.constraint(equalTo: videoPlayerView.centerXAnchor),
+                phoneImageView.heightAnchor.constraint(equalToConstant: 400),
+                phoneImageView.widthAnchor.constraint(equalToConstant: 350)
 
             ]
         )
@@ -237,7 +244,10 @@ fileprivate final class OnboardingCell: UICollectionViewCell {
         DispatchQueue.main.async {
             self.descriptionLabel.text = onboardingData.description
             self.imageView.image = UIImage(named: onboardingData.imageName ?? "")
-            onboardingData.containsVideo ? self.videoPlayerView.loopVideo() : print("no video")
+            if onboardingData.containsVideo {
+                self.videoPlayerView.loopVideo()
+                self.phoneImageView.image = UIImage(named: "iphone.png")
+            }
         }
     }
 }

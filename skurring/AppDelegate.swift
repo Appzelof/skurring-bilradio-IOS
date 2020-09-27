@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         FirebaseApp.configure()
-
+  
         let tabBarVC = TabBarController()
 
         configureFirstLaunch()
@@ -80,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func configureFirstLaunch() {
         let haveLaunchedBefore = UserDefaults().bool(forKey: ConstantHelper.firstLaunch)
-        print(haveLaunchedBefore)
 
         let userDefaultKeys = [
             ConstantHelper.radioChannel,
@@ -91,6 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         !haveLaunchedBefore
             ? userDefaultKeys.forEach { UserDefaults().setValue(true, forKey: $0 )}
             : UserDefaults().setValue(true, forKey: ConstantHelper.firstLaunch)
+
     }
 
     // MARK: - Core Data stack

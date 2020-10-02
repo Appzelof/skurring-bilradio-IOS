@@ -38,10 +38,10 @@ final class SpeedometerViewProvider {
         let mutableSpeed = NSMutableAttributedString()
 
         let speedAttribute = NSAttributedString(
-            string: info + "\n", attributes: [NSAttributedString.Key.font: UIFont(name: "Digital dream Fat", size: 50) ?? .italicSystemFont(ofSize: 50)]
+            string: info + "\n", attributes: [NSAttributedString.Key.font: UIFont(name: "Digital dream Fat", size: 150) ?? .italicSystemFont(ofSize: 90)]
         )
         let kilometerAttribute = NSAttributedString(
-            string: "km/h", attributes: [NSAttributedString.Key.font : UIFont(name: "Digital dream Narrow", size: 15) ?? .italicSystemFont(ofSize: 10)]
+            string: "km/h", attributes: [NSAttributedString.Key.font : UIFont(name: "Digital dream Narrow", size: 20) ?? .italicSystemFont(ofSize: 20)]
         )
 
         mutableSpeed.append(speedAttribute)

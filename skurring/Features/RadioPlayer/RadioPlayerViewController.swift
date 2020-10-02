@@ -80,7 +80,7 @@ final class RadioPlayerViewController: UIViewController {
     override func viewDidLoad() {
         addSubViews()
         addDefaultConstraints()
-        setupUIPrerequisits()
+        setupSubviews()
         addGestures()
         handleLandscapeRotation(isLandscape: isLandscape)
 
@@ -140,21 +140,19 @@ final class RadioPlayerViewController: UIViewController {
         }
     }
     
-    private func setupUIPrerequisits() {
+    private func setupSubviews() {
         view.backgroundColor = styleGuide.colors.buttonBackgroundColor
+
         metaDataTextLabel.textColor = .white
         radioNameTextLabel.textColor = .white
 
-        metaDataTextLabel.alpha = 0
-        radioNameTextLabel.alpha = 0
-
-        radioImageView.contentMode = .scaleAspectFit
         metaDataTextLabel.textAlignment = .center
+        radioNameTextLabel.textAlignment = .center
 
         metaDataTextLabel.font = UIFont.systemFont(ofSize: 20)
         radioNameTextLabel.font = UIFont.systemFont(ofSize: 20)
 
-        radioNameTextLabel.textAlignment = .center
+        radioImageView.contentMode = .scaleAspectFit
     }
 
     private func addSubViews() {

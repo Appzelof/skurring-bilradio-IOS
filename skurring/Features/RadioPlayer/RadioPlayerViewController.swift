@@ -117,6 +117,7 @@ final class RadioPlayerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         radioPlayerViewControllerDelegate?.playerViewControllerDidShow()
         speedometer.isHidden = !UserDefaults().bool(forKey: ConstantHelper.speedometer)
+        radioImageView.isHidden = !speedometer.isHidden
         featureStack.isHidden = !UserDefaults().bool(forKey: ConstantHelper.airPlay)
         radioNameTextLabel.isHidden = !UserDefaults().bool(forKey: ConstantHelper.radioChannel)
         metaDataTextLabel.isHidden = !UserDefaults().bool(forKey: ConstantHelper.metadataInfo)
@@ -243,8 +244,8 @@ final class RadioPlayerViewController: UIViewController {
         portraitConstraints =
 
             [
-                speedometer.heightAnchor.constraint(equalToConstant: 100),
-                speedometer.widthAnchor.constraint(equalToConstant: 120),
+                speedometer.heightAnchor.constraint(equalToConstant: 300),
+                speedometer.widthAnchor.constraint(equalToConstant: 300),
                 speedometer.centerYAnchor.constraint(equalTo: view.centerYAnchor),
                 speedometer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
@@ -268,8 +269,8 @@ final class RadioPlayerViewController: UIViewController {
         landscapeConstraints =
 
             [
-                speedometer.heightAnchor.constraint(equalToConstant: 100),
-                speedometer.widthAnchor.constraint(equalToConstant: 120),
+                speedometer.heightAnchor.constraint(equalToConstant: 300),
+                speedometer.widthAnchor.constraint(equalToConstant: 300),
                 speedometer.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 speedometer.bottomAnchor.constraint(equalTo: radioNameTextLabel.topAnchor),
 

@@ -36,6 +36,7 @@ final class SpeedometerView: UIView {
         label.textColor = .green
         label.textAlignment = .center
         label.numberOfLines = 2
+
         return label
     }
 

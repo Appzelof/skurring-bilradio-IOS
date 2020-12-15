@@ -38,8 +38,8 @@
 		A646A9E5239B143400C2BE2E /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A646A9E4239B143400C2BE2E /* UIImage+Extensions.swift */; };
 		A648101123A1957E00BD1193 /* FeatureStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648101023A1957E00BD1193 /* FeatureStackView.swift */; };
 		A64FF9972503C8390092886D /* API_KEYS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF9962503C8390092886D /* API_KEYS.swift */; };
-		A64FF99925042E420092886D /* WeatherViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF99825042E420092886D /* WeatherViewProvider.swift */; };
-		A64FF99B250434EA0092886D /* SpeedometerViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF99A250434EA0092886D /* SpeedometerViewProvider.swift */; };
+		A64FF99925042E420092886D /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF99825042E420092886D /* WeatherViewModel.swift */; };
+		A64FF99B250434EA0092886D /* SpeedometerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF99A250434EA0092886D /* SpeedometerViewModel.swift */; };
 		A64FF9A22504F1D80092886D /* Notification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64FF9A12504F1D80092886D /* Notification+Extensions.swift */; };
 		A670FD3D22DCBDD600A8A223 /* StyleGuideFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670FD3C22DCBDD600A8A223 /* StyleGuideFactory.swift */; };
 		A671D9AB239C55EF009ECF19 /* CommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A671D9AA239C55EF009ECF19 /* CommandCenter.swift */; };
@@ -125,8 +125,8 @@
 		A646A9E4239B143400C2BE2E /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		A648101023A1957E00BD1193 /* FeatureStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureStackView.swift; sourceTree = "<group>"; };
 		A64FF9962503C8390092886D /* API_KEYS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_KEYS.swift; sourceTree = "<group>"; };
-		A64FF99825042E420092886D /* WeatherViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewProvider.swift; sourceTree = "<group>"; };
-		A64FF99A250434EA0092886D /* SpeedometerViewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerViewProvider.swift; sourceTree = "<group>"; };
+		A64FF99825042E420092886D /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherViewModel.swift; path = ../Speedometer/WeatherViewModel.swift; sourceTree = "<group>"; };
+		A64FF99A250434EA0092886D /* SpeedometerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedometerViewModel.swift; sourceTree = "<group>"; };
 		A64FF9A12504F1D80092886D /* Notification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extensions.swift"; sourceTree = "<group>"; };
 		A670FD3C22DCBDD600A8A223 /* StyleGuideFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuideFactory.swift; sourceTree = "<group>"; };
 		A671D9AA239C55EF009ECF19 /* CommandCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandCenter.swift; sourceTree = "<group>"; };
@@ -352,8 +352,8 @@
 		A676B5F7250183EB00538A03 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				A64FF99825042E420092886D /* WeatherViewModel.swift */,
 				A676B5F2250126ED00538A03 /* WeatherView.swift */,
-				A64FF99825042E420092886D /* WeatherViewProvider.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -362,7 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				A69E07B9244DE0D600A6668B /* SpeedometerView.swift */,
-				A64FF99A250434EA0092886D /* SpeedometerViewProvider.swift */,
+				A64FF99A250434EA0092886D /* SpeedometerViewModel.swift */,
 			);
 			path = Speedometer;
 			sourceTree = "<group>";
@@ -412,6 +412,7 @@
 				A646477724FE579F005B7F3E /* skurring.entitlements */,
 				A6DF78D425213AA5006792BA /* Common */,
 				A6EBAC3B22DC6AD50043C030 /* Features */,
+				A631A9B923BFFE68001E4B87 /* AppRating */,
 				A676B5F6250183D900538A03 /* Location */,
 				A6E35772234E12770001004A /* Network */,
 				A6B1795623834C4000CDBCCB /* CoreData */,
@@ -529,7 +530,6 @@
 				A60EF2D524FE697E00161946 /* IAP */,
 				A69E07BB244F11ED00A6668B /* Speedometer */,
 				A676B5F7250183EB00538A03 /* Weather */,
-				A631A9B923BFFE68001E4B87 /* AppRating */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -811,7 +811,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6A4B7F3239B224600CB9B90 /* MediaPlayerControls.swift in Sources */,
-				A64FF99925042E420092886D /* WeatherViewProvider.swift in Sources */,
+				A64FF99925042E420092886D /* WeatherViewModel.swift in Sources */,
 				A6E35774234E12910001004A /* NetworkManager.swift in Sources */,
 				A627318A2347F8F5007FB7E4 /* RadioInterfaceCollectionView.swift in Sources */,
 				A6358C5023BFEF6A009EF213 /* AppEnvironmentHelper.swift in Sources */,
@@ -822,7 +822,7 @@
 				A69E07BA244DE0D600A6668B /* SpeedometerView.swift in Sources */,
 				A676B5F12501194F00538A03 /* LocationManager.swift in Sources */,
 				A6334001235CFB1D002B5848 /* RadioStationsViewController.swift in Sources */,
-				A64FF99B250434EA0092886D /* SpeedometerViewProvider.swift in Sources */,
+				A64FF99B250434EA0092886D /* SpeedometerViewModel.swift in Sources */,
 				A6EBAC4722DC922E0043C030 /* TabBarController.swift in Sources */,
 				A6BD927A2395C671004DD7F2 /* VideoPlayer.swift in Sources */,
 				A6B1795823834C5000CDBCCB /* CoreDataManager.swift in Sources */,

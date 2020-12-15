@@ -38,6 +38,7 @@ final class WeatherViewModel {
                 guard let self = self else { return nil }
 
                 guard
+                    UserDefaults().bool(forKey: ConstantHelper.weather),
                     let lat = location[.coordinates]?.first,
                     let lon = location[.coordinates]?.last
                 else { return nil }
@@ -62,6 +63,7 @@ final class WeatherViewModel {
         return url
     }
 
+    #warning("Called every location update. This is not good! Fix asap")
     private func fetchWeather(url: URL?) {
         guard let url = url else { return }
         NetworkManager.shared.fetch(url: url, model: METForecast.self)

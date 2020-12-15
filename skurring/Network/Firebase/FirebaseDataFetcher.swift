@@ -22,7 +22,7 @@ final class FirebaseDataFetcher {
                 guard
                     snapshot.exists(),
                     let value = snapshot.value as? NSDictionary,
-                    let items = value.allKeys as? [String] ?? []
+                    let items = value.allKeys as? [String]
                 else { return }
 
                 for stationName in items {

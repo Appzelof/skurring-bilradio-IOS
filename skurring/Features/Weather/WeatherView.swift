@@ -15,25 +15,30 @@ final class WeatherView: UIView {
     private lazy var tempLabel: UILabel = makeTempLabel()
     private lazy var weatherImageView: UIImageView = makeWeatherLabel()
 
-    private var weatherViewProvider: WeatherViewProvider?
+    private let viewModel = WeatherViewModel()
+    private var cancellable = Set<AnyCancellable>()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUIPrerequisits()
-        [tempLabel, weatherImageView].forEach(addSubview)
+        [
+            tempLabel,
+            weatherImageView
+        ]
+        .forEach(addSubview)
+
         addConstraints()
 
-        weatherViewProvider = WeatherViewProvider(
-            tempLabel: tempLabel,
-            weatherImageView: weatherImageView
-        )
+        viewModel.dataSubject.sink { weatherData in
+            self.weatherImageView.image = weatherData.image
+            self.tempLabel.text = weatherData.temperature
+        }
+        .store(in: &cancellable)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
-    deinit { weatherViewProvider = nil }
 
     private func makeTempLabel() -> UILabel {
         let label = UILabel()

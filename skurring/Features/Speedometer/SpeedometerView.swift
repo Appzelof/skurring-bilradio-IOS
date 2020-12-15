@@ -9,23 +9,27 @@
 import Foundation
 import UIKit
 import CoreLocation
+import Combine
 
 final class SpeedometerView: UIView {
     
     private lazy var speedLabel: UILabel = createLabel()
-    private var speedometerViewProvider: SpeedometerViewProvider?
+
+    private var viewModel = SpeedometerViewModel()
+    private var cancellable = Set<AnyCancellable>()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(speedLabel)
         addConstraints()
 
-        speedometerViewProvider = SpeedometerViewProvider(
-            speedLabel: speedLabel
-        )
+        viewModel.attributedSpeedInfoSubject
+            .sink { [weak self] in
+                guard let self = self else { return }
+                self.speedLabel.attributedText = $0
+            }
+            .store(in: &cancellable)
     }
-
-    deinit { speedometerViewProvider = nil }
 
     private func addConstraints() {
         speedLabel.pinToEdges()
